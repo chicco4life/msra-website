@@ -1,0 +1,21 @@
+<div class="pgrid" id="pgrid">
+  {% for p in site.data.products %}{% assign url = '/shop/' | append: p.slug | append: '/' | relative_url %}
+  <article class="pcard" data-group="{{ p.group }}">
+    <a class="pcard-img" href="{{ url }}" tabindex="-1" aria-hidden="true"><img src="{{ '/assets/img/' | append: p.image | relative_url }}" alt="{{ p.image_alt }}" width="640" height="640" loading="lazy"></a>
+    <div class="pcard-body">
+      <div class="pcard-top">
+        <span class="label">{{ p.code }} · {{ p.taxon }}</span>
+        {% case p.status %}{% when 'preorder' %}<span class="pill live" data-i18n="status.preorder">Pre-orders open</span>{% when 'next' %}<span class="pill next" data-i18n="status.next">Launching next</span>{% else %}<span class="pill" data-i18n="status.dev">In development</span>{% endcase %}
+      </div>
+      <h3><a href="{{ url }}">{{ p.name }}</a></h3>
+      <div class="sp" data-i18n="p.{{ p.slug }}.species">{{ p.species }}</div>
+      <p data-i18n="p.{{ p.slug }}.tagline">{{ p.tagline }}</p>
+      <div class="pcard-meta"><span data-i18n="p.{{ p.slug }}.format">{{ p.format }}</span><span aria-hidden="true">·</span><span data-i18n="p.{{ p.slug }}.pack">{{ p.pack }}</span>{% if p.price != '' %}<b class="price">{{ p.price }}</b>{% endif %}</div>
+      <div class="pcard-actions">
+        <a class="link-sm" href="{{ url }}" data-i18n="shop.details">How we made it →</a>
+        <button type="button" class="btn btn-solid btn-sm" data-preorder="{{ p.slug }}" data-i18n="shop.preorder">Pre-order</button>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</div>

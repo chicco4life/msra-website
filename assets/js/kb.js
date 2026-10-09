@@ -1,7 +1,7 @@
 /* MSRA Open Research client.
    The research pages read projects live from the knowledge base repository set in _config.yml.
-   Each top-level folder there is one project: README.md (report), optional README.zh.md,
-   and sources/sources.csv. Publishing a project there updates this website with no rebuild. */
+   Each top-level folder there is one project: README.md (the report, in English) and
+   sources/ (README.md + sources.csv). Publishing a project there updates this website with no rebuild. */
 (function () {
   var M = window.MSRA || {};
   var cfg = M.kb || {};
@@ -14,11 +14,9 @@
   var HOME = 'https://github.com/' + REPO;
   var PAGE = (cfg.projectPage || '/research/project/') + '?p=';
 
-  function cn() { return document.documentElement.lang === 'zh-CN'; }
-  function t(en, zh) { return cn() ? zh : en; }
+  function T(key, en) { return M.t ? M.t(key, en) : en; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  // Bilingual live content: keeps the EN / 中文 toggle working.
-  function bi(el, en, zh) { if (!el) return; el.dataset.en = en; el.dataset.cn = zh; el.innerHTML = cn() ? zh : en; }
+  function onLang(fn) { document.addEventListener('msra:lang', fn); }
 
   function cacheGet(k) { try { var v = JSON.parse(sessionStorage.getItem(k)); if (v && Date.now() - v.t < 600000) return v.d; } catch (e) {} return null; }
   function cacheSet(k, d) { try { sessionStorage.setItem(k, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} }
@@ -31,7 +29,7 @@
   }
 
   function listProjects() {
-    var c = cacheGet('msra-kb-projects'); if (c) return Promise.resolve(c);
+    var c = cacheGet('msra-kb-projects-v2'); if (c) return Promise.resolve(c);
     return fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
       .then(function (r) { if (!r.ok) throw new Error('list ' + r.status); return r.json(); })
       .then(function (items) {
@@ -39,15 +37,14 @@
         return Promise.all(dirs.map(function (d) {
           return fetch(RAW + encodeURIComponent(d.name) + '/README.md').then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (txt) {
             var m = parseDoc(txt).meta;
-            return { dir: d.name, title: m.title || d.name, title_zh: m.title_zh || m.title || d.name,
-                     summary: m.summary || '', summary_zh: m.summary_zh || m.summary || '',
+            return { dir: d.name, title: m.title || d.name, summary: m.summary || '',
                      date: fmtDate(m.date) || d.name.slice(0, 7), species: Array.isArray(m.species) ? m.species : [] };
           }).catch(function () { return null; });
         }));
       })
       .then(function (list) {
         list = list.filter(Boolean).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
-        cacheSet('msra-kb-projects', list); return list;
+        cacheSet('msra-kb-projects-v2', list); return list;
       });
   }
   function loadSources(dir) {
@@ -56,7 +53,7 @@
       .then(function (txt) { return txt ? Papa.parse(txt.trim(), { header: true, skipEmptyLines: true }).data.filter(function (r) { return r.title; }) : []; });
   }
   function loadAllSources() {
-    var c = cacheGet('msra-kb-sources'); if (c) return Promise.resolve(c);
+    var c = cacheGet('msra-kb-sources-v2'); if (c) return Promise.resolve(c);
     return listProjects().then(function (projects) {
       return Promise.all(projects.map(function (p) { return loadSources(p.dir).then(function (rows) { return { p: p, rows: rows }; }); }));
     }).then(function (sets) {
@@ -65,25 +62,30 @@
         s.rows.forEach(function (r) {
           var key = (r.pmid || r.doi || r.title).toLowerCase();
           if (!byKey[key]) { byKey[key] = Object.assign({}, r, { projects: [] }); out.push(byKey[key]); }
-          byKey[key].projects.push({ dir: s.p.dir, title: s.p.title, title_zh: s.p.title_zh });
+          byKey[key].projects.push({ dir: s.p.dir, title: s.p.title });
         });
       });
-      cacheSet('msra-kb-sources', out); return out;
+      cacheSet('msra-kb-sources-v2', out); return out;
     });
   }
-  function fail(el, what) {
-    if (!el) return;
-    el.innerHTML = '<p class="kb-state">' + esc(t('Could not reach the knowledge base just now. ', '暂时无法连接开放知识库。')) +
-      '<a href="' + HOME + '" target="_blank" rel="noopener">' + esc(t('Browse ' + what + ' on GitHub →', '前往 GitHub 浏览 →')) + '</a></p>';
+  function failHtml() {
+    return '<p class="kb-state">' + esc(T('kb.fail', 'Could not reach the knowledge base just now.')) + ' ' +
+      '<a href="' + HOME + '" target="_blank" rel="noopener">' + esc(T('kb.fail_link', 'Browse it on GitHub →')) + '</a></p>';
+  }
+  function studiesLine(rows) {
+    var oa = rows.filter(function (r) { return r.pmc; }).length;
+    return rows.length + ' ' + T('kb.studies', 'studies') + ' · ' + oa + ' ' + T('open.free_full_text', 'with free full text');
   }
 
-  // Home page cards
+  /* Home page cards */
   var latest = document.getElementById('kb-latest');
   if (latest) {
     listProjects().then(function (list) {
       var p = list[0]; if (!p) return;
-      bi(latest, esc(p.title), esc(p.title_zh));
-      bi(document.getElementById('kb-latest-meta'), 'Published ' + esc(p.date), '发布于 ' + esc(p.date));
+      latest.removeAttribute('data-i18n'); latest.textContent = p.title;
+      var meta = document.getElementById('kb-latest-meta');
+      function paint() { meta.textContent = T('kb.published', 'Published') + ' ' + p.date; }
+      meta.removeAttribute('data-i18n'); paint(); onLang(paint);
       latest.closest('a').href = PAGE + encodeURIComponent(p.dir);
     }).catch(function () {});
     loadAllSources().then(function (rows) {
@@ -95,111 +97,121 @@
     });
   }
 
-  // Research projects list
+  /* Research projects: one card per project, one tap to the full report */
   var listEl = document.getElementById('kb-notes');
   if (listEl) {
-    listProjects().then(function (list) {
-      if (!list.length) { listEl.innerHTML = '<p class="kb-state">' + esc(t('No projects yet.', '暂无研究项目。')) + '</p>'; return; }
-      listEl.innerHTML = list.map(function (p) {
+    var data = null;
+    var render = function () {
+      if (!data) return;
+      if (!data.list.length) { listEl.innerHTML = '<p class="kb-state">' + esc(T('kb.none', 'No projects yet.')) + '</p>'; return; }
+      listEl.innerHTML = data.list.map(function (p) {
         var tags = p.species.map(function (s) { return '<i class="chip">' + esc(s) + '</i>'; }).join('');
-        return '<a class="post-row" href="' + PAGE + encodeURIComponent(p.dir) + '">' +
-          '<span class="pr-date">' + esc(p.date) + '</span>' +
-          '<span class="pr-main"><b data-kb-en="' + esc(p.title) + '" data-kb-cn="' + esc(p.title_zh) + '">' + esc(cn() ? p.title_zh : p.title) + '</b>' +
-          '<span data-kb-en="' + esc(p.summary) + '" data-kb-cn="' + esc(p.summary_zh) + '">' + esc(cn() ? p.summary_zh : p.summary) + '</span>' +
-          '<span class="pr-tags">' + tags + '</span></span><span class="pr-go" aria-hidden="true">→</span></a>';
+        var rows = data.sources[p.dir] || [];
+        return '<a class="rcard" href="' + PAGE + encodeURIComponent(p.dir) + '">' +
+          '<span class="rc-top"><span class="rc-date">' + esc(p.date) + '</span><span class="rc-tags">' + tags + '</span></span>' +
+          '<b class="rc-title">' + esc(p.title) + '</b>' +
+          '<span class="rc-sum">' + esc(p.summary) + '</span>' +
+          '<span class="rc-foot"><span class="rc-src">' + (rows.length ? esc(studiesLine(rows)) : '') + '</span>' +
+          '<span class="rc-go">' + esc(T('kb.read', 'Read the report')) + ' →</span></span></a>';
       }).join('');
-      // follow the language toggle
-      ['lang-en', 'lang-cn'].forEach(function (id) {
-        var b = document.getElementById(id); if (!b) return;
-        b.addEventListener('click', function () {
-          listEl.querySelectorAll('[data-kb-en]').forEach(function (el) { el.textContent = id === 'lang-cn' ? el.dataset.kbCn : el.dataset.kbEn; });
-        });
-      });
-    }).catch(function () { fail(listEl, 'the projects'); });
+    };
+    listProjects().then(function (list) {
+      data = { list: list, sources: {} }; render();
+      list.forEach(function (p) { loadSources(p.dir).then(function (rows) { data.sources[p.dir] = rows; render(); }).catch(function () {}); });
+      onLang(render);
+    }).catch(function () { listEl.innerHTML = failHtml(); });
   }
 
-  // Single project page
+  /* Single project page: the report, then the way to every paper it used */
   var projEl = document.getElementById('kb-project');
   if (projEl) {
+    var wrap = projEl.querySelector('.post-wrap');
     var state = projEl.querySelector('.kb-state');
-    var q = new URLSearchParams(location.search);
-    var dir = q.get('p') || '';
-    var wantZh = q.get('lang') === 'zh' || (q.get('lang') !== 'en' && cn());
-    if (!/^[\w.\-]+$/.test(dir)) { fail(state, 'the projects'); }
+    var dir = new URLSearchParams(location.search).get('p') || '';
+    if (!/^[\w.\-]+$/.test(dir)) { state.outerHTML = failHtml(); }
     else {
       var base = RAW + encodeURIComponent(dir) + '/';
-      var getReport = wantZh
-        ? fetch(base + 'README.zh.md').then(function (r) { if (!r.ok) throw 0; return r.text().then(function (x) { return { txt: x, zh: true }; }); })
-            .catch(function () { return fetch(base + 'README.md').then(function (r) { if (!r.ok) throw new Error(); return r.text().then(function (x) { return { txt: x, zh: false }; }); }); })
-        : fetch(base + 'README.md').then(function (r) { if (!r.ok) throw new Error(); return r.text().then(function (x) { return { txt: x, zh: false }; }); });
-      Promise.all([getReport, loadSources(dir).catch(function () { return []; }),
-                   fetch(base + 'README.zh.md', { method: 'HEAD' }).then(function (r) { return r.ok; }).catch(function () { return false; })])
+      var srcUrl = TREE + encodeURIComponent(dir) + '/sources';
+      var holder = document.createElement('div');
+      var proj = null;
+      var renderProject = function () {
+        if (!proj) return;
+        var m = proj.meta, rows = proj.sources;
+        var oa = rows.filter(function (r) { return r.pmc; }).length;
+        var species = (Array.isArray(m.species) ? m.species : []).map(function (s) { return '<span class="chip">' + esc(s) + '</span>'; }).join('');
+        var langNote = M.lang && M.lang() !== 'en' ? '<p class="lang-note">' + esc(T('kb.english_only', 'This report is published in English.')) + '</p>' : '';
+        var head = '<div class="label">' + esc(T('kb.project', 'Research project')) + ' · ' + esc(fmtDate(m.date)) + '</div>' +
+          '<h1 class="post-title">' + esc(m.title || dir) + '</h1>' + (m.summary ? '<p class="lead">' + esc(m.summary) + '</p>' : '') +
+          '<div class="post-meta">' + (m.authors ? '<span>' + esc(m.authors) + '</span>' : '') + species +
+          (rows.length ? '<a class="chip chip-link" href="#sources">' + esc(rows.length + ' ' + T('kb.studies', 'studies')) + '</a>' : '') + '</div>' + langNote;
+        var srcPanel = '<aside class="src-panel" id="sources">' +
+          '<div class="sp-text"><span class="label">' + esc(T('kb.src_label', 'The scientific publications')) + '</span>' +
+          '<h2>' + esc(T('kb.src_h', 'Read every study this report used')) + '</h2>' +
+          '<p>' + esc(T('kb.src_p', 'All the papers behind this report are listed in its sources folder on GitHub, with links to PubMed and to the free full text where one exists.')) + '</p>' +
+          '<div class="sp-nums"><span><b>' + rows.length + '</b> ' + esc(T('kb.studies', 'studies')) + '</span><span><b>' + oa + '</b> ' + esc(T('open.free_full_text', 'with free full text')) + '</span></div></div>' +
+          '<a class="btn btn-solid" href="' + srcUrl + '" target="_blank" rel="noopener">' +
+          '<svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>' +
+          esc(T('kb.src_btn', 'Open the sources on GitHub')) + '</a></aside>';
+        var foot = '<p class="post-source"><a href="' + TREE + encodeURIComponent(dir) + '" target="_blank" rel="noopener">' +
+          esc(T('kb.history', 'View this project and its history on GitHub')) + '</a> · ' +
+          '<a href="' + HOME + '/issues/new?title=' + encodeURIComponent('Correction: ' + (m.title || dir)) + '" target="_blank" rel="noopener">' + esc(T('kb.correct', 'Suggest a correction or a source')) + '</a></p>';
+        holder.innerHTML = head + '<div class="prose" lang="en">' + proj.html + '</div>' + srcPanel + foot;
+        // Relative links inside a report point at files in the project folder on GitHub.
+        holder.querySelectorAll('.prose a[href]').forEach(function (a) {
+          var h = a.getAttribute('href');
+          if (!/^(https?:|mailto:|#)/i.test(h)) a.href = new URL(h, BLOB + dir + '/').href;
+          if (/^https?:/i.test(a.href) && a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
+        });
+        document.title = (m.title || dir) + ' · MSRA Open Research';
+      };
+      Promise.all([fetch(base + 'README.md').then(function (r) { if (!r.ok) throw new Error(); return r.text(); }),
+                   loadSources(dir).catch(function () { return []; })])
         .then(function (res) {
-          var rep = res[0], sources = res[1], hasZh = res[2];
-          var d = parseDoc(rep.txt), m = d.meta, zh = rep.zh;
-          if (zh) projEl.setAttribute('lang', 'zh-CN'); else projEl.removeAttribute('lang');
-          var title = zh ? (m.title_zh || m.title) : m.title;
-          var summary = zh ? (m.summary_zh || m.summary) : m.summary;
-          document.title = (title || dir) + ' · MSRA Open Research';
-          // The report repeats its title, summary and language links at the top for GitHub readers; drop them here.
+          var d = parseDoc(res[0]);
+          // The report repeats its title, summary and sources link at the top for GitHub readers; drop them here.
           var body = d.body.replace(/^\s*# [^\n]*\n+/, '').replace(/^\*[^\n]*\*\s*\n+/, '').replace(/^\[[^\n]*\]\([^)\n]*\)[^\n]*\n+/, '');
-          var species = (Array.isArray(m.species) ? m.species : []).map(function (s) { return '<span class="chip">' + esc(s) + '</span>'; }).join('');
-          var other = hasZh ? '<a class="chip chip-link" href="' + PAGE + encodeURIComponent(dir) + '&lang=' + (zh ? 'en' : 'zh') + '">' + (zh ? 'English version' : '中文版') + '</a>' : '';
-          var oa = sources.filter(function (r) { return r.pmc; }).length;
-          var head = '<div class="label">' + esc(zh ? '研究项目' : 'Research project') + ' · ' + esc(fmtDate(m.date)) + '</div>' +
-            '<h1 class="post-title">' + esc(title || dir) + '</h1>' + (summary ? '<p class="lead">' + esc(summary) + '</p>' : '') +
-            '<div class="post-meta">' + (m.authors ? '<span>' + esc(m.authors) + '</span>' : '') + species + other + '</div>';
-          var srcBox = '<aside class="src-box"><div><span class="label">' + esc(zh ? '本项目的文献' : 'Sources for this project') + '</span>' +
-            '<b>' + sources.length + ' ' + esc(zh ? '项研究' : 'studies') + '</b><span>' + oa + ' ' + esc(zh ? '项可免费阅读全文' : 'with free full text') + '</span></div>' +
-            '<a class="btn btn-line btn-sm" href="' + TREE + encodeURIComponent(dir) + '/sources" target="_blank" rel="noopener">' + esc(zh ? '查看文献文件夹' : 'Open the sources folder') + '</a></aside>';
-          var html = window.DOMPurify ? DOMPurify.sanitize(marked.parse(body)) : esc(body);
-          var foot = '<p class="post-source"><a href="' + TREE + encodeURIComponent(dir) + '" target="_blank" rel="noopener">' +
-            esc(zh ? '在 GitHub 上查看此项目及修改记录' : 'View this project and its history on GitHub') + '</a> · ' +
-            '<a href="' + HOME + '/issues/new?title=' + encodeURIComponent('Correction: ' + (m.title || dir)) + '" target="_blank" rel="noopener">' + esc(zh ? '指出错误或补充文献' : 'Suggest a correction or a source') + '</a></p>';
-          state.outerHTML = head + srcBox + '<div class="prose">' + html + '</div>' + foot;
-          // Relative links inside a report point at files in the project folder on GitHub.
-          projEl.querySelectorAll('.prose a[href]').forEach(function (a) {
-            var h = a.getAttribute('href');
-            if (!/^(https?:|mailto:|#)/i.test(h)) a.href = new URL(h, BLOB + dir + '/').href;
-            if (/^https?:/i.test(a.href) && a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
-          });
+          proj = { meta: d.meta, sources: res[1], html: window.DOMPurify ? DOMPurify.sanitize(marked.parse(body)) : esc(body) };
+          state.replaceWith(holder);
+          renderProject(); onLang(renderProject);
         })
-        .catch(function () { fail(state, 'this project'); });
+        .catch(function () { state.outerHTML = failHtml(); });
     }
   }
 
-  // Research library: every source cited across all projects
+  /* Research library: every source cited across all projects */
   var rowsEl = document.getElementById('kb-lib-rows');
   if (rowsEl) {
-    loadAllSources().then(function (rows) {
-      rows.sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
-      rowsEl.innerHTML = rows.map(function (s) {
-        var tags = String(s.tags || '').split(/\s*;\s*/).filter(Boolean).join(' ');
-        var links = (s.pmc ? '<a href="https://pmc.ncbi.nlm.nih.gov/articles/' + esc(s.pmc) + '/" target="_blank" rel="noopener">Full text</a>' : '') +
-          (s.pmid ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + esc(s.pmid) + '/" target="_blank" rel="noopener">PMID ' + esc(s.pmid) + '</a>' : '') +
+    var all = null, filter = 'all';
+    var renderLib = function () {
+      if (!all) return;
+      var n = 0;
+      rowsEl.innerHTML = all.map(function (s) {
+        var tags = String(s.tags || '').split(/\s*;\s*/).filter(Boolean);
+        var show = filter === 'all' || tags.indexOf(filter) > -1;
+        if (show) n++;
+        var links = (s.pmc ? '<a href="https://pmc.ncbi.nlm.nih.gov/articles/' + esc(s.pmc) + '/" target="_blank" rel="noopener">' + esc(T('lib.full_text', 'Full text')) + '</a>' : '') +
+          (s.pmid ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + esc(s.pmid) + '/" target="_blank" rel="noopener">PubMed ' + esc(s.pmid) + '</a>' : '') +
           (s.doi ? '<a href="https://doi.org/' + esc(s.doi) + '" target="_blank" rel="noopener">DOI</a>' : '');
-        var access = s.pmc ? '<span class="pill live">' + esc(t('Open access', '开放获取')) + '</span>' : '<span class="pill">' + esc(t('Subscription', '需订阅')) + '</span>';
-        var projects = s.projects.map(function (p) { return '<a href="' + PAGE + encodeURIComponent(p.dir) + '">' + esc(cn() ? p.title_zh : p.title) + '</a>'; }).join('<br>');
-        return '<tr data-tags="' + esc(tags) + '"><td class="lib-study"><b>' + esc(s.title) + '</b><span>' + esc(s.authors) + ' · ' + esc(s.journal) + ', ' + esc(s.year) +
+        var access = s.pmc ? '<span class="pill live">' + esc(T('lib.open_access', 'Open access')) + '</span>' : '<span class="pill">' + esc(T('lib.subscription', 'Subscription')) + '</span>';
+        var projects = s.projects.map(function (p) { return '<a href="' + PAGE + encodeURIComponent(p.dir) + '">' + esc(p.title) + '</a>'; }).join('<br>');
+        return '<tr' + (show ? '' : ' hidden') + '><td class="lib-study"><b>' + esc(s.title) + '</b><span>' + esc(s.authors) + ' · ' + esc(s.journal) + ', ' + esc(s.year) +
           '</span><span class="lib-links">' + links + '</span></td><td>' + esc(s.studied_in) + '</td><td>' + esc(s.topic) + '</td><td>' + access + '</td><td class="lib-proj">' + projects + '</td></tr>';
       }).join('');
-      var count = document.getElementById('lib-count');
-      count.textContent = rows.length;
+      document.getElementById('lib-count').textContent = n;
+    };
+    loadAllSources().then(function (rows) {
+      all = rows.sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+      renderLib(); onLang(renderLib);
       var filters = document.querySelectorAll('.filter[data-filter]');
       filters.forEach(function (b) {
         b.addEventListener('click', function () {
-          var fl = b.dataset.filter, n = 0;
+          filter = b.dataset.filter;
           filters.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-          rowsEl.querySelectorAll('tr').forEach(function (r) {
-            var show = fl === 'all' || (' ' + r.dataset.tags + ' ').indexOf(' ' + fl + ' ') > -1;
-            r.hidden = !show; if (show) n++;
-          });
-          count.textContent = n;
+          renderLib();
         });
       });
     }).catch(function () {
-      rowsEl.innerHTML = '<tr><td colspan="5"></td></tr>';
-      fail(rowsEl.querySelector('td'), 'the sources');
+      rowsEl.innerHTML = '<tr><td colspan="5">' + failHtml() + '</td></tr>';
     });
   }
 })();

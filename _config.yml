@@ -1,5 +1,7 @@
 # MSRA website — built automatically by GitHub Pages on every change.
 title: MSRA — Mystical Species Research Academy
+# Short line shown after the name in browser tabs and search results on the home page.
+tagline: Every species, every condition
 description: >-
   MSRA is a pet nutrition research lab building dedicated, research-backed products
   for the species and conditions the industry overlooks: reptiles, rabbits and small
@@ -29,3 +31,4 @@ exclude:
   - Gemfile.lock
   - vendor/
   - .gitignore
+  - tools/

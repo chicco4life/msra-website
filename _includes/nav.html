@@ -2,21 +2,31 @@
   <div class="wrap nav-in">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="MSRA home">
       <img src="{{ '/assets/img/wordmark.png' | relative_url }}" alt="MSRA" width="84" height="20">
-      <span data-cn="神奇物种研究院">Mystical Species Research Academy</span>
+      <span data-i18n="brand.name">Mystical Species Research Academy</span>
     </a>
     <ul class="nav-links">
-      <li><a href="{{ '/#products' | relative_url }}" data-cn="产品">Products</a></li>
-      <li><a href="{{ '/#loop' | relative_url }}" data-cn="研发闭环">The loop</a></li>
-      <li><a href="{{ '/research/library/' | relative_url }}" data-cn="文献库">Library</a></li>
-      <li><a href="{{ '/#inquire' | relative_url }}" data-cn="联系">Contact</a></li>
+      <li><a href="{{ '/shop/' | relative_url }}" data-i18n="nav.products">Products</a></li>
+      <li><a href="{{ '/#loop' | relative_url }}" data-i18n="nav.loop">The loop</a></li>
+      <li><a href="{{ '/research/library/' | relative_url }}" data-i18n="nav.library">Library</a></li>
+      <li><a href="{{ '/#inquire' | relative_url }}" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" id="lang-en" aria-pressed="true">EN</button>
-        <button type="button" id="lang-cn" aria-pressed="false">中文</button>
+      <div class="lang-menu" id="lang-menu">
+        <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 3.9 5.6 3.9 9.2s-1.3 6.6-3.9 9.2c-2.6-2.6-3.9-5.6-3.9-9.2S9.4 5.4 12 2.8z"/></svg>
+          <span id="lang-cur">EN</span>
+          <svg class="caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <ul class="lang-list" id="lang-list" role="menu" hidden>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="true" data-lang="en" lang="en">English</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="ja" lang="ja">日本語</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="nl" lang="nl">Nederlands</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="es" lang="es">Español</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="zh" lang="zh-CN">中文</button></li>
+        </ul>
       </div>
-      <a class="btn btn-line btn-sm" id="nav-research" href="{{ '/research/' | relative_url }}" data-cn="开放研究"><span class="hide-sm">Open research</span><span class="show-sm">Research</span></a>
-      <a class="btn btn-solid btn-sm" id="nav-shop" href="{{ '/#inquire' | relative_url }}" data-cn="预订">Pre-order</a>
+      <a class="btn btn-line btn-sm" id="nav-research" href="{{ '/research/' | relative_url }}"><span class="hide-sm" data-i18n="nav.research">Open research</span><span class="show-sm" data-i18n="nav.research_short">Research</span></a>
+      <a class="btn btn-solid btn-sm" id="nav-shop" href="{{ '/shop/' | relative_url }}" data-i18n="nav.shop">Shop</a>
     </div>
   </div>
 </header>

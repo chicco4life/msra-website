@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="{% if page.lang == 'zh' %}zh-CN{% else %}en{% endif %}">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>
+/* Pick the language before the page paints, so a translated page does not flash English. */
+(function () {
+  try {
+    var ok = /^(en|ja|nl|es|zh)$/, l = new URLSearchParams(location.search).get('lang');
+    if (!ok.test(l || '')) l = localStorage.getItem('msra-lang');
+    if (l === 'cn') l = 'zh';
+    if (!ok.test(l || '')) { var n = (navigator.language || '').toLowerCase(); l = /^ja/.test(n) ? 'ja' : /^nl/.test(n) ? 'nl' : /^es/.test(n) ? 'es' : /^zh/.test(n) ? 'zh' : 'en'; }
+    document.documentElement.setAttribute('data-lang', l);
+    if (l !== 'en') document.documentElement.className += ' i18n-wait';
+  } catch (e) {}
+})();
+</script>
 {% seo %}
 <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
 {% include nav.html %}
@@ -16,15 +29,18 @@
 {{ content }}
 </main>
 {% include footer.html %}
-<script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, pageLang: {{ page.lang | default: 'en' | jsonify }},
+{% include waitlist.html %}
+<script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, v: {{ site.time | date: '%s' | jsonify }},
+  i18n: {{ '/assets/i18n/' | relative_url | jsonify }}, shopPage: {{ '/shop/' | relative_url | jsonify }},
+  products: { {% for p in site.data.products %}{{ p.slug | jsonify }}: {{ p.name | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %} },
   kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, projectPage: {{ '/research/project/' | relative_url | jsonify }}, libraryPage: {{ '/research/library/' | relative_url | jsonify }} } };</script>
-<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% if page.kb %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 {% if page.kb == 'project' %}<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>{% endif %}
-<script src="{{ '/assets/js/kb.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kb.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% endif %}
 </body>
 </html>

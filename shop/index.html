@@ -1,0 +1,37 @@
+---
+layout: default
+title: Shop
+description: Pre-order MSRA's species-specific supplements for reptiles, rabbits and small mammals, parrots and cats. No payment now; join the waitlist for each product.
+---
+<section class="page-head shop-head">
+  <div class="wrap">
+    <div class="label" data-i18n="shop.label">Shop</div>
+    <h1 data-i18n="shop.h1">Made for one species at a time.</h1>
+    <p class="lead" data-i18n="shop.lead">Six products, each researched for a problem that owners of that species describe. Online checkout opens at launch. Until then, pre-order by joining a product's waitlist: no payment now, and one email when it is ready to ship.</p>
+  </div>
+</section>
+<section class="page-body shop-body">
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filter by species" data-i18n-attr="aria-label:shop.filter">
+      <button type="button" class="filter" data-group="all" aria-pressed="true" data-i18n="group.all">All</button>
+      <button type="button" class="filter" data-group="cats" aria-pressed="false" data-i18n="group.cats">Cats</button>
+      <button type="button" class="filter" data-group="small-mammals" aria-pressed="false" data-i18n="group.small-mammals">Rabbits and small mammals</button>
+      <button type="button" class="filter" data-group="reptiles" aria-pressed="false" data-i18n="group.reptiles">Reptiles</button>
+      <button type="button" class="filter" data-group="birds" aria-pressed="false" data-i18n="group.birds">Parrots</button>
+    </div>
+    {% include product-grid.html %}
+
+    <div class="assure">
+      <div><span class="label" data-i18n="assure.1_label">Researched</span><h3 data-i18n="assure.1_h">Before it is made</h3><p data-i18n="assure.1_p">Every ingredient starts as a question to the published literature. Each product page shows what we found and where the evidence stops.</p></div>
+      <div><span class="label" data-i18n="assure.2_label">Tested</span><h3 data-i18n="assure.2_h">In our own lab</h3><p data-i18n="assure.2_p">Raw materials and finished products are checked for identity, potency and contaminants, and for stability across shelf life.</p></div>
+      <div><span class="label" data-i18n="assure.3_label">Made</span><h3 data-i18n="assure.3_h">In our own facility</h3><p data-i18n="assure.3_p">Small production runs mean a product for a single species is possible at all.</p></div>
+    </div>
+
+    <div class="faq">
+      <h2 data-i18n="faq.h2">Pre-orders, explained</h2>
+      <details><summary data-i18n="faq.q1">Do I pay anything now?</summary><p data-i18n="faq.a1">No. Joining a waitlist is free and commits you to nothing. When the product is ready to ship, we email you the price and a link to order.</p></details>
+      <details><summary data-i18n="faq.q2">What do you do with my email?</summary><p data-i18n="faq.a2">We use it only to tell you about the product you joined the waitlist for, unless you also ask to hear about other MSRA launches.</p></details>
+      <details><summary data-i18n="faq.q3">Can I ask about a product first?</summary><p data-i18n="faq.a3">Yes. Every product page has an "Ask a question" link, or email us at <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.</p></details>
+    </div>
+  </div>
+</section>

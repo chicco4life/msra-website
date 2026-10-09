@@ -1,18 +1,5 @@
-# Buy links for each product.
-# Paste a live link between the quotes and save. The site picks it up automatically.
-# Order of preference on the button: shopify, then amazon. If both are empty,
-# the button stays "Pre-order" and opens the pre-order form.
-
-store: ""            # e.g. https://shop.msralab.com  (turns the menu's "Pre-order" button into "Shop")
-
-# Optional: where the pre-order / inquiry form sends requests.
-# Empty = the form opens the visitor's email app with everything filled in.
-# To receive submissions without email apps, create a free form at formspree.io
-# and paste its endpoint here, e.g. https://formspree.io/f/abcdwxyz
+# Where pre-order (waitlist) and contact requests are sent.
+# Empty = the form opens the visitor's email app with the request filled in, addressed to contact_email.
+# To collect waitlist sign-ups without email apps: create a free form at formspree.io
+# and paste its endpoint between the quotes, e.g. "https://formspree.io/f/abcdwxyz"
 form_endpoint: ""
-
-products:
-  reptile-probiotics:
-    name: Reptile Probiotics
-    shopify: ""      # e.g. https://shop.msralab.com/products/reptile-probiotics
-    amazon: ""       # e.g. https://www.amazon.com/dp/XXXXXXXXXX

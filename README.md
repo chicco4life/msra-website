@@ -7,29 +7,41 @@ read projects live from the open knowledge base, [chicco4life/MSRA-Open-Research
 Each folder there is one project (a report plus a `sources/` folder). To publish research, add a project there (see its CONTRIBUTING.md).
 It appears on the website within about five minutes, with no change to this repository.
 
-## Turn on buy buttons
+## Shop and products
 
-Edit `_data/shop.yml` and paste the product's Shopify or Amazon link between the quotes.
-With no link, the button says "Pre-order" and opens the pre-order / inquiry form on the home page.
+`/shop/` lists the six products; each has its own page at `/shop/<product>/`.
+All product text (problem, research, ingredients, evidence, limits, references) lives in `_data/products.yml`.
+Edit it there and the shop, the product pages and the home page update together.
+Fill a product's `price` to show it; set `status` to `preorder`, `next` or `dev` to change its label.
 
-## Pre-order and inquiry form
+Every product's button says "Pre-order" and opens a waitlist form (email, optional country).
 
-By default the form opens the visitor's email app with the request filled in, addressed to li@msralab.com.
-To receive submissions directly instead, create a free form at formspree.io and paste its endpoint
+## Waitlist and contact forms
+
+By default both forms open the visitor's email app with the request filled in, addressed to li@msralab.com.
+To collect sign-ups directly instead, create a free form at formspree.io and paste its endpoint
 into `form_endpoint` in `_data/shop.yml`.
 
-## Edit the home page
+## Languages
 
-`index.html`. English text sits between the tags; the Chinese version of the same text sits in the
-`data-cn="…"` attribute beside it. Change both.
+English, 日本語, Nederlands, Español and 中文, chosen from the globe menu (remembered per visitor; first visit follows the browser's language).
+English text is written in the pages. Every translatable element carries `data-i18n="key"`, and the other languages
+live in `assets/i18n/ja.json`, `nl.json`, `es.json` and `zh.json`, one line per key. A key missing from a language shows in English.
+
+After changing English text, rebuild and run `python3 tools/i18n.py`: it refreshes `assets/i18n/en.json`
+and lists the keys each language is missing. Research reports themselves are published in English.
 
 ## Files
 
 | Path | What it is |
 |---|---|
 | `index.html` | Home page |
+| `shop/` | Shop page and one page per product (`_layouts/product.html` draws them from `_data/products.yml`) |
 | `research/` | Projects list, single project and library pages (content loaded from the knowledge base) |
-| `_data/shop.yml` | Buy links and the form endpoint |
+| `_data/products.yml` | Everything shown about each product |
+| `_data/shop.yml` | Where the waitlist and contact forms send requests |
+| `assets/i18n/` | Translations: one file per language |
+| `tools/i18n.py` | Lists missing translations |
 | `_config.yml` | Site settings, including which repository the research comes from |
 | `_layouts/`, `_includes/` | Page templates |
 | `assets/` | Styles, scripts (`site.js`, `kb.js`), images |

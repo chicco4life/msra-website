@@ -1,0 +1,112 @@
+---
+layout: default
+---
+{% assign p = site.data.products | where: "slug", page.product | first %}{% assign k = 'p.' | append: p.slug %}
+<article class="pd-page">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/shop/' | relative_url }}" data-i18n="shop.label">Shop</a><span aria-hidden="true">/</span><span>{{ p.name }}</span></nav>
+
+    <section class="pd">
+      <div class="pd-media">
+        <div class="pd-img"><img src="{{ '/assets/img/' | append: p.image | relative_url }}" alt="{{ p.image_alt }}" width="640" height="640"></div>
+        <span class="pd-code label">{{ p.code }} · {{ p.taxon }}</span>
+      </div>
+      <div class="pd-info">
+        {% case p.status %}{% when 'preorder' %}<span class="pill live" data-i18n="status.preorder">Pre-orders open</span>{% when 'next' %}<span class="pill next" data-i18n="status.next">Launching next</span>{% else %}<span class="pill" data-i18n="status.dev">In development</span>{% endcase %}
+        <h1>{{ p.name }}</h1>
+        <div class="sp" data-i18n="{{ k }}.species">{{ p.species }}</div>
+        <p class="pd-tag" data-i18n="{{ k }}.tagline">{{ p.tagline }}</p>
+        <p class="pd-blurb" data-i18n="{{ k }}.blurb">{{ p.blurb }}</p>
+        <dl class="pd-specs">
+          <div><dt class="label" data-i18n="pd.format">Format</dt><dd data-i18n="{{ k }}.format">{{ p.format }}</dd></div>
+          <div><dt class="label" data-i18n="pd.pack">Pack</dt><dd data-i18n="{{ k }}.pack">{{ p.pack }}</dd></div>
+          <div><dt class="label" data-i18n="pd.price">Price</dt><dd>{% if p.price != '' %}{{ p.price }}{% else %}<span data-i18n="pd.price_tba">Announced at launch</span>{% endif %}</dd></div>
+        </dl>
+        <div class="pd-buy">
+          <button type="button" class="btn btn-solid btn-lg" data-preorder="{{ p.slug }}" data-i18n="shop.preorder">Pre-order</button>
+          <a class="btn btn-line btn-lg" href="{{ '/' | relative_url }}?ask={{ p.slug }}#inquire" data-i18n="pd.ask">Ask a question</a>
+        </div>
+        <p class="pd-note" data-i18n="pd.note">No payment now. Join the waitlist and we email you once, when it is ready to ship.</p>
+        <ul class="pd-toc" aria-label="On this page">
+          <li><a href="#why" data-i18n="pd.why">Why we made it</a></li>
+          <li><a href="#research" data-i18n="pd.research">How we researched it</a></li>
+          <li><a href="#inside" data-i18n="pd.inside">What's inside</a></li>
+          <li><a href="#evidence" data-i18n="pd.evidence">The evidence</a></li>
+          <li><a href="#limits" data-i18n="pd.limits">Where the evidence stops</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="pd-body">
+      <section class="pd-sec" id="why">
+        <div class="pd-h"><span class="label" data-i18n="pd.why_label">The problem</span><h2 data-i18n="pd.why">Why we made it</h2></div>
+        <div class="pd-text">
+          <p data-i18n="{{ k }}.problem">{{ p.problem }}</p>
+          <p data-i18n="{{ k }}.why">{{ p.why }}</p>
+        </div>
+      </section>
+
+      <section class="pd-sec" id="research">
+        <div class="pd-h"><span class="label" data-i18n="pd.research_label">Method</span><h2 data-i18n="pd.research">How we researched it</h2></div>
+        <ul class="pd-list">
+          {% for r in p.research %}<li data-i18n="{{ k }}.research.{{ forloop.index0 }}">{{ r }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="pd-sec" id="inside">
+        <div class="pd-h"><span class="label" data-i18n="pd.inside_label">Key ingredients</span><h2 data-i18n="pd.inside">What's inside</h2></div>
+        <dl class="pd-ingr">
+          {% for i in p.inside %}<div><dt data-i18n="{{ k }}.inside.{{ forloop.index0 }}.name">{{ i.name }}</dt><dd data-i18n="{{ k }}.inside.{{ forloop.index0 }}.role">{{ i.role }}</dd></div>
+          {% endfor %}
+        </dl>
+      </section>
+
+      <section class="pd-sec" id="evidence">
+        <div class="pd-h"><span class="label" data-i18n="pd.evidence_label">Published studies</span><h2 data-i18n="pd.evidence">The evidence</h2></div>
+        <ul class="pd-ev">
+          {% for e in p.evidence %}<li><span data-i18n="{{ k }}.evidence.{{ forloop.index0 }}">{{ e.text }}</span> <a class="ref" href="#ref-{{ e.ref }}">[{{ e.ref }}]</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="pd-sec" id="limits">
+        <div class="pd-h"><span class="label" data-i18n="pd.limits_label">Honest limits</span><h2 data-i18n="pd.limits">Where the evidence stops</h2></div>
+        <ul class="pd-list">
+          {% for l in p.limits %}<li data-i18n="{{ k }}.limits.{{ forloop.index0 }}">{{ l }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="pd-sec" id="use">
+        <div class="pd-h"><span class="label" data-i18n="pd.use_label">Feeding</span><h2 data-i18n="pd.use">How to use it</h2></div>
+        <div class="pd-text"><p data-i18n="{{ k }}.use">{{ p.use }}</p></div>
+      </section>
+
+      <section class="pd-sec" id="refs">
+        <div class="pd-h"><span class="label" data-i18n="pd.refs_label">References</span><h2 data-i18n="pd.refs">Studies cited</h2></div>
+        <ol class="refs">
+          {% for r in p.refs %}<li id="ref-{{ r.n }}"><span class="n">[{{ r.n }}]</span><span class="t">{{ r.authors }} {{ r.year }}. <i>{{ r.title }}.</i><span class="m">{{ r.journal }}{% if r.pmid != '' %} · <a href="https://pubmed.ncbi.nlm.nih.gov/{{ r.pmid }}/" target="_blank" rel="noopener">PubMed {{ r.pmid }}</a>{% elsif r.doi != '' %} · <a href="https://doi.org/{{ r.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}{% if r.pmc != '' %} · <a href="https://pmc.ncbi.nlm.nih.gov/articles/{{ r.pmc }}/" target="_blank" rel="noopener" data-i18n="pd.full_text">Free full text</a>{% endif %}</span></span></li>
+          {% endfor %}
+        </ol>
+        <p class="refs-note" data-i18n="pd.refs_note">These studies tested ingredients or similar products, often in other species, not this finished product.</p>
+      </section>
+    </div>
+
+    <section class="pd-cta">
+      <div>
+        <h2>{{ p.name }}</h2>
+        <p data-i18n="pd.cta_p">Join the waitlist. No payment now, one email when it is ready to ship.</p>
+      </div>
+      <button type="button" class="btn btn-solid btn-lg" data-preorder="{{ p.slug }}" data-i18n="shop.preorder">Pre-order</button>
+    </section>
+
+    <section class="pd-more">
+      <div class="label" data-i18n="pd.more">More from the shop</div>
+      <div class="pd-more-row">
+        {% for o in site.data.products %}{% if o.slug != p.slug %}<a class="mini" href="{{ '/shop/' | append: o.slug | append: '/' | relative_url }}"><img src="{{ '/assets/img/' | append: o.image | relative_url }}" alt="" width="160" height="160" loading="lazy"><span><b>{{ o.name }}</b><small data-i18n="p.{{ o.slug }}.species">{{ o.species }}</small></span></a>{% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</article>

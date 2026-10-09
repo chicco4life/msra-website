@@ -6,20 +6,20 @@ kb: true
 ---
 <section class="page-head">
   <div class="wrap">
-    <div class="label" data-cn="开放研究">Open research</div>
-    <h1 data-cn="研究项目">Research projects</h1>
-    <p class="lead" data-cn="每个项目都包含一份研究报告和它使用的全部文献，写明证据来自哪里、止于何处。所有内容都公开在 MSRA 开放研究知识库中。">Each project is a research report plus every source it used, with a clear account of where the evidence comes from and where it stops. Everything lives in the MSRA Open Research knowledge base.</p>
+    <div class="label" data-i18n="open.label">Open research</div>
+    <h1 data-i18n="rs.h1">Research projects</h1>
+    <p class="lead" data-i18n="rs.lead">Each project is a research report plus every source it used, with a clear account of where the evidence comes from and where it stops. Everything lives in the MSRA Open Research knowledge base.</p>
     <p class="more">
-      <a href="{{ '/research/library/' | relative_url }}" data-cn="文献库 →">Research library →</a>
-      <a href="{{ site.repo_url }}" target="_blank" rel="noopener" data-cn="GitHub 上的开放知识库 →">Open knowledge base on GitHub →</a>
-      <a href="{{ site.repo_url }}/commits/{{ site.research_branch }}.atom" target="_blank" rel="noopener" data-cn="RSS 订阅更新">Follow updates by RSS</a>
+      <a href="{{ '/research/library/' | relative_url }}" data-i18n="rs.library_link">Research library →</a>
+      <a href="{{ site.repo_url }}" target="_blank" rel="noopener" data-i18n="rs.github_link">Open knowledge base on GitHub →</a>
+      <a href="{{ site.repo_url }}/commits/{{ site.research_branch }}.atom" target="_blank" rel="noopener" data-i18n="rs.rss">Follow updates by RSS</a>
     </p>
   </div>
 </section>
 <section class="page-body">
   <div class="wrap">
-    <div class="post-list" id="kb-notes">
-      <p class="kb-state" data-cn="正在从开放知识库加载……">Loading projects from our open knowledge base…</p>
+    <div class="rcards" id="kb-notes">
+      <p class="kb-state" data-i18n="rs.loading">Loading projects from our open knowledge base…</p>
     </div>
   </div>
 </section>
