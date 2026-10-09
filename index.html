@@ -1,0 +1,285 @@
+---
+layout: default
+---
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="label" data-cn="神奇物种研究院 · 开放的宠物健康研究机构">Mystical Species Research Academy · An open research lab for pet health</div>
+          <h1 data-cn="每一个物种，每一种需求，<br><em>都值得同等标准的照护。</em>">Every species. Every condition. <em>The same standard of care.</em></h1>
+          <p class="lead" data-cn="MSRA 是一家为被宠物行业忽视的动物而设的研究机构。AI 驱动的研究、自有实验室与自有生产构成一个闭环：每一个配方都经过研究、在我们的实验室检测，并在我们自己的设施中生产。我们从爬宠、兔子与小宠、鹦鹉和猫开始。">MSRA is a research lab for the animals the pet industry overlooks. AI-powered research, our own lab and our own manufacturing work as one closed loop: every formula is researched, tested in our lab and made in our own facility. We started with reptiles, rabbits, parrots and cats.</p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#products" data-cn="查看产品">See the products</a>
+            <a class="btn btn-line" href="{{ '/research/' | relative_url }}" data-cn="阅读开放研究">Read the open research</a>
+          </div>
+        </div>
+        <figure class="emblem">
+          <img src="{{ '/assets/img/tortoise.webp' | relative_url }}" alt="Engraving of a tortoise carrying an apple, the MSRA emblem" width="680" height="755">
+          <figcaption data-cn="徽记：乌龟象征长寿，苹果象征日常健康。">Our emblem: a tortoise for a long life, an apple for everyday health.</figcaption>
+        </figure>
+      </div>
+      <div class="index">
+        <span class="label" data-cn="当前研究物种">Species we study now</span>
+        <i>Testudines</i><i>Squamata</i><i>Oryctolagus cuniculus</i><i>Cavia porcellus</i><i>Chinchilla lanigera</i><i>Psittaciformes</i><i>Felis catus</i>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN RESEARCH -->
+  {% assign en_notes = site.posts | where_exp: "p", "p.lang != 'zh'" %}
+  {% assign zh_notes = site.posts | where: "lang", "zh" %}
+  {% assign oa = site.data.library | where_exp: "s", "s.pmc" %}
+  <section class="open" id="open-research">
+    <div class="wrap open-grid">
+      <div class="open-head">
+        <div class="label" data-cn="开放研究">Open research</div>
+        <h2 data-cn="我们学到的一切，都公开发布。">Everything we learn, we publish.</h2>
+        <p data-cn="研究笔记、阅读清单，以及每个配方背后的研究，都可以免费阅读、引用和核查。">Our research notes, reading lists and the studies behind every formula are free to read, reuse and check.</p>
+      </div>
+      <div class="open-links">
+        <a class="open-card" href="{{ '/research/' | relative_url }}">
+          <span class="label" data-cn="研究笔记">Research notes</span>
+          <b data-cn="{{ zh_notes.first.title | default: en_notes.first.title }}">{{ en_notes.first.title }}</b>
+          <span class="oc-meta"><span data-cn="最新一篇">Latest</span> · {{ en_notes.first.date | date: "%Y-%m-%d" }}</span>
+        </a>
+        <a class="open-card" href="{{ '/research/library/' | relative_url }}">
+          <span class="label" data-cn="文献库">Research library</span>
+          <b><span class="oc-num">{{ site.data.library | size }}</span> <span data-cn="项已追踪的研究">studies tracked</span></b>
+          <span class="oc-meta">{{ oa | size }} <span data-cn="项可免费阅读全文">with free full text</span></span>
+        </a>
+        <a class="open-card" href="{{ site.repo_url }}" target="_blank" rel="noopener">
+          <span class="label" data-cn="源文件">Source</span>
+          <b data-cn="在 GitHub 上查看">View on GitHub</b>
+          <span class="oc-meta" data-cn="每个页面与笔记，连同完整修改记录。">Every page and note, with its full history.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" id="about">
+    <div class="wrap man-grid">
+      <div>
+        <div class="label" data-cn="我们为何存在">Why we exist</div>
+        <h2 data-cn="宠物行业的大部分投入，只给了两种动物。">Most of the pet industry builds for two animals.</h2>
+      </div>
+      <div class="man-body">
+        <div class="stat">
+          <b>98%</b>
+          <p data-cn="的美国宠物补充剂销售额流向犬与猫。">of US pet supplement sales go to dogs and cats.</p>
+          <small data-cn="来源：Packaged Facts《Pet Supplements in the US》，2026">Source: Packaged Facts, Pet Supplements in the US, 2026</small>
+        </div>
+        <p data-cn="换季就停食的兔子、把自己啄秃的鹦鹉、刚结束冬眠的陆龟——它们得到的，往往是改了标签的狗用产品，或者什么都没有。">The rabbit that stops eating when the season turns, the parrot that plucks itself bare, the tortoise coming out of brumation: they usually get a relabelled dog product, or nothing.</p>
+        <p data-cn="我们认为，每一种动物、每一种健康需求，都值得同样认真的研究，以及同样诚实地说明什么有效、什么尚未证实。">We think every animal, and every condition, deserves the same serious research, and the same honesty about what works and what is not yet proven.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label" data-cn="首批产品">The first six</div>
+        <h2 data-cn="六款物种专属产品。一款接受预订，其余正在研发中。">Six species-specific products. One taking pre-orders, five in development.</h2>
+        <p class="lead" data-cn="每款产品围绕一个主要活性成分，配方以已发表研究为依据。我们会写清证据来自哪里、多久能看到变化。">Each one is built around a single lead ingredient, with a dose grounded in published research. We say where the evidence comes from and how long a visible change realistically takes.</p>
+      </div>
+
+      <div class="grid">
+        <!-- 1 Reptile -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-01 · Reptilia</span><span class="pill live" data-cn="接受预订">Pre-orders open</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/reptile.webp' | relative_url }}" alt="MSRA Reptile Probiotics jar, 50 g" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3 data-cn="爬宠益生菌">Reptile Probiotics</h3><div class="sp" data-cn="陆龟 · 蜥蜴 · 守宫 · 蛇">Tortoises · lizards · geckos · snakes</div></div>
+            <p data-cn="日常消化支持，也适合食欲下降的阶段：冬眠结束、搬家或换食之后。按体重给药，每 100 克体重 0.5 克，拌入食物。">Daily digestive support, and for the times appetite dips: after brumation, a move or a change of diet. Dosed by body weight, 0.5 g per 100 g, mixed into food.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="五株活菌，每克 ≥4 亿 CFU；含淀粉酶、维生素 B1 与锌。50 克罐装。">Five live strains at ≥400 million CFU per gram, with amylase, vitamin B1 and zinc. 50 g jar.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="在一项为期 52 周的龟类试验中，同类多菌株益生菌提高了体重增长和龟甲矿化。该研究检验的是同类配方，而非本产品。 <a class='ref' href='#ref-1'>[1]</a>">In a 52-week turtle trial, a multi-strain probiotic of the same class improved weight gain and shell mineralisation. That study tested a similar blend, not this product. <a class="ref" href="#ref-1">[1]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="规格">Pack</span><b data-cn="50 克">50 g</b></div>
+              <span class="foot-actions">
+                <a class="link-sm" href="#inquire" data-inquire="Reptile Probiotics" data-type="question" data-cn="咨询">Ask a question</a>
+                <a class="btn btn-solid btn-sm" data-shop="reptile-probiotics" href="#inquire" data-inquire="Reptile Probiotics" data-type="preorder" data-cn="预订">Pre-order</a>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 GutDaily -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-02 · Lagomorpha</span><span class="pill next" data-cn="即将上市">Launching next</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/gutdaily.webp' | relative_url }}" alt="GutDaily live-culture hay biscuits, packaging concept" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3>GutDaily</h3><div class="sp" data-cn="兔 · 豚鼠 · 龙猫 · 仓鼠">Rabbits · guinea pigs · chinchillas · hamsters</div></div>
+            <p data-cn="把每日消化支持做成它们当零食吃的干草饼。">Daily digestive support in a hay biscuit they eat as a treat.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="一株欧盟授权用于兔的活酵母，在烘焙后添加以保证存活；包装上标注的是保质期末仍存活的数量。">A live yeast authorised in the EU for rabbits, added after baking so it survives. The count we print is what is still alive at the end of shelf life.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="欧洲食品安全局（EFSA）在 2024 年续期评估中再次确认了该菌株用于兔的安全性与功效。 <a class='ref' href='#ref-2'>[2]</a>">The European Food Safety Authority reassessed this strain's safety and efficacy for rabbits when renewing its authorisation in 2024. <a class="ref" href="#ref-2">[2]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="用法">Use</span><b data-cn="每日一块">One biscuit a day</b></div>
+              <a class="btn btn-line btn-sm" href="#inquire" data-inquire="GutDaily" data-type="question" data-cn="咨询">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 Settle -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-03 · Lagomorpha</span><span class="pill" data-cn="研发中">In development</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/settle.webp' | relative_url }}" alt="Settle calming sachets for rabbits, packaging concept" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3>Settle</h3><div class="sp" data-cn="兔 · 豚鼠 · 龙猫">Rabbits · guinea pigs · chinchillas</div></div>
+            <p data-cn="为经历变化的小宠提供安抚支持：合笼、搬家、炎热天气。">Calming support for small mammals going through change: bonding a new companion, moving home, a heatwave.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="一种源自乳蛋白的镇静肽（α-酪蛋白水解物），不含任何安神草本。">A calming peptide from milk protein (alpha-casozepine), and no calming herbs.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="我们不用洋甘菊和缬草：已发表的组织研究显示，它们会让兔的肠道肌肉松弛，而肠道变慢正是兔主人最担心的问题。 <a class='ref' href='#ref-3'>[3]</a>">We leave out chamomile and valerian. In published tissue studies they relax rabbit gut muscle, and a slow gut is what rabbit owners fear most. <a class="ref" href="#ref-3">[3]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="上市前计划">Planned before launch</span><b data-cn="14 天兔耐受性观察">14-day tolerance study</b></div>
+              <a class="btn btn-line btn-sm" href="#inquire" data-inquire="Settle" data-type="question" data-cn="咨询">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 Omega Cat -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-04 · Felidae</span><span class="pill" data-cn="研发中">In development</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/omegacat.webp' | relative_url }}" alt="Omega Cat omega-3 sachets, packaging concept" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3>Omega Cat</h3><div class="sp" data-cn="猫">Cats</div></div>
+            <p data-cn="支持皮肤与毛发健康。单份舔食袋装，做成猫愿意吃完的形态。">Skin and coat support, in a single-serve lickable sachet cats actually finish.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="再酯化甘油三酯（rTG）形态的海洋 Omega-3，每袋标明 EPA 与 DHA 的准确含量。">Marine omega-3 in re-esterified triglyceride form, with the exact EPA and DHA dose printed on every sachet.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="在一项 72 人的双盲试验中，rTG 形态的吸收优于乙酯型鱼油。该试验在人身上进行。 <a class='ref' href='#ref-4'>[4]</a>">In a 72-person double-blind trial, the re-esterified form was absorbed better than ethyl-ester fish oil. That trial was in people. <a class="ref" href="#ref-4">[4]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="可见变化">Visible change</span><b data-cn="8–12 周">8–12 weeks</b></div>
+              <a class="btn btn-line btn-sm" href="#inquire" data-inquire="Omega Cat" data-type="question" data-cn="咨询">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 PlumaCalm -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-05 · Aves</span><span class="pill" data-cn="研发中">In development</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/plumacalm.webp' | relative_url }}" alt="PlumaCalm daily sticks for parrots, packaging concept" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3>PlumaCalm</h3><div class="sp" data-cn="鹦鹉">Parrots</div></div>
+            <p data-cn="为压力下啄羽、过度理羽的鹦鹉设计的每日营养棒。">A daily stick for parrots that pluck or over-preen under stress.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="以不溶性膳食纤维为主要活性成分，配合镇静肽与 L-茶氨酸。">Built around insoluble fibre as the lead ingredient, with a calming peptide and L-theanine.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="在一项蛋鸡对照研究中，提高日粮不溶性纤维后，严重啄羽从每 30 分钟 0.78 次降至 0.12 次。该证据来自蛋鸡，鹦鹉研究计划在上市前开展。 <a class='ref' href='#ref-5'>[5]</a>">In a controlled study of laying hens, more insoluble fibre cut severe feather pecking from 0.78 to 0.12 pecks per 30 minutes. That evidence is from hens; parrot studies are planned before launch. <a class="ref" href="#ref-5">[5]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="可见变化">Visible change</span><b data-cn="4–8 周">4–8 weeks</b></div>
+              <a class="btn btn-line btn-sm" href="#inquire" data-inquire="PlumaCalm" data-type="question" data-cn="咨询">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 CalmCat -->
+        <article class="card">
+          <div class="card-tag"><span class="label">MSRA-06 · Felidae</span><span class="pill" data-cn="研发中">In development</span></div>
+          <div class="card-img"><img src="{{ '/assets/img/calmcat.webp' | relative_url }}" alt="CalmCat lickable purée sticks, packaging concept" width="640" height="640" loading="lazy"></div>
+          <div class="card-body">
+            <div><h3>CalmCat</h3><div class="sp" data-cn="猫">Cats</div></div>
+            <p data-cn="为面对新同伴、就医或家中变化而紧张的猫提供安抚支持。做成猫愿意舔食的肉泥条。">Calming support for cats facing a new housemate, a vet visit or changes at home, in a lickable purée they accept.</p>
+            <div class="fact"><span class="label" data-cn="成分">What's in it</span><p data-cn="α-酪蛋白水解物（镇静肽），配合 L-茶氨酸。">Alpha-casozepine, a calming peptide from milk protein, with L-theanine.</p></div>
+            <div class="fact"><span class="label" data-cn="证据">Evidence</span><p data-cn="在一项随机、盲法、安慰剂对照的猫试验中，服用 α-酪蛋白水解物的 17 只猫中 10 只改善，安慰剂组为 17 只中 4 只。该试验检验的是成分，而非本产品。 <a class='ref' href='#ref-6'>[6]</a>">In a randomised, blinded, placebo-controlled trial, 10 of 17 cats on alpha-casozepine improved, against 4 of 17 on placebo. That trial tested the ingredient, not this product. <a class="ref" href="#ref-6">[6]</a></p></div>
+            <div class="card-foot">
+              <div class="when"><span class="label" data-cn="可见变化">Visible change</span><b data-cn="2–4 周">2–4 weeks</b></div>
+              <a class="btn btn-line btn-sm" href="#inquire" data-inquire="CalmCat" data-type="question" data-cn="咨询">Inquire</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOP -->
+  <section class="manifesto" id="loop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label" data-cn="研发闭环">The closed loop</div>
+        <h2 data-cn="研究、实验室检测与生产，在一个闭环里完成。">Research, lab testing and manufacturing in one loop.</h2>
+        <p class="lead" data-cn="许多宠物品牌把研究和生产都外包出去。我们把两者都留在闭环之内，实验室和产线的每一个发现，都会直接回到下一个配方。">Many pet brands outsource both the science and the factory. We keep both inside the loop, so what the lab and the production line learn goes straight into the next formula.</p>
+      </div>
+      <div class="loop-grid">
+        <figure class="loop-fig"><svg class="loop-svg" viewBox="0 0 360 360" role="img" aria-label="A closed loop: research, then lab testing, then manufacturing, then back to research"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><circle class="ring" cx="180" cy="180" r="118"/><path class="arc" d="M237.0,76.7 A118,118 0 0 1 298.0,182.3" marker-end="url(#ah)"/><path class="arc" d="M241.0,281.0 A118,118 0 0 1 119.0,281.0" marker-end="url(#ah)"/><path class="arc" d="M62.0,182.3 A118,118 0 0 1 123.0,76.7" marker-end="url(#ah)"/><circle class="node" cx="180.0" cy="62.0" r="44"/><text class="nn" x="180.0" y="53.0">01</text><text class="nl" x="180.0" y="75.0" data-cn="研究">Research</text><circle class="node" cx="282.2" cy="239.0" r="44"/><text class="nn" x="282.2" y="230.0">02</text><text class="nl" x="282.2" y="252.0" data-cn="检测">Test</text><circle class="node" cx="77.8" cy="239.0" r="44"/><text class="nn" x="77.8" y="230.0">03</text><text class="nl" x="77.8" y="252.0" data-cn="生产">Make</text><text class="cl" x="180" y="176" data-cn="一个闭环">One loop</text><text class="cs" x="180" y="196">MSRA</text></svg></figure>
+        <ol class="steps">
+          <li><span class="n">01</span><h3 data-cn="研究 · AI 驱动">Research · AI-powered</h3><p data-cn="我们的 AI 研究系统检索并交叉核对同行评审文献，把传统团队需要数月的文献工作缩短到数天。每一个成分、剂量和宣称都由我们的团队审核，每一条引用都能追溯到原始论文。">Our AI-powered research system searches and cross-checks the peer-reviewed literature, so a review that takes a traditional team months takes us days. Our team reviews every ingredient, dose and claim, and every citation traces back to the original paper.</p></li>
+          <li><span class="n">02</span><h3 data-cn="检测 · 自有实验室">Test · in-house lab</h3><p data-cn="我们的自有研究设施检测原料与成品的真实性、含量与污染物，并在整个保质期内做稳定性测试，例如活菌数与鱼油新鲜度。">Our in-house research facility analyses raw materials and finished products for identity, potency and contaminants, and runs stability tests across shelf life, such as live-culture counts and fish-oil freshness.</p></li>
+          <li><span class="n">03</span><h3 data-cn="生产 · 自有设施">Make · in-house manufacturing</h3><p data-cn="在自有设施中进行 GMP 认证生产，起订量低至 3,000 件，只属于一个物种的小品类也能被认真做出来。同一设施也为全球前十宠物食品品牌之一供应亚洲区的鱼油与情绪舒缓原料。">GMP-certified production in our own facility, with runs as small as 3,000 units, so a product for a single species is possible at all. The same facility supplies fish oil and calming ingredients for one of the world's top-10 pet food brands in Asia.</p></li>
+          <li><span class="n">↺</span><h3 data-cn="回到研究">Back to research</h3><p data-cn="检测结果与生产数据回到研究系统，让下一个配方从更高的起点开始。">Lab results and production data go back into the research system, so the next formula starts from a better place.</p></li>
+        </ol>
+      </div>
+      <div class="nums nums4">
+        <div><b>226</b><span data-cn="篇 PubMed 收录研究构成证据库">PubMed-indexed studies in the evidence base</span></div>
+        <div><b>187</b><span data-cn="个候选成分接受评估">candidate ingredients evaluated</span></div>
+        <div><b>77</b><span data-cn="个成分被淘汰，每个都写明理由">ingredients rejected, each with a written reason</span></div>
+        <div><b>3,000</b><span data-cn="件起订，单一物种的小品类也能生产">unit minimum run, so single-species products can be made</span></div>
+      </div>
+      <span class="nums-cap" data-cn="研究数据来自首批六款产品的研究记录，2026 年 9 月">Research figures from the record for our first six products, September 2026.</span>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="manifesto" id="references">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label" data-cn="参考文献">References</div>
+        <h2 data-cn="产品卡片中引用的研究。">The studies cited on the product cards.</h2>
+      </div>
+      <ol class="refs">
+        <li id="ref-1"><span class="n">[1]</span><span class="t">Rawski M, Kierończyk B, et al. <i>Dietary probiotics affect gastrointestinal microbiota, histological structure and shell mineralization in turtles.</i><span class="m">PLoS ONE, 2016 · <a href="https://pubmed.ncbi.nlm.nih.gov/26828367/" target="_blank" rel="noopener">PMID 26828367</a></span></span><span class="for">Reptile Probiotics</span></li>
+        <li id="ref-2"><span class="n">[2]</span><span class="t">EFSA FEEDAP Panel. <i>Assessment of the feed additive consisting of Saccharomyces cerevisiae CNCM I-4407 for rabbits for fattening and non-food producing rabbits, for the renewal of its authorisation.</i><span class="m">EFSA Journal, 2024 · <a href="https://pubmed.ncbi.nlm.nih.gov/39055665/" target="_blank" rel="noopener">PMID 39055665</a></span></span><span class="for">GutDaily</span></li>
+        <li id="ref-3"><span class="n">[3]</span><span class="t">Yazdi H, Seifi A, et al. <i>Hydro-alcoholic extract of Matricaria recutita exhibited dual anti-spasmodic effect via modulation of Ca²⁺ channels, NO and PKA2-kinase pathway in rabbit jejunum.</i><span class="m">Avicenna Journal of Phytomedicine, 2017 · <a href="https://pubmed.ncbi.nlm.nih.gov/28884083/" target="_blank" rel="noopener">PMID 28884083</a></span></span><span class="for">Settle</span></li>
+        <li id="ref-4"><span class="n">[4]</span><span class="t">Dyerberg J, Madsen P, et al. <i>Bioavailability of marine n-3 fatty acid formulations.</i><span class="m">Prostaglandins, Leukotrienes and Essential Fatty Acids, 2010 · <a href="https://pubmed.ncbi.nlm.nih.gov/20638827/" target="_blank" rel="noopener">PMID 20638827</a></span></span><span class="for">Omega Cat</span></li>
+        <li id="ref-5"><span class="n">[5]</span><span class="t">Patt A, Halle I, et al. <i>Influence of different dietary fibre contents in the diet on feather pecking, locomotor activity and performance of laying hens.</i><span class="m">British Poultry Science, 2022 · <a href="https://pubmed.ncbi.nlm.nih.gov/35543708/" target="_blank" rel="noopener">PMID 35543708</a></span></span><span class="for">PlumaCalm</span></li>
+        <li id="ref-6"><span class="n">[6]</span><span class="t">Beata C, et al. <i>Effect of alpha-casozepine (Zylkene) on anxiety in cats.</i><span class="m">Journal of Veterinary Behavior, 2007; 2: 40–46 · <a href="https://doi.org/10.1016/j.jveb.2007.02.002" target="_blank" rel="noopener">DOI 10.1016/j.jveb.2007.02.002</a></span></span><span class="for">CalmCat</span></li>
+      </ol>
+      <p class="refs-note" data-cn="这些研究检验的是成分或同类配方，而非 MSRA 的成品。成品的动物研究计划与合作机构开展。">These studies tested ingredients or similar formulas, not MSRA's finished products. Animal studies of our finished products are planned with partner facilities.</p>
+    </div>
+  </section>
+
+  <!-- PRE-ORDERS & INQUIRIES -->
+  <section class="contact" id="inquire">
+    <div class="wrap contact-grid">
+      <div class="inq-intro">
+        <div class="label" data-cn="预订与咨询">Pre-orders and inquiries</div>
+        <h2 data-cn="在线购买即将开放。现在可以预订，或向我们提问。">Online checkout is coming soon. Pre-order or ask us anything now.</h2>
+        <p class="lead" data-cn="现在不收取任何款项。我们会通过邮件与你确认价格与配送。">No payment is taken now. We confirm price and shipping with you by email.</p>
+        <div class="mail">
+          <span class="label" data-cn="或直接发邮件">Or email us directly</span>
+          <a class="addr" href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+        </div>
+      </div>
+      <form class="inq" id="inq-form" novalidate>
+        <fieldset class="seg">
+          <legend class="label" data-cn="请求类型">Request</legend>
+          <label><input type="radio" name="type" id="type-preorder" value="Pre-order" checked><span data-cn="预订">Pre-order</span></label>
+          <label><input type="radio" name="type" id="type-question" value="Question"><span data-cn="提问">Question</span></label>
+          <label><input type="radio" name="type" id="type-partner" value="Partnership"><span data-cn="合作">Partnership</span></label>
+        </fieldset>
+        <div class="row2">
+          <label class="fld"><span class="label" data-cn="产品">Product</span>
+            <select id="inq-product" name="product">
+              <option value="Reptile Probiotics" data-cn="爬宠益生菌">Reptile Probiotics</option>
+              <option value="GutDaily">GutDaily</option>
+              <option value="Settle">Settle</option>
+              <option value="Omega Cat">Omega Cat</option>
+              <option value="PlumaCalm">PlumaCalm</option>
+              <option value="CalmCat">CalmCat</option>
+              <option value="General" data-cn="与具体产品无关">Not about a product</option>
+            </select>
+          </label>
+          <label class="fld" id="qty-field"><span class="label" data-cn="数量">Quantity</span>
+            <input type="number" id="inq-qty" name="quantity" min="1" value="1" inputmode="numeric">
+          </label>
+        </div>
+        <div class="row2">
+          <label class="fld"><span class="label" data-cn="姓名">Name</span><input type="text" id="inq-name" name="name" autocomplete="name"></label>
+          <label class="fld"><span class="label" data-cn="国家或地区">Country</span><input type="text" id="inq-country" name="country" autocomplete="country-name"></label>
+        </div>
+        <label class="fld"><span class="label" data-cn="邮箱（必填）">Email (required)</span><input type="email" id="inq-email" name="email" autocomplete="email" required></label>
+        <label class="fld"><span class="label" data-cn="留言">Message</span><textarea id="inq-msg" name="message" rows="4"></textarea></label>
+        <div class="inq-foot">
+          <button type="submit" class="btn btn-solid" id="inq-send" data-cn="发送">Send request</button>
+          <p class="inq-note" data-cn="我们只用这些信息回复你的请求。">We use these details only to reply to your request.</p>
+        </div>
+        <p class="inq-status" id="inq-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>

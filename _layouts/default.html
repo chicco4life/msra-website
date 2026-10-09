@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{% if page.lang == 'zh' %}zh-CN{% else %}en{% endif %}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+{% seo %}
+<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+{% feed_meta %}
+</head>
+<body>
+{% include nav.html %}
+<main id="top">
+{{ content }}
+</main>
+{% include footer.html %}
+<script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, pageLang: {{ page.lang | default: 'en' | jsonify }} };</script>
+<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Research
+description: Research notes, findings and reading lists from MSRA, a pet nutrition research lab.
+---
+<section class="page-head">
+  <div class="wrap">
+    <div class="label" data-cn="研究">Research</div>
+    <h1 data-cn="研究笔记">Research notes</h1>
+    <p class="lead" data-cn="我们的研究方法、发现与阅读清单。每篇都写明证据来自哪里、止于何处。">Our methods, findings and reading lists. Each note says where its evidence comes from and where it stops.</p>
+    <p class="more"><a href="{{ '/research/library/' | relative_url }}" data-cn="查看文献库 →">Browse the research library →</a> · <a href="{{ '/research/feed.xml' | relative_url }}" data-cn="RSS 订阅">Subscribe by RSS</a> · <a href="{{ site.repo_url }}" target="_blank" rel="noopener" data-cn="在 GitHub 上查看源文件">Source on GitHub</a></p>
+  </div>
+</section>
+<section class="page-body">
+  <div class="wrap">
+    <div class="post-list">
+      {% for post in site.posts %}
+      <a class="post-row" href="{{ post.url | relative_url }}"{% if post.lang == 'zh' %} lang="zh-CN"{% endif %}>
+        <span class="pr-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span class="pr-main"><b>{{ post.title }}</b><span>{{ post.summary }}</span>
+          <span class="pr-tags">{% if post.lang == 'zh' %}<i class="chip">中文</i>{% endif %}{% for s in post.species %}<i class="chip">{{ s }}</i>{% endfor %}</span></span>
+        <span class="pr-go" aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

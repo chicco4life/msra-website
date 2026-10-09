@@ -1,0 +1,42 @@
+# MSRA website — built automatically by GitHub Pages on every change.
+title: MSRA — Mystical Species Research Academy
+description: >-
+  MSRA is a pet nutrition research lab building dedicated, research-backed products
+  for the species and conditions the industry overlooks: reptiles, rabbits and small
+  mammals, parrots and cats.
+url: "https://msralab.com"
+baseurl: ""
+contact_email: li@msralab.com
+repo_url: https://github.com/chicco4life/msra
+logo: /assets/img/favicon.png
+
+# Research notes live at /research/<year>/<file-name>/
+permalink: /research/:year/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: research/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .gitignore

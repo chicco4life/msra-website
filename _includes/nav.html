@@ -1,0 +1,22 @@
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="MSRA home">
+      <img src="{{ '/assets/img/wordmark.png' | relative_url }}" alt="MSRA" width="84" height="20">
+      <span data-cn="神奇物种研究院">Mystical Species Research Academy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="{{ '/#products' | relative_url }}" data-cn="产品">Products</a></li>
+      <li><a href="{{ '/#loop' | relative_url }}" data-cn="研发闭环">The loop</a></li>
+      <li><a href="{{ '/research/library/' | relative_url }}" data-cn="文献库">Library</a></li>
+      <li><a href="{{ '/#inquire' | relative_url }}" data-cn="联系">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-cn" aria-pressed="false">中文</button>
+      </div>
+      <a class="btn btn-line btn-sm" id="nav-research" href="{{ '/research/' | relative_url }}" data-cn="开放研究"><span class="hide-sm">Open research</span><span class="show-sm">Research</span></a>
+      <a class="btn btn-solid btn-sm" id="nav-shop" href="{{ '/#inquire' | relative_url }}" data-cn="预订">Pre-order</a>
+    </div>
+  </div>
+</header>
