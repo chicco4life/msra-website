@@ -1,5 +1,6 @@
 ---
 layout: default
+kb: true
 ---
   <!-- HERO -->
   <section class="hero">
@@ -26,10 +27,7 @@ layout: default
     </div>
   </section>
 
-  <!-- OPEN RESEARCH -->
-  {% assign en_notes = site.posts | where_exp: "p", "p.lang != 'zh'" %}
-  {% assign zh_notes = site.posts | where: "lang", "zh" %}
-  {% assign oa = site.data.library | where_exp: "s", "s.pmc" %}
+  <!-- OPEN RESEARCH (cards are filled live from the knowledge base repo) -->
   <section class="open" id="open-research">
     <div class="wrap open-grid">
       <div class="open-head">
@@ -40,18 +38,18 @@ layout: default
       <div class="open-links">
         <a class="open-card" href="{{ '/research/' | relative_url }}">
           <span class="label" data-cn="研究笔记">Research notes</span>
-          <b data-cn="{{ zh_notes.first.title | default: en_notes.first.title }}">{{ en_notes.first.title }}</b>
-          <span class="oc-meta"><span data-cn="最新一篇">Latest</span> · {{ en_notes.first.date | date: "%Y-%m-%d" }}</span>
+          <b id="kb-latest" data-cn="阅读最新的研究笔记">Read the latest research notes</b>
+          <span class="oc-meta" id="kb-latest-meta" data-cn="来自我们的开放知识库">From our open knowledge base</span>
         </a>
         <a class="open-card" href="{{ '/research/library/' | relative_url }}">
           <span class="label" data-cn="文献库">Research library</span>
-          <b><span class="oc-num">{{ site.data.library | size }}</span> <span data-cn="项已追踪的研究">studies tracked</span></b>
-          <span class="oc-meta">{{ oa | size }} <span data-cn="项可免费阅读全文">with free full text</span></span>
+          <b><span class="oc-num" id="kb-lib-count">·</span> <span data-cn="项已追踪的研究">studies tracked</span></b>
+          <span class="oc-meta"><span id="kb-lib-oa">·</span> <span data-cn="项可免费阅读全文">with free full text</span></span>
         </a>
         <a class="open-card" href="{{ site.repo_url }}" target="_blank" rel="noopener">
-          <span class="label" data-cn="源文件">Source</span>
+          <span class="label" data-cn="开放知识库">Open knowledge base</span>
           <b data-cn="在 GitHub 上查看">View on GitHub</b>
-          <span class="oc-meta" data-cn="每个页面与笔记，连同完整修改记录。">Every page and note, with its full history.</span>
+          <span class="oc-meta" data-cn="每篇笔记与每项研究，连同完整修改记录。">Every note and study, with its full history.</span>
         </a>
       </div>
     </div>

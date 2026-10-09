@@ -303,3 +303,10 @@ table.lib tr:last-child td { border-bottom: 0; }
 .btn, .lang button { white-space: nowrap; }
 .show-sm { display: none; }
 @media (max-width: 760px) { .hide-sm { display: none; } .show-sm { display: inline; } }
+
+/* knowledge base states */
+.kb-state { color: var(--muted); font-size: 15px; padding-block: 22px; }
+.kb-state a { text-decoration: none; font-weight: 500; }
+.post-source { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.post-source a { text-decoration: none; font-weight: 500; }
+.prose ol li, .prose ul li { padding-left: 2px; }

@@ -1,26 +1,10 @@
 # msralab.com
 
-The MSRA website: home page, research notes and research library.
-It is hosted on GitHub Pages. **Every change you save here goes live by itself in 1–2 minutes.** Nothing to upload or re-host.
+The MSRA website. Hosted on GitHub Pages: **every change saved here goes live by itself in 1–2 minutes.**
 
-## Publish a research note
-
-1. Open the `_posts` folder → **Add file** → **Create new file**.
-2. Name the file `YYYY-MM-DD-short-title.md`, for example `2026-11-02-rabbit-gut-notes.md`
-   (lowercase, hyphens, no spaces). For a Chinese version, end the name with `-zh`.
-3. Copy everything from `docs/post-template.md`, paste it in, and fill it in.
-4. Click **Commit changes**. The note appears at `msralab.com/research/` a minute or two later.
-   Progress shows under the **Actions** tab; a red ✕ there means a typo in the top section of the file.
-
-Or send the text to Claude and ask for a post file; paste what it gives you in step 3.
-
-**Images:** upload them to `assets/img/posts/` (webp or jpg, under 500 KB), then write
-`![What the image shows](/assets/img/posts/file-name.webp)` in the note.
-
-## Add a study to the research library
-
-Edit `_data/library.yml`, copy one block, change the details, commit.
-Mark free full text with its `pmc:` ID so it shows as open access.
+Research content does **not** live here. The research pages (`/research/`, `/research/library/`) read notes and studies
+live from the open knowledge base, [chicco4life/msra](https://github.com/chicco4life/msra). To publish research,
+add it there (see that repository's CONTRIBUTING.md). It appears on the website within about five minutes, with no change to this repository.
 
 ## Turn on buy buttons
 
@@ -38,23 +22,21 @@ into `form_endpoint` in `_data/shop.yml`.
 `index.html`. English text sits between the tags; the Chinese version of the same text sits in the
 `data-cn="…"` attribute beside it. Change both.
 
+## Files
+
+| Path | What it is |
+|---|---|
+| `index.html` | Home page |
+| `research/` | Research list, single note and library pages (content loaded from the knowledge base) |
+| `_data/shop.yml` | Buy links and the form endpoint |
+| `_config.yml` | Site settings, including which repository the research comes from |
+| `_layouts/`, `_includes/` | Page templates |
+| `assets/` | Styles, scripts (`site.js`, `kb.js`), images |
+| `CNAME` | Tells GitHub Pages to serve msralab.com |
+
 ## Preview on your own computer (optional)
 
 ```
 bundle install
 bundle exec jekyll serve
 ```
-Then open http://localhost:4000.
-
-## Files
-
-| Path | What it is |
-|---|---|
-| `index.html` | Home page |
-| `_posts/` | Research notes, one file each |
-| `research/` | Research list page and library page |
-| `_data/library.yml` | Studies in the research library |
-| `_data/shop.yml` | Buy links |
-| `_layouts/`, `_includes/` | Page templates |
-| `assets/` | Styles, script, images |
-| `CNAME` | Tells GitHub Pages to serve msralab.com |

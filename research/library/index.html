@@ -2,12 +2,17 @@
 layout: default
 title: Research library
 description: Published studies MSRA tracks for species-specific pet nutrition, with links to free full text where available.
+kb: true
 ---
 <section class="page-head">
   <div class="wrap">
     <div class="label" data-cn="文献库">Research library</div>
     <h1 data-cn="我们追踪的已发表研究">Published studies we track</h1>
     <p class="lead" data-cn="与物种专属营养相关的同行评审研究。标注“开放获取”的可免费阅读全文。这些研究检验的是成分或同类配方，而非 MSRA 的成品。">Peer-reviewed studies relevant to species-specific nutrition. Those marked open access can be read in full for free. They tested ingredients or similar formulas, not MSRA's finished products.</p>
+    <p class="more">
+      <a href="{{ site.repo_url }}/blob/{{ site.research_branch }}/library/studies.csv" target="_blank" rel="noopener" data-cn="在 GitHub 上查看与下载（CSV）→">View or download on GitHub (CSV) →</a>
+      <a href="{{ site.repo_url }}/issues/new?title=Study%20suggestion" target="_blank" rel="noopener" data-cn="推荐一项研究或指出错误 →">Suggest a study or a correction →</a>
+    </p>
   </div>
 </section>
 <section class="page-body">
@@ -23,24 +28,13 @@ description: Published studies MSRA tracks for species-specific pet nutrition, w
     <div class="table-wrap">
       <table class="lib">
         <thead><tr>
-          <th data-cn="研究">Study</th><th data-cn="研究对象">Studied in</th><th data-cn="主题">Topic</th><th data-cn="获取">Access</th><th data-cn="相关产品">Relevant to</th>
+          <th data-cn="研究">Study</th><th data-cn="研究对象">Studied in</th><th data-cn="主题">Topic</th><th data-cn="获取">Access</th><th data-cn="相关">Relevant to</th>
         </tr></thead>
-        <tbody>
-          {% assign items = site.data.library | sort: "year" | reverse %}
-          {% for s in items %}
-          <tr data-tags="{{ s.tags | join: ' ' }}">
-            <td class="lib-study"><b>{{ s.title }}</b><span>{{ s.authors }} · {{ s.journal }}, {{ s.year }}</span>
-              <span class="lib-links">{% if s.pmc %}<a href="https://pmc.ncbi.nlm.nih.gov/articles/{{ s.pmc }}/" target="_blank" rel="noopener">Full text</a>{% endif %}{% if s.pmid %}<a href="https://pubmed.ncbi.nlm.nih.gov/{{ s.pmid }}/" target="_blank" rel="noopener">PMID {{ s.pmid }}</a>{% endif %}{% if s.doi %}<a href="https://doi.org/{{ s.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}</span></td>
-            <td>{{ s.studied_in }}</td>
-            <td>{{ s.topic }}</td>
-            <td>{% if s.pmc %}<span class="pill live" data-cn="开放获取">Open access</span>{% else %}<span class="pill" data-cn="需订阅">Subscription</span>{% endif %}</td>
-            <td>{{ s.relevant_to }}</td>
-          </tr>
-          {% endfor %}
+        <tbody id="kb-lib-rows">
+          <tr><td colspan="5" class="kb-state" data-cn="正在从开放知识库加载……">Loading studies from our open knowledge base…</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="refs-note"><span data-cn="共">Showing</span> <b id="lib-count">{{ site.data.library | size }}</b> <span data-cn="项研究。">studies.</span>
-      <a href="{{ site.repo_url }}/issues/new?title=Study%20suggestion" target="_blank" rel="noopener" data-cn="推荐一项研究或指出错误 →">Suggest a study or a correction →</a></p>
+    <p class="refs-note"><span data-cn="共">Showing</span> <b id="lib-count">·</b> <span data-cn="项研究。">studies.</span></p>
   </div>
 </section>

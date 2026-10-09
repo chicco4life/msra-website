@@ -7,11 +7,11 @@ description: >-
 url: "https://msralab.com"
 baseurl: ""
 contact_email: li@msralab.com
+# The open research knowledge base. Research pages read notes and studies from it live.
 repo_url: https://github.com/chicco4life/msra
+research_repo: chicco4life/msra
+research_branch: main
 logo: /assets/img/favicon.png
-
-# Research notes live at /research/<year>/<file-name>/
-permalink: /research/:year/:title/
 
 markdown: kramdown
 kramdown:
@@ -19,19 +19,8 @@ kramdown:
   hard_wrap: false
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-
-feed:
-  path: research/feed.xml
-
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
 
 exclude:
   - README.md

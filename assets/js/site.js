@@ -1,4 +1,4 @@
-/* MSRA site behaviour: buy / pre-order links, inquiry form, language toggle, library filters. */
+/* MSRA site behaviour: buy / pre-order links, inquiry form, language toggle. */
 (function () {
   var M = window.MSRA || {};
   var shop = M.shop || {};
@@ -107,21 +107,4 @@
   try { saved = localStorage.getItem('msra-lang'); } catch (e) {}
   if (saved === 'cn' || (!saved && M.pageLang === 'zh')) setLang('cn');
 
-  // 4. Research library filters.
-  var filters = document.querySelectorAll('.filter[data-filter]');
-  if (filters.length) {
-    var rows = document.querySelectorAll('table.lib tbody tr');
-    var count = document.getElementById('lib-count');
-    filters.forEach(function (b) {
-      b.addEventListener('click', function () {
-        var f = b.dataset.filter, n = 0;
-        filters.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-        rows.forEach(function (r) {
-          var show = f === 'all' || (' ' + r.dataset.tags + ' ').indexOf(' ' + f + ' ') > -1;
-          r.hidden = !show; if (show) n++;
-        });
-        if (count) count.textContent = n;
-      });
-    });
-  }
 })();
