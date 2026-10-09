@@ -17,12 +17,12 @@
 </main>
 {% include footer.html %}
 <script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, pageLang: {{ page.lang | default: 'en' | jsonify }},
-  kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, notePage: {{ '/research/note/' | relative_url | jsonify }}, libraryPage: {{ '/research/library/' | relative_url | jsonify }} } };</script>
+  kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, projectPage: {{ '/research/project/' | relative_url | jsonify }}, libraryPage: {{ '/research/library/' | relative_url | jsonify }} } };</script>
 <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 {% if page.kb %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-{% if page.kb == 'note' %}<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+{% if page.kb == 'project' %}<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>{% endif %}
 <script src="{{ '/assets/js/kb.js' | relative_url }}"></script>
 {% endif %}

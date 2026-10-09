@@ -2,9 +2,10 @@
 
 The MSRA website. Hosted on GitHub Pages: **every change saved here goes live by itself in 1–2 minutes.**
 
-Research content does **not** live here. The research pages (`/research/`, `/research/library/`) read notes and studies
-live from the open knowledge base, [chicco4life/msra](https://github.com/chicco4life/msra). To publish research,
-add it there (see that repository's CONTRIBUTING.md). It appears on the website within about five minutes, with no change to this repository.
+Research content does **not** live here. The research pages (`/research/`, `/research/project/`, `/research/library/`)
+read projects live from the open knowledge base, [chicco4life/MSRA-Open-Research](https://github.com/chicco4life/MSRA-Open-Research).
+Each folder there is one project (a report plus a `sources/` folder). To publish research, add a project there (see its CONTRIBUTING.md).
+It appears on the website within about five minutes, with no change to this repository.
 
 ## Turn on buy buttons
 
@@ -27,7 +28,7 @@ into `form_endpoint` in `_data/shop.yml`.
 | Path | What it is |
 |---|---|
 | `index.html` | Home page |
-| `research/` | Research list, single note and library pages (content loaded from the knowledge base) |
+| `research/` | Projects list, single project and library pages (content loaded from the knowledge base) |
 | `_data/shop.yml` | Buy links and the form endpoint |
 | `_config.yml` | Site settings, including which repository the research comes from |
 | `_layouts/`, `_includes/` | Page templates |

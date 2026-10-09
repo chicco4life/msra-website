@@ -310,3 +310,10 @@ table.lib tr:last-child td { border-bottom: 0; }
 .post-source { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 .post-source a { text-decoration: none; font-weight: 500; }
 .prose ol li, .prose ul li { padding-left: 2px; }
+
+/* project page: sources summary */
+.src-box { display: flex; justify-content: space-between; align-items: center; gap: 14px 20px; flex-wrap: wrap; padding: 16px 18px; margin: 0 0 32px; background: var(--blue-tint); border: 1px solid var(--line); border-radius: 6px; }
+.src-box div { display: grid; gap: 2px; }
+.src-box b { font-family: var(--f-display); font-weight: 600; font-size: 20px; }
+.src-box span:not(.label) { font-size: 13.5px; color: var(--ink-2); }
+.lib-proj a { text-decoration: none; font-size: 13.5px; }

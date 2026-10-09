@@ -8,8 +8,8 @@ url: "https://msralab.com"
 baseurl: ""
 contact_email: li@msralab.com
 # The open research knowledge base. Research pages read notes and studies from it live.
-repo_url: https://github.com/chicco4life/msra
-research_repo: chicco4life/msra
+repo_url: https://github.com/chicco4life/MSRA-Open-Research
+research_repo: chicco4life/MSRA-Open-Research
 research_branch: main
 logo: /assets/img/favicon.png
 
