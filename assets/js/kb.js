@@ -1,7 +1,9 @@
 /* MSRA Open Research client.
-   The research pages read projects live from the knowledge base repository set in _config.yml.
-   Each top-level folder there is one project: report.md (the report, in English), README.md
-   (an overview for GitHub visitors that links back here) and sources/ (README.md + sources.csv). Publishing a project there updates this website with no rebuild. */
+   Each top-level folder in the knowledge base repository (set in _config.yml) is one project: report.md
+   (the report, in English), README.md (an overview for GitHub visitors) and sources/ (README.md + sources.csv).
+   tools/sync_research.py writes every project into this site as a real page at /research/<folder>/, so
+   search engines and AI answer engines can read it. This script covers the gap until the next sync:
+   it adds projects published since then to /research/ and renders them at /research/project/?p=<folder>. */
 (function () {
   var M = window.MSRA || {};
   var cfg = M.kb || {};
@@ -13,6 +15,8 @@
   var BLOB = 'https://github.com/' + REPO + '/blob/' + BR + '/';
   var HOME = 'https://github.com/' + REPO;
   var PAGE = (cfg.projectPage || '/research/project/') + '?p=';
+  var SYNCED = cfg.synced || [];
+  function pageUrl(dir) { return SYNCED.indexOf(dir) > -1 ? (cfg.researchPage || '/research/') + encodeURIComponent(dir) + '/' : PAGE + encodeURIComponent(dir); }
 
   function T(key, en) { return M.t ? M.t(key, en) : en; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -64,22 +68,6 @@
       .then(function (r) { if (!r.ok) return ''; return r.text(); })
       .then(function (txt) { return txt ? Papa.parse(txt.trim(), { header: true, skipEmptyLines: true }).data.filter(function (r) { return r.title; }) : []; });
   }
-  function loadAllSources() {
-    var c = cacheGet('msra-kb-sources-v2'); if (c) return Promise.resolve(c);
-    return listProjects().then(function (projects) {
-      return Promise.all(projects.map(function (p) { return loadSources(p.dir).then(function (rows) { return { p: p, rows: rows }; }); }));
-    }).then(function (sets) {
-      var byKey = {}, out = [];
-      sets.forEach(function (s) {
-        s.rows.forEach(function (r) {
-          var key = (r.pmid || r.doi || r.title).toLowerCase();
-          if (!byKey[key]) { byKey[key] = Object.assign({}, r, { projects: [] }); out.push(byKey[key]); }
-          byKey[key].projects.push({ dir: s.p.dir, title: s.p.title });
-        });
-      });
-      cacheSet('msra-kb-sources-v2', out); return out;
-    });
-  }
   function failHtml() {
     return '<p class="kb-state">' + esc(T('kb.fail', 'Could not reach the knowledge base just now.')) + ' ' +
       '<a href="' + HOME + '" target="_blank" rel="noopener">' + esc(T('kb.fail_link', 'Browse it on GitHub →')) + '</a></p>';
@@ -89,51 +77,33 @@
     return rows.length + ' ' + T('kb.studies', 'studies') + ' · ' + oa + ' ' + T('open.free_full_text', 'with free full text');
   }
 
-  /* Home page cards */
-  var latest = document.getElementById('kb-latest');
-  if (latest) {
-    listProjects().then(function (list) {
-      var p = list[0]; if (!p) return;
-      latest.removeAttribute('data-i18n'); latest.textContent = p.title;
-      var meta = document.getElementById('kb-latest-meta');
-      function paint() { meta.textContent = T('kb.published', 'Published') + ' ' + p.date; }
-      meta.removeAttribute('data-i18n'); paint(); onLang(paint);
-      latest.closest('a').href = PAGE + encodeURIComponent(p.dir);
-    }).catch(function () {});
-    loadAllSources().then(function (rows) {
-      document.getElementById('kb-lib-count').textContent = rows.length;
-      document.getElementById('kb-lib-oa').textContent = rows.filter(function (r) { return r.pmc; }).length;
-    }).catch(function () {
-      document.getElementById('kb-lib-count').textContent = '';
-      document.getElementById('kb-lib-oa').textContent = '';
-    });
-  }
-
-  /* Research projects: one card per project, one tap to the full report */
+  /* Research projects: cards for synced projects are in the HTML; add any published since the last sync */
   var listEl = document.getElementById('kb-notes');
   if (listEl) {
     var data = null;
     var render = function () {
-      if (!data) return;
-      if (!data.list.length) { listEl.innerHTML = '<p class="kb-state">' + esc(T('kb.none', 'No projects yet.')) + '</p>'; return; }
-      listEl.innerHTML = data.list.map(function (p) {
+      if (!data || !data.list.length) return;
+      listEl.querySelectorAll('.rcard-live').forEach(function (el) { el.remove(); });
+      listEl.insertAdjacentHTML('afterbegin', data.list.map(function (p) {
         var tags = p.species.map(function (s) { return '<i class="chip">' + esc(s) + '</i>'; }).join('');
         var rows = data.sources[p.dir] || [];
-        var page = PAGE + encodeURIComponent(p.dir);
-        return '<article class="rcard">' +
+        var page = pageUrl(p.dir);
+        return '<article class="rcard rcard-live">' +
           '<span class="rc-top"><span class="rc-date">' + esc(p.date) + '</span><span class="rc-tags">' + tags + '</span></span>' +
           '<a class="rc-title" href="' + page + '">' + esc(p.title) + '</a>' +
           '<span class="rc-sum">' + esc(p.summary) + '</span>' +
           (rows.length ? '<span class="rc-src">' + esc(studiesLine(rows)) + '</span>' : '') +
           '<span class="rc-actions"><a class="btn btn-solid btn-sm" href="' + page + '">' + esc(T('kb.read', 'Read the report')) + '</a>' +
           evidenceBtn(p.dir, 'btn-line btn-sm') + '</span></article>';
-      }).join('');
+      }).join(''));
     };
     listProjects().then(function (list) {
-      data = { list: list, sources: {} }; render();
-      list.forEach(function (p) { loadSources(p.dir).then(function (rows) { data.sources[p.dir] = rows; render(); }).catch(function () {}); });
+      data = { list: list.filter(function (p) { return SYNCED.indexOf(p.dir) < 0; }), sources: {} };
+      if (!data.list.length) return;
+      render();
+      data.list.forEach(function (p) { loadSources(p.dir).then(function (rows) { data.sources[p.dir] = rows; render(); }).catch(function () {}); });
       onLang(render);
-    }).catch(function () { listEl.innerHTML = failHtml(); });
+    }).catch(function () { if (!listEl.querySelector('.rcard')) listEl.innerHTML = failHtml(); });
   }
 
   /* Single project page: the report, then the way to every paper it used */
@@ -142,6 +112,7 @@
     var wrap = projEl.querySelector('.post-wrap');
     var state = projEl.querySelector('.kb-state');
     var dir = new URLSearchParams(location.search).get('p') || '';
+    if (SYNCED.indexOf(dir) > -1) { location.replace(pageUrl(dir) + location.hash); return; }  // old link to a synced report
     if (!/^[\w.\-]+$/.test(dir)) { state.outerHTML = failHtml(); }
     else {
       var holder = document.createElement('div');
@@ -189,40 +160,20 @@
     }
   }
 
-  /* Research library: every source cited across all projects */
+  /* Research library: rows are in the HTML; filter them by species */
   var rowsEl = document.getElementById('kb-lib-rows');
   if (rowsEl) {
-    var all = null, filter = 'all';
-    var renderLib = function () {
-      if (!all) return;
-      var n = 0;
-      rowsEl.innerHTML = all.map(function (s) {
-        var tags = String(s.tags || '').split(/\s*;\s*/).filter(Boolean);
-        var show = filter === 'all' || tags.indexOf(filter) > -1;
-        if (show) n++;
-        var links = (s.pmc ? '<a href="https://pmc.ncbi.nlm.nih.gov/articles/' + esc(s.pmc) + '/" target="_blank" rel="noopener">' + esc(T('lib.full_text', 'Full text')) + '</a>' : '') +
-          (s.pmid ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + esc(s.pmid) + '/" target="_blank" rel="noopener">PubMed ' + esc(s.pmid) + '</a>' : '') +
-          (s.doi ? '<a href="https://doi.org/' + esc(s.doi) + '" target="_blank" rel="noopener">DOI</a>' : '');
-        var access = s.pmc ? '<span class="pill live">' + esc(T('lib.open_access', 'Open access')) + '</span>' : '<span class="pill">' + esc(T('lib.subscription', 'Subscription')) + '</span>';
-        var projects = s.projects.map(function (p) { return '<a href="' + PAGE + encodeURIComponent(p.dir) + '">' + esc(p.title) + '</a>'; }).join('<br>');
-        return '<tr' + (show ? '' : ' hidden') + '><td class="lib-study"><b>' + esc(s.title) + '</b><span>' + esc(s.authors) + ' · ' + esc(s.journal) + ', ' + esc(s.year) +
-          '</span><span class="lib-links">' + links + '</span></td><td>' + esc(s.studied_in) + '</td><td>' + esc(s.topic) + '</td><td>' + access + '</td><td class="lib-proj">' + projects + '</td></tr>';
-      }).join('');
-      document.getElementById('lib-count').textContent = n;
-    };
-    loadAllSources().then(function (rows) {
-      all = rows.sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
-      renderLib(); onLang(renderLib);
-      var filters = document.querySelectorAll('.filter[data-filter]');
-      filters.forEach(function (b) {
-        b.addEventListener('click', function () {
-          filter = b.dataset.filter;
-          filters.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-          renderLib();
+    var filters = document.querySelectorAll('.filter[data-filter]');
+    filters.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.dataset.filter, n = 0;
+        filters.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        rowsEl.querySelectorAll('tr[data-tags]').forEach(function (tr) {
+          var show = f === 'all' || tr.dataset.tags.split(';').indexOf(f) > -1;
+          tr.hidden = !show; if (show) n++;
         });
+        document.getElementById('lib-count').textContent = n;
       });
-    }).catch(function () {
-      rowsEl.innerHTML = '<tr><td colspan="5">' + failHtml() + '</td></tr>';
     });
   }
 })();

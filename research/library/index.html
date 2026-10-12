@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Research library
+seo_title: "Research library: every study we cite, with free full text"
 description: Every published study cited across MSRA Open Research projects, with links to free full text where available.
-kb: true
+kb: lib
 ---
 <section class="page-head">
   <div class="wrap">
@@ -31,10 +32,11 @@ kb: true
           <th data-i18n="lib.th_study">Study</th><th data-i18n="lib.th_in">Studied in</th><th data-i18n="lib.th_topic">Topic</th><th data-i18n="lib.th_access">Access</th><th data-i18n="lib.th_project">Project</th>
         </tr></thead>
         <tbody id="kb-lib-rows">
-          <tr><td colspan="5" class="kb-state" data-i18n="lib.loading">Loading studies from our open knowledge base…</td></tr>
+          {% for s in site.data.research.library %}<tr data-tags="{{ s.tags | join: ';' }}"><td class="lib-study"><b>{{ s.title }}</b><span>{{ s.authors }} · {{ s.journal }}, {{ s.year }}</span><span class="lib-links">{% if s.pmc != '' %}<a href="https://pmc.ncbi.nlm.nih.gov/articles/{{ s.pmc }}/" target="_blank" rel="noopener" data-i18n="lib.full_text">Full text</a>{% endif %}{% if s.pmid != '' %}<a href="https://pubmed.ncbi.nlm.nih.gov/{{ s.pmid }}/" target="_blank" rel="noopener">PubMed {{ s.pmid }}</a>{% endif %}{% if s.doi != '' %}<a href="https://doi.org/{{ s.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}</span></td><td>{{ s.studied_in }}</td><td>{{ s.topic }}</td><td>{% if s.pmc != '' %}<span class="pill live" data-i18n="lib.open_access">Open access</span>{% else %}<span class="pill" data-i18n="lib.subscription">Subscription</span>{% endif %}</td><td class="lib-proj">{% for pr in s.projects %}<a href="{{ pr.url | relative_url }}">{{ pr.title }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</td></tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
-    <p class="refs-note"><span data-i18n="lib.showing">Studies shown:</span> <b id="lib-count">·</b></p>
+    <p class="refs-note"><span data-i18n="lib.showing">Studies shown:</span> <b id="lib-count">{{ site.data.research.library | size }}</b></p>
   </div>
 </section>

@@ -1,0 +1,27 @@
+{%- comment -%}
+  Title, description, canonical and social tags for every page, in the first bytes of <head>.
+  Front matter: seo_title (the <title>; falls back to title), description, image, robots (e.g. "noindex").
+  Structured data is in _includes/schema.html, placed after the main content.
+{%- endcomment -%}
+{%- if page.url == '/' -%}
+  {%- assign seo_t = site.home_title | default: site.title -%}
+{%- else -%}
+  {%- assign seo_t = page.seo_title | default: page.title | append: ' | ' | append: site.brand -%}
+{%- endif -%}
+{%- assign seo_d = page.description | default: site.description | strip_html | normalize_whitespace -%}
+{%- assign seo_url = page.url | replace: 'index.html', '' | absolute_url -%}
+{%- assign seo_img = page.image | default: site.default_image | absolute_url -%}
+<title>{{ seo_t | escape }}</title>
+<meta name="description" content="{{ seo_d | escape }}">
+{% if page.robots %}<meta name="robots" content="{{ page.robots }}">
+{% endif %}{% unless page.url == '/404.html' %}<link rel="canonical" href="{{ seo_url }}">
+{% endunless %}<meta property="og:site_name" content="{{ site.brand }}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="{% if page.collection == 'research' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page.seo_title | default: page.title | default: site.home_title | escape }}">
+<meta property="og:description" content="{{ seo_d | escape }}">
+<meta property="og:url" content="{{ seo_url }}">
+<meta property="og:image" content="{{ seo_img }}">
+{% if page.collection == 'research' %}<meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
+<meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date: '%Y-%m-%d' }}">
+{% endif %}<meta name="twitter:card" content="summary_large_image">

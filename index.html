@@ -1,6 +1,5 @@
 ---
 layout: default
-kb: true
 ---
   <!-- HERO -->
   <section class="hero">
@@ -16,7 +15,7 @@ kb: true
           </div>
         </div>
         <figure class="emblem">
-          <img src="{{ '/assets/img/tortoise.webp' | relative_url }}" alt="Engraving of a tortoise carrying an apple, the MSRA emblem" width="680" height="755">
+          <img src="{{ '/assets/img/tortoise.webp' | relative_url }}" alt="Engraving of a tortoise carrying an apple, the MSRA emblem" width="680" height="755" fetchpriority="high">
           <figcaption data-i18n="home.emblem">Our emblem: a tortoise for a long life, an apple for everyday health.</figcaption>
         </figure>
       </div>
@@ -36,15 +35,15 @@ kb: true
         <p data-i18n="open.p">Every research project is published with its full report and every source behind it, free to read, reuse and check.</p>
       </div>
       <div class="open-links">
-        <a class="open-card" href="{{ '/research/' | relative_url }}">
+        {% assign latest = site.data.research.projects | first %}<a class="open-card" href="{{ latest.url | default: '/research/' | relative_url }}">
           <span class="label" data-i18n="open.latest">Latest research project</span>
-          <b id="kb-latest" data-i18n="open.latest_fallback">Read the latest research report</b>
-          <span class="oc-meta" id="kb-latest-meta" data-i18n="open.latest_meta">From our open knowledge base</span>
+          <b>{{ latest.title }}</b>
+          <span class="oc-meta"><span data-i18n="kb.published">Published</span> {{ latest.date }}</span>
         </a>
         <a class="open-card" href="{{ '/research/library/' | relative_url }}">
           <span class="label" data-i18n="open.library">Research library</span>
-          <b><span class="oc-num" id="kb-lib-count">·</span> <span data-i18n="open.studies_cited">studies cited</span></b>
-          <span class="oc-meta"><span id="kb-lib-oa">·</span> <span data-i18n="open.free_full_text">with free full text</span></span>
+          <b><span class="oc-num">{{ site.data.research.totals.studies }}</span> <span data-i18n="open.studies_cited">studies cited</span></b>
+          <span class="oc-meta"><span>{{ site.data.research.totals.free }}</span> <span data-i18n="open.free_full_text">with free full text</span></span>
         </a>
         <a class="open-card" href="{{ site.repo_url }}" target="_blank" rel="noopener">
           <span class="label" data-i18n="open.kb">Open knowledge base</span>

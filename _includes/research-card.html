@@ -1,0 +1,8 @@
+{%- assign rp = include.p -%}
+<article class="rcard" data-dir="{{ rp.dir }}">
+  <span class="rc-top"><span class="rc-date">{{ rp.date }}</span><span class="rc-tags">{% for s in rp.species %}<i class="chip">{{ s }}</i>{% endfor %}</span></span>
+  <a class="rc-title" href="{{ rp.url | relative_url }}">{{ rp.title }}</a>
+  <span class="rc-sum">{{ rp.summary }}</span>
+  {% if rp.studies > 0 %}<span class="rc-src">{{ rp.studies }} <span data-i18n="kb.studies">studies</span> · {{ rp.free }} <span data-i18n="open.free_full_text">with free full text</span></span>{% endif %}
+  <span class="rc-actions"><a class="btn btn-solid btn-sm" href="{{ rp.url | relative_url }}" data-i18n="kb.read">Read the report</a>{% include evidence-btn.html dir=rp.dir cls="btn-line btn-sm" %}</span>
+</article>

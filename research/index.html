@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Research
-description: Research projects from MSRA Open Research, an open knowledge base on nutrition and health for every species.
-kb: true
+seo_title: "Open pet health research: what the evidence supports"
+description: "Evidence-graded reports on pet health and nutrition for cats, rabbits, reptiles and parrots. Each states what the studies support, what they do not, and links every source."
+kb: list
 ---
 <section class="page-head">
   <div class="wrap">
@@ -19,7 +20,8 @@ kb: true
 <section class="page-body">
   <div class="wrap">
     <div class="rcards" id="kb-notes">
-      <p class="kb-state" data-i18n="rs.loading">Loading projects from our open knowledge base…</p>
+      {% for rp in site.data.research.projects %}{% include research-card.html p=rp %}
+      {% endfor %}
     </div>
   </div>
 </section>

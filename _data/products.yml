@@ -3,6 +3,7 @@
 # status: preorder | next | dev   (label shown on the card; every product's button is "Pre-order")
 # Translations of these texts live in assets/i18n/<language>.json under keys "p.<slug>.<field>".
 # price: leave "" until launch; when filled it shows on the shop and the product page.
+# related_research: a research folder name (see _data/research.json); the product page links to that report.
 - slug: reptile-probiotics
   name: Reptile Probiotics
   status: preorder
@@ -86,6 +87,7 @@
     pmc: ''
 - slug: gutdaily
   name: GutDaily
+  related_research: 2026-09-rabbit-digestion-weather
   status: next
   code: MSRA-02
   taxon: Lagomorpha
@@ -157,6 +159,7 @@
     pmc: ''
 - slug: settle
   name: Settle
+  related_research: 2026-09-rabbit-digestion-weather
   status: dev
   code: MSRA-03
   taxon: Lagomorpha

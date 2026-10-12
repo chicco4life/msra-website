@@ -8,7 +8,7 @@ layout: default
 
     <section class="pd">
       <div class="pd-media">
-        <div class="pd-img"><img src="{{ '/assets/img/' | append: p.image | relative_url }}" alt="{{ p.image_alt }}" width="640" height="640"></div>
+        <div class="pd-img"><img src="{{ '/assets/img/' | append: p.image | relative_url }}" alt="{{ p.image_alt }}" width="640" height="640" fetchpriority="high"></div>
         <span class="pd-code label">{{ p.code }} · {{ p.taxon }}</span>
       </div>
       <div class="pd-info">
@@ -77,6 +77,16 @@ layout: default
           {% endfor %}
         </ul>
       </section>
+
+      {% if p.related_research %}{% assign rr = site.data.research.projects | where: "dir", p.related_research | first %}{% if rr %}
+      <section class="pd-sec" id="related">
+        <div class="pd-h"><span class="label" data-i18n="open.label">Open research</span><h2 data-i18n="pd.related">Related research</h2></div>
+        <div class="pd-text" lang="en">
+          <p><a href="{{ rr.url | relative_url }}"><b>{{ rr.title }}</b></a></p>
+          <p>{{ rr.summary }}</p>
+        </div>
+      </section>
+      {% endif %}{% endif %}
 
       <section class="pd-sec" id="use">
         <div class="pd-h"><span class="label" data-i18n="pd.use_label">Feeding</span><h2 data-i18n="pd.use">How to use it</h2></div>

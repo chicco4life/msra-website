@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{%- comment -%} One research report from MSRA-Open-Research, written into _research/ by tools/sync_research.py. {%- endcomment -%}
+{%- assign proj = site.data.research.projects | where: "dir", page.dir | first -%}
+{%- assign d_pub = page.date | date: '%Y-%m-%d' -%}{%- assign d_mod = page.last_modified_at | default: page.date | date: '%Y-%m-%d' -%}
+<article class="post" id="report">
+  <div class="wrap post-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/research/' | relative_url }}" data-i18n="foot.research">Research</a><span aria-hidden="true">/</span><span>{{ page.label }}</span></nav>
+    <div class="label" data-i18n="kb.project">Research project</div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.summary != '' %}<p class="lead">{{ page.summary }}</p>{% endif %}
+    <div class="post-meta"><span><span data-i18n="kb.published">Published</span> <time datetime="{{ d_pub }}">{{ d_pub }}</time>{% if d_mod != d_pub %} · <span data-i18n="kb.updated">Updated</span> <time datetime="{{ d_mod }}">{{ d_mod }}</time>{% endif %}</span>{% if page.authors != '' %}<span>{{ page.authors }}</span>{% endif %}{% for s in page.species %}<span class="chip">{{ s }}</span>{% endfor %}{% if proj.studies > 0 %}<a class="chip chip-link" href="#sources">{{ proj.studies }} <span data-i18n="kb.studies">studies</span></a>{% endif %}</div>
+    <div class="rp-actions">{% include evidence-btn.html dir=page.dir cls="btn-line btn-sm" %}</div>
+    <p class="lang-note" data-i18n="kb.english_only" data-nonen hidden>This report is published in English.</p>
+    <div class="prose" lang="en">
+{{ content }}
+    </div>
+    <aside class="src-panel" id="sources">
+      <div class="sp-text"><span class="label" data-i18n="kb.src_label">The scientific publications</span>
+        <h2 data-i18n="kb.src_h">Read every study this report used</h2>
+        <p data-i18n="kb.src_p">All the papers behind this report are listed in its sources folder on GitHub, with links to PubMed and to the free full text where one exists.</p>
+        <div class="sp-nums"><span><b>{{ proj.studies }}</b> <span data-i18n="kb.studies">studies</span></span><span><b>{{ proj.free }}</b> <span data-i18n="open.free_full_text">with free full text</span></span></div></div>
+      {% include evidence-btn.html dir=page.dir cls="btn-solid" %}
+    </aside>
+    <p class="post-source"><a href="{{ site.repo_url }}/tree/{{ site.research_branch }}/{{ page.dir }}" target="_blank" rel="noopener" data-i18n="kb.history">View this project and its history on GitHub</a> · <a href="{{ site.repo_url }}/issues/new?title={{ 'Correction: ' | append: page.title | url_encode }}" target="_blank" rel="noopener" data-i18n="kb.correct">Suggest a correction or a source</a></p>
+  </div>
+</article>

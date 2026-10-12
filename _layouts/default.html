@@ -16,7 +16,7 @@
   } catch (e) {}
 })();
 </script>
-{% seo %}
+{% include seo.html %}
 <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,17 +28,19 @@
 <main id="top">
 {{ content }}
 </main>
+{% include schema.html %}
 {% include footer.html %}
 {% include waitlist.html %}
 <script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, v: {{ site.time | date: '%s' | jsonify }},
   i18n: {{ '/assets/i18n/' | relative_url | jsonify }}, shopPage: {{ '/shop/' | relative_url | jsonify }},
   products: { {% for p in site.data.products %}{{ p.slug | jsonify }}: {{ p.name | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %} },
-  kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, projectPage: {{ '/research/project/' | relative_url | jsonify }}, libraryPage: {{ '/research/library/' | relative_url | jsonify }} } };</script>
+  kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, projectPage: {{ '/research/project/' | relative_url | jsonify }}, researchPage: {{ '/research/' | relative_url | jsonify }},
+        synced: {{ site.data.research.projects | map: 'dir' | jsonify }} } };</script>
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
-{% if page.kb %}
+{% if page.kb %}{% unless page.kb == 'lib' %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-{% if page.kb == 'project' %}<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+{% endunless %}{% if page.kb == 'project' %}<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>{% endif %}
 <script src="{{ '/assets/js/kb.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% endif %}

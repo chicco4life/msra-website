@@ -52,6 +52,7 @@
       root.lang = LANGS[lang].html;
       root.setAttribute('data-lang', lang);
       apply(document);
+      document.querySelectorAll('[data-nonen]').forEach(function (el) { el.hidden = lang === 'en'; });
       var c = document.getElementById('lang-cur'); if (c) c.textContent = LANGS[lang].code;
       document.querySelectorAll('#lang-list [data-lang]').forEach(function (b) { b.setAttribute('aria-checked', String(b.dataset.lang === lang)); });
       if (save) { try { localStorage.setItem('msra-lang', lang); } catch (e) {} }

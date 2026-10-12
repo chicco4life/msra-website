@@ -1,7 +1,14 @@
 # MSRA website — built automatically by GitHub Pages on every change.
 title: MSRA — Mystical Species Research Academy
-# Short line shown after the name in browser tabs and search results on the home page.
 tagline: Every species, every condition
+# Search and sharing (see _includes/seo.html and _includes/schema.html).
+# Every other page's browser-tab title is "<page seo_title or title> | <brand>".
+brand: MSRA Lab
+short_name: MSRA
+org_name: Mystical Species Research Academy
+home_title: "MSRA Lab: research-backed supplements for rabbits, reptiles, parrots and cats"
+default_image: /assets/img/tortoise.webp
+logo_wide: /assets/img/wordmark.png
 description: >-
   MSRA is a pet nutrition research lab building dedicated, research-backed products
   for the species and conditions the industry overlooks: reptiles, rabbits and small
@@ -21,8 +28,19 @@ kramdown:
   hard_wrap: false
 
 plugins:
-  - jekyll-seo-tag
   - jekyll-sitemap
+
+# Research reports, copied from the knowledge base by tools/sync_research.py, one page each at /research/<folder>/.
+collections:
+  research:
+    output: true
+    permalink: /research/:name/
+defaults:
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: report
 
 exclude:
   - README.md
