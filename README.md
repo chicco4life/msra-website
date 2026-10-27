@@ -41,6 +41,24 @@ live in `assets/i18n/ja.json`, `nl.json`, `es.json` and `zh.json`, one line per 
 After changing English text, rebuild and run `python3 tools/i18n.py`: it refreshes `assets/i18n/en.json`
 and lists the keys each language is missing. Research reports themselves are published in English.
 
+## Google Analytics 4
+
+The GA4 measurement ID is `G-R7JTFRCH80`, configured as `google_analytics` in `_config.yml`.
+`_includes/analytics.html` loads the Google tag once in the shared `_layouts/default.html` head
+on production builds, including GitHub Pages. Local development previews do not send analytics.
+
+Tracking covers the home page, shop and products, open research hub, library, project fallback,
+and every published research report. Future pages must use `layout: default` or a layout that inherits
+from it. Jekyll blog posts in `_posts/` inherit `default` automatically; any custom blog layout
+must also inherit it. There are currently no blog posts in this repository.
+
+The source files and scientific evidence viewed on github.com are outside this site's tracking;
+the published reports on msralab.com are tracked.
+
+To check a deployment, visit the live site and its research reports, then check this property's
+Realtime report in Google Analytics. Ad blockers or browser privacy settings may prevent collection.
+To preview the production tag locally, use `JEKYLL_ENV=production bundle exec jekyll serve`.
+
 ## Files
 
 | Path | What it is |
@@ -51,6 +69,7 @@ and lists the keys each language is missing. Research reports themselves are pub
 | `_research/`, `_data/research.json` | Reports and sources copied from the knowledge base by `tools/sync_research.py` (do not edit by hand) |
 | `_layouts/report.html` | The research report page |
 | `_includes/seo.html`, `_includes/schema.html` | Browser-tab titles, descriptions, canonical and social tags; structured data |
+| `_includes/analytics.html` | Shared GA4 tag, enabled for production builds |
 | `_data/products.yml` | Everything shown about each product |
 | `_data/shop.yml` | Where the waitlist and contact forms send requests |
 | `assets/i18n/` | Translations: one file per language |

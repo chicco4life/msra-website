@@ -16,6 +16,8 @@ description: >-
 url: "https://msralab.com"
 baseurl: ""
 contact_email: li@msralab.com
+# GA4 measurement ID. The shared layout loads it only in production builds.
+google_analytics: G-R7JTFRCH80
 # The open research knowledge base. Research pages read notes and studies from it live.
 repo_url: https://github.com/chicco4life/MSRA-Open-Research
 research_repo: chicco4life/MSRA-Open-Research
@@ -36,6 +38,11 @@ collections:
     output: true
     permalink: /research/:name/
 defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default
   - scope:
       path: ""
       type: research
