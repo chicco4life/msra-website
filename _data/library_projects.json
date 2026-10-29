@@ -1,0 +1,43 @@
+{
+  "default_project": "feline-urinary",
+  "projects": [
+    {
+      "id": "feline-urinary",
+      "label": "Feline urinary health",
+      "species": "Cats",
+      "core_dir": "2026-08-feline-urinary-health",
+      "core_id": "R00",
+      "article_ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "E09",
+        "V25"
+      ],
+      "utility_ids": [
+        "O00",
+        "S00",
+        "T24"
+      ],
+      "utility_labels": {
+        "O00": "Plain-language overview",
+        "S00": "Sources and publications",
+        "T24": "Vet-visit record"
+      }
+    },
+    {
+      "id": "rabbit-gut",
+      "label": "Rabbit digestion and weather",
+      "species": "Rabbits",
+      "core_dir": "2026-09-rabbit-digestion-weather",
+      "core_id": "",
+      "article_ids": [],
+      "utility_ids": [],
+      "publications_url": "/research/#publications-rabbit-digestion",
+      "core_title": "Rabbit digestion and weather: a research review",
+      "core_summary": "What studies say about hot and cold weather, feeding and gut health—and where the evidence is still limited."
+    }
+  ]
+}

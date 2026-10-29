@@ -1,0 +1,50 @@
+{% assign publication_bibliographies = site.data.research_publications.projects %}
+{% if include.project_dir %}{% assign publication_bibliographies = publication_bibliographies | where: 'project_dir', include.project_dir %}{% endif %}
+{% assign publications_section_id = include.id | default: 'referenced-publications' %}
+{% if publication_bibliographies.size > 0 %}
+<section class="research-publications" id="{{ publications_section_id | escape }}" aria-labelledby="{{ publications_section_id | escape }}-title" lang="en">
+  <div class="research-publications__heading">
+    <div>
+      <p class="label">Follow the sources</p>
+      <h2 id="{{ publications_section_id | escape }}-title">{{ include.title | default: 'Referenced publications' | escape }}</h2>
+      <p>{{ include.description | default: "Browse the bibliographies behind the reports. Reference numbers follow each project's source list. These include reviews and work in other species or laboratory tissues; read the report for what each publication can establish." | escape }}</p>
+    </div>
+    <a href="{{ '/research/library/' | relative_url }}">Browse the full research library →</a>
+  </div>
+  {% for bibliography in publication_bibliographies %}
+    {% assign publication_project = site.data.research.projects | where: 'dir', bibliography.project_dir | first %}
+    <details class="research-publications__project" id="publications-{{ bibliography.id | escape }}"{% if bibliography.open %} open{% endif %}>
+      <summary><span>{{ publication_project.label | default: publication_project.title | escape }}</span><span class="research-publications__count">{{ bibliography.references | size }} publications</span></summary>
+      <div class="research-publications__context">
+        {% unless include.current_report %}<a href="{{ publication_project.url | relative_url }}">Read the report →</a>{% endunless %}
+        <a href="{{ site.repo_url }}/blob/{{ site.research_branch }}/{{ bibliography.source_path | escape }}" target="_blank" rel="noopener">Original numbered bibliography →</a>
+        {% if bibliography.project_dir == '2026-08-feline-urinary-health' %}
+        <a href="{{ '/learn/cats/urinary-health/studies/' | relative_url }}">41-source index with access and evidence limits →</a>
+        <p>{{ site.data.feline_sources.scope_note | escape }}</p>
+        {% endif %}
+      </div>
+      <ol class="research-publications__list" role="list">
+        {% for reference in bibliography.references %}
+          {% assign publication = site.data.research.library | where: 'pmid', reference.pmid | first %}
+          {% if publication %}
+        <li class="research-publications__item" id="cited-{{ bibliography.id | escape }}-{{ reference.ref }}" value="{{ reference.ref }}">
+          <span class="research-publications__number" aria-label="Reference {{ reference.ref }}">{{ reference.ref }}</span>
+          <div class="research-publications__paper">
+            <a class="research-publications__title" href="https://pubmed.ncbi.nlm.nih.gov/{{ publication.pmid | escape }}/" target="_blank" rel="noopener">{{ publication.title | escape }}</a>
+            <p class="research-publications__citation">{{ publication.authors | escape }} · <cite>{{ publication.journal | escape }}</cite>, {{ publication.year | escape }}</p>
+            <p class="research-publications__scope">Population or scope: {{ publication.studied_in | escape }}</p>
+            <div class="research-publications__links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/{{ publication.pmid | escape }}/" target="_blank" rel="noopener">PubMed {{ publication.pmid | escape }}</a>
+              {% if publication.doi and publication.doi != '' %}<a href="https://doi.org/{{ publication.doi | escape }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+              {% if publication.pmc and publication.pmc != '' %}<a href="https://pmc.ncbi.nlm.nih.gov/articles/{{ publication.pmc | escape }}/" target="_blank" rel="noopener">Free full text</a>{% endif %}
+            </div>
+          </div>
+        </li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </details>
+  {% endfor %}
+  <p class="research-publications__note">A full-text link records availability, not a completed appraisal or clinical recommendation.</p>
+</section>
+{% endif %}

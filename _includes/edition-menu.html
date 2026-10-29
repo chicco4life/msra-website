@@ -1,0 +1,26 @@
+{%- assign edition_registry = site.data.localization_registry -%}
+{%- assign edition_identity = edition_registry.by_route[page.url] -%}
+{%- assign edition_resource = edition_registry.resources[edition_identity.translation_key] -%}
+{%- assign edition_current_locale = edition_identity.locale | default: page.locale | default: 'en' -%}
+{%- assign edition_ui = site.data.localized_ui[edition_current_locale] | default: site.data.localized_ui.en -%}
+{%- assign edition_current_language = edition_registry.locales[edition_current_locale] -%}
+{%- assign edition_primary_locales = site.data.edition_menu.primary_locales -%}
+{%- assign edition_more_label = site.data.edition_menu.more_labels[edition_current_locale] | default: site.data.edition_menu.more_labels.en -%}
+{% if edition_resource.variants.size > 1 %}
+<details class="edition-menu" data-language-menu>
+  <summary aria-label="{{ edition_ui.language_switch_label | escape }}: {{ edition_current_language.label | escape }}" title="{{ edition_current_language.label | escape }}"><span lang="{{ edition_current_locale | escape }}">{{ edition_current_language.label | escape }}</span><span aria-hidden="true">⌄</span></summary>
+  <div class="edition-menu__panel">
+    <p>{{ edition_ui.language_switch_label | escape }}</p>
+    <ul data-language-primary>
+      {% for edition_locale in edition_primary_locales %}{% include edition-menu-link.html locale=edition_locale %}{% endfor %}
+    </ul>
+    <details class="edition-menu__more" data-language-more>
+      <summary>{{ edition_more_label | escape }}<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></summary>
+      <ul>
+        {% for edition_pair in edition_resource.variants %}{% assign edition_locale = edition_pair[0] %}{% unless edition_primary_locales contains edition_locale %}{% include edition-menu-link.html locale=edition_locale %}{% endunless %}{% endfor %}
+      </ul>
+    </details>
+    <small>{{ edition_ui.language_switch_note | escape }}</small>
+  </div>
+</details>
+{% endif %}

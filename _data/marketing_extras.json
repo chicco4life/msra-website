@@ -1,0 +1,200 @@
+{
+  "en": {
+    "email": "Your email address",
+    "receive": "Receive research updates",
+    "free": "Free to follow. All research stays free to read.",
+    "preferences": "Choose your topics. Change them or unsubscribe at any time.",
+    "follow": "Follow the research that matters to your animal.",
+    "choose": "Choose one or more research topics to follow.",
+    "privacy": "Email privacy and preferences",
+    "close": "Close",
+    "language_preference": "Language preference"
+  },
+  "de": {
+    "email": "Ihre E-Mail-Adresse",
+    "receive": "Forschungsupdates erhalten",
+    "free": "Kostenlos folgen. Alle Forschungsinhalte bleiben frei zugänglich.",
+    "preferences": "Wählen Sie Ihre Themen. Änderungen und Abmeldung sind jederzeit möglich.",
+    "follow": "Folgen Sie der Forschung, die für Ihr Tier wichtig ist.",
+    "choose": "Wählen Sie ein oder mehrere Forschungsthemen.",
+    "privacy": "E-Mail-Datenschutz und Einstellungen",
+    "close": "Schließen",
+    "language_preference": "Spracheinstellung"
+  },
+  "fr": {
+    "email": "Votre adresse e-mail",
+    "receive": "Recevoir les actualités de recherche",
+    "free": "Suivi gratuit. Toutes nos recherches restent en accès libre.",
+    "preferences": "Choisissez vos sujets. Modifiez-les ou désabonnez-vous à tout moment.",
+    "follow": "Suivez les recherches qui concernent votre animal.",
+    "choose": "Choisissez un ou plusieurs sujets de recherche.",
+    "privacy": "Confidentialité et préférences e-mail",
+    "close": "Fermer",
+    "language_preference": "Préférence linguistique"
+  },
+  "it": {
+    "email": "Il tuo indirizzo email",
+    "receive": "Ricevi aggiornamenti sulla ricerca",
+    "free": "Seguire è gratuito. Tutte le ricerche restano liberamente accessibili.",
+    "preferences": "Scegli gli argomenti. Puoi modificarli o annullare l’iscrizione in qualsiasi momento.",
+    "follow": "Segui la ricerca che conta per il tuo animale.",
+    "choose": "Scegli uno o più argomenti di ricerca.",
+    "privacy": "Privacy e preferenze email",
+    "close": "Chiudi",
+    "language_preference": "Preferenza linguistica"
+  },
+  "es": {
+    "email": "Tu dirección de correo electrónico",
+    "receive": "Recibir novedades de investigación",
+    "free": "Seguir es gratis. Toda la investigación seguirá siendo de acceso libre.",
+    "preferences": "Elige tus temas. Puedes cambiarlos o darte de baja en cualquier momento.",
+    "follow": "Sigue la investigación que importa para tu animal.",
+    "choose": "Elige uno o varios temas de investigación.",
+    "privacy": "Privacidad y preferencias de correo",
+    "close": "Cerrar",
+    "language_preference": "Preferencia de idioma"
+  },
+  "nl": {
+    "email": "Je e-mailadres",
+    "receive": "Ontvang onderzoeksupdates",
+    "free": "Gratis volgen. Al ons onderzoek blijft vrij toegankelijk.",
+    "preferences": "Kies je onderwerpen. Je kunt ze altijd wijzigen of je afmelden.",
+    "follow": "Volg het onderzoek dat belangrijk is voor je dier.",
+    "choose": "Kies een of meer onderzoeksonderwerpen.",
+    "privacy": "E-mailprivacy en voorkeuren",
+    "close": "Sluiten",
+    "language_preference": "Taalvoorkeur"
+  },
+  "pl": {
+    "email": "Twój adres e-mail",
+    "receive": "Otrzymuj aktualności badawcze",
+    "free": "Obserwowanie jest bezpłatne. Wszystkie badania pozostają ogólnodostępne.",
+    "preferences": "Wybierz tematy. Możesz je zmienić lub zrezygnować w każdej chwili.",
+    "follow": "Śledź badania ważne dla Twojego zwierzęcia.",
+    "choose": "Wybierz co najmniej jeden temat badań.",
+    "privacy": "Prywatność i ustawienia wiadomości e-mail",
+    "close": "Zamknij",
+    "language_preference": "Preferowany język"
+  },
+  "sv": {
+    "email": "Din e-postadress",
+    "receive": "Få forskningsuppdateringar",
+    "free": "Gratis att följa. All forskning förblir fritt tillgänglig.",
+    "preferences": "Välj dina ämnen. Du kan ändra dem eller avsluta prenumerationen när som helst.",
+    "follow": "Följ forskningen som är viktig för ditt djur.",
+    "choose": "Välj ett eller flera forskningsämnen.",
+    "privacy": "Integritet och e-postinställningar",
+    "close": "Stäng",
+    "language_preference": "Språkinställning"
+  },
+  "da": {
+    "email": "Din e-mailadresse",
+    "receive": "Modtag forskningsopdateringer",
+    "free": "Gratis at følge. Al forskning forbliver frit tilgængelig.",
+    "preferences": "Vælg dine emner. Du kan ændre dem eller afmelde dig når som helst.",
+    "follow": "Følg den forskning, der betyder noget for dit dyr.",
+    "choose": "Vælg et eller flere forskningsemner.",
+    "privacy": "Privatliv og e-mailindstillinger",
+    "close": "Luk",
+    "language_preference": "Sprogindstilling"
+  },
+  "nb": {
+    "email": "E-postadressen din",
+    "receive": "Motta forskningsoppdateringer",
+    "free": "Gratis å følge. All forskning forblir fritt tilgjengelig.",
+    "preferences": "Velg emner. Du kan endre dem eller melde deg av når som helst.",
+    "follow": "Følg forskningen som er viktig for dyret ditt.",
+    "choose": "Velg ett eller flere forskningstemaer.",
+    "privacy": "Personvern og e-postinnstillinger",
+    "close": "Lukk",
+    "language_preference": "Språkinnstilling"
+  },
+  "fi": {
+    "email": "Sähköpostiosoitteesi",
+    "receive": "Tilaa tutkimusuutiset",
+    "free": "Seuraaminen on maksutonta. Kaikki tutkimus pysyy vapaasti luettavana.",
+    "preferences": "Valitse aiheesi. Voit muuttaa niitä tai perua tilauksen milloin tahansa.",
+    "follow": "Seuraa eläimellesi tärkeää tutkimusta.",
+    "choose": "Valitse yksi tai useampi tutkimusaihe.",
+    "privacy": "Sähköpostin tietosuoja ja asetukset",
+    "close": "Sulje",
+    "language_preference": "Kieliasetus"
+  },
+  "ja": {
+    "email": "メールアドレス",
+    "receive": "研究の更新情報を受け取る",
+    "free": "登録は無料です。研究内容は引き続き無料でお読みいただけます。",
+    "preferences": "関心のあるテーマを選択してください。いつでも変更・配信停止できます。",
+    "follow": "大切な動物に関わる研究をフォローする。",
+    "choose": "フォローする研究テーマを1つ以上選択してください。",
+    "privacy": "メールのプライバシーと配信設定",
+    "close": "閉じる",
+    "language_preference": "言語設定"
+  },
+  "pt-BR": {
+    "email": "Seu endereço de e-mail",
+    "receive": "Receber atualizações de pesquisa",
+    "free": "Acompanhar é grátis. Todas as pesquisas continuam com acesso livre.",
+    "preferences": "Escolha seus temas. Você pode alterá-los ou cancelar a inscrição a qualquer momento.",
+    "follow": "Acompanhe as pesquisas importantes para seu animal.",
+    "choose": "Escolha um ou mais temas de pesquisa.",
+    "privacy": "Privacidade e preferências de e-mail",
+    "close": "Fechar",
+    "language_preference": "Preferência de idioma"
+  },
+  "pt-PT": {
+    "email": "O seu endereço de e-mail",
+    "receive": "Receber novidades da investigação",
+    "free": "Acompanhar é gratuito. Toda a investigação continua em acesso livre.",
+    "preferences": "Escolha os seus temas. Pode alterá-los ou cancelar a subscrição a qualquer momento.",
+    "follow": "Acompanhe a investigação importante para o seu animal.",
+    "choose": "Escolha um ou mais temas de investigação.",
+    "privacy": "Privacidade e preferências de e-mail",
+    "close": "Fechar",
+    "language_preference": "Preferência de idioma"
+  },
+  "ko": {
+    "email": "이메일 주소",
+    "receive": "연구 소식 받기",
+    "free": "무료로 팔로우하세요. 모든 연구 자료는 계속 무료로 공개됩니다.",
+    "preferences": "관심 주제를 선택하세요. 언제든지 변경하거나 구독을 취소할 수 있습니다.",
+    "follow": "반려동물에게 중요한 연구를 팔로우하세요.",
+    "choose": "관심 있는 연구 주제를 하나 이상 선택하세요.",
+    "privacy": "이메일 개인정보 및 수신 설정",
+    "close": "닫기",
+    "language_preference": "언어 설정"
+  },
+  "zh-Hans": {
+    "email": "你的电子邮箱",
+    "receive": "接收研究更新",
+    "free": "免费关注，所有研究内容始终免费阅读。",
+    "preferences": "选择你关注的主题，随时可以修改或退订。",
+    "follow": "关注与你的动物有关的研究。",
+    "choose": "请选择一个或多个研究主题。",
+    "privacy": "邮件隐私与偏好设置",
+    "close": "关闭",
+    "language_preference": "语言偏好"
+  },
+  "ru": {
+    "email": "Ваш адрес электронной почты",
+    "receive": "Получать новости исследований",
+    "free": "Подписка бесплатна. Все исследования остаются в открытом доступе.",
+    "preferences": "Выберите темы. Их можно изменить или отменить подписку в любой момент.",
+    "follow": "Следите за исследованиями, важными для вашего животного.",
+    "choose": "Выберите одну или несколько тем исследований.",
+    "privacy": "Конфиденциальность и настройки рассылки",
+    "close": "Закрыть",
+    "language_preference": "Языковые настройки"
+  },
+  "hi": {
+    "email": "आपका ईमेल पता",
+    "receive": "शोध की नई जानकारी पाएँ",
+    "free": "जुड़ना निःशुल्क है। सभी शोध सामग्री पढ़ने के लिए निःशुल्क रहेगी।",
+    "preferences": "अपने विषय चुनें। आप कभी भी विषय बदल सकते हैं या सदस्यता समाप्त कर सकते हैं।",
+    "follow": "अपने पशु से जुड़े महत्वपूर्ण शोध का अनुसरण करें।",
+    "choose": "शोध के एक या अधिक विषय चुनें।",
+    "privacy": "ईमेल गोपनीयता और प्राथमिकताएँ",
+    "close": "बंद करें",
+    "language_preference": "भाषा की प्राथमिकता"
+  }
+}

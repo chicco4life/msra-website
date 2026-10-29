@@ -1,0 +1,5 @@
+{%- assign edition_link = edition_resource.variants[include.locale] -%}
+{%- assign edition_link_language = edition_registry.locales[include.locale] -%}
+{%- if edition_link -%}
+<li><a href="{{ edition_link.url | relative_url }}" lang="{{ include.locale | escape }}" hreflang="{{ include.locale | escape }}" data-language-choice="{{ include.locale | escape }}" data-equivalent-key="{{ edition_identity.translation_key | escape }}"{% if include.locale == edition_current_locale %} aria-current="page"{% endif %}>{{ edition_link_language.label | escape }}</a></li>
+{%- endif -%}

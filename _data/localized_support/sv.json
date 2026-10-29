@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Pågående projekt",
+  "choose_project": "Välj ett forskningsämne",
+  "feline_topic": "Kattens urinvägshälsa",
+  "rabbit_topic": "Kaninens matsmältning och väder",
+  "pinned_review": "Fäst · Huvudöversikt",
+  "articles_guides": "Artiklar och guider",
+  "article": "Artikel",
+  "format": "Format",
+  "draft": "Utkast",
+  "no_articles": "Inga separata artiklar ännu. Börja med huvudöversikten ovan; nya artiklar visas här.",
+  "read_review": "Läs huvudöversikten",
+  "overview": "Kort översikt för ägare",
+  "sources": "Källor och publikationer",
+  "record": "Underlag för veterinärbesök",
+  "publications": "Refererade publikationer",
+  "original_bibliography": "Ursprunglig numrerad bibliografi",
+  "publication_count": "publikationer",
+  "full_text": "Fri fulltext",
+  "sources_intro": "Referensnumren följer varje projekts källista. Den omfattar översikter och arbeten på andra arter eller laboratorievävnad; läs rapporten för vad varje publikation kan fastställa.",
+  "sources_note": "En fulltextlänk anger tillgänglighet, inte en slutförd granskning eller klinisk rekommendation. Publikationstitlar, författare och identifierare behåller sitt ursprungliga språk."
+}

@@ -1,0 +1,10 @@
+{%- assign local_nav_ui = site.data.localized_ui[page.locale] -%}
+{%- assign local_nav_source = site.data.localization_registry.resources[include.key] -%}
+{%- if local_nav_source -%}
+  {%- assign local_nav_variant = local_nav_source.variants[page.locale] -%}
+  {%- if local_nav_variant -%}
+<a href="{{ local_nav_variant.url | relative_url }}" data-localized-destination="{{ include.key | escape }}">{{ include.label | escape }}</a>
+  {%- else -%}
+<a href="{{ local_nav_source.source_route | relative_url }}" hreflang="en" data-language-fallback="en">{{ include.label | escape }} <span class="localized-language-label">({{ local_nav_ui.english_suffix | escape }})</span></a>
+  {%- endif -%}
+{%- endif -%}

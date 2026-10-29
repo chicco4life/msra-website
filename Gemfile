@@ -1,4 +1,4 @@
-# Only needed to preview the site on your own computer. GitHub Pages ignores this file.
+# Jekyll dependencies for local previews and the checked GitHub Actions Pages build.
 source "https://rubygems.org"
 gem "jekyll", "~> 3.10"
 gem "kramdown-parser-gfm"

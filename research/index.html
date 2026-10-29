@@ -4,13 +4,17 @@ title: Research
 seo_title: "Open pet health research: what the evidence supports"
 description: "Evidence-graded reports on pet health and nutrition for cats, rabbits, reptiles and parrots. Each states what the studies support, what they do not, and links every source."
 kb: list
+research_publications: true
 ---
 <section class="page-head">
   <div class="wrap">
     <div class="label" data-i18n="open.label">Open research</div>
     <h1 data-i18n="rs.h1">Research projects</h1>
     <p class="lead" data-i18n="rs.lead">Each project is a research report plus every source it used, with a clear account of where the evidence comes from and where it stops. Everything lives in the MSRA Open Research knowledge base.</p>
+    {% include subscription-bar.html topic='new-research' source='research-hero' %}
+    <p class="research-updates-hero-note">Choose launch notices across species or updates on a specific research topic.</p>
     <p class="more">
+      <a href="{{ '/learn/' | relative_url }}">Start with the owner guides →</a>
       <a href="{{ '/research/library/' | relative_url }}" data-i18n="rs.library_link">Research library →</a>
       <a href="{{ site.repo_url }}" target="_blank" rel="noopener" data-i18n="rs.github_link">Open knowledge base on GitHub →</a>
       <a href="{{ site.repo_url }}/commits/{{ site.research_branch }}.atom" target="_blank" rel="noopener" data-i18n="rs.rss">Follow updates by RSS</a>
@@ -23,5 +27,7 @@ kb: list
       {% for rp in site.data.research.projects %}{% include research-card.html p=rp %}
       {% endfor %}
     </div>
+    {% include research-publications.html %}
+    {% include research-updates-cta.html topic='new-research' source='research-index-end' title='Hear about the next research release.' description='Choose notices about newly published research or follow the existing feline urinary and rabbit digestive topics. Review your choices before subscribing.' %}
   </div>
 </section>

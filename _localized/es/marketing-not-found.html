@@ -1,0 +1,82 @@
+---
+{
+  "layout": "localized-marketing",
+  "locale": "es",
+  "translation_key": "page:not-found",
+  "locale_key": "page:not-found::es",
+  "permalink": "/es/404.html",
+  "source_fragment_ids": [
+    "top",
+    "waitlist",
+    "wl-close",
+    "wl-country",
+    "wl-done",
+    "wl-done-close",
+    "wl-done-product",
+    "wl-email",
+    "wl-form",
+    "wl-news",
+    "wl-product",
+    "wl-send",
+    "wl-status",
+    "wl-title"
+  ],
+  "source_content_id": null,
+  "source_route": "/404.html",
+  "source_file": "404.html",
+  "source_sha256": "97bce66c5a757c5297cf5ead15a2431adfa4510504d2c9447801022cd8bea708",
+  "source_prepared_date": null,
+  "source_refs": [],
+  "title": "No encontramos esa página.",
+  "display_title": "No encontramos esa página.",
+  "seo_title": "No encontramos esa página.",
+  "description": "No encontramos esa página.",
+  "summary": "No encontramos esa página.",
+  "image": null,
+  "content_label": "Mystical Species Research Academy",
+  "translation_status": "ai-draft",
+  "native_review_status": "pending",
+  "clinical_review_status": "not-applicable",
+  "publication_state": "editorial-draft",
+  "release_approved": false,
+  "robots": "noindex",
+  "sitemap": false,
+  "marketing_product": null,
+  "dictionary_sha256": "4d4aa5a4d5805bb0923c3394904523c0674f12ca8f014fbe86a0c7ee2992248f",
+  "generator_input_sha256": "b54b9c100daa58aef451f1fc480149dd685ef86cf9df8f623e0c251e26ae10be"
+}
+---
+
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="label">404</div>
+    <h1 data-i18n="nf.h1">No encontramos esa página.</h1>
+    <p class="more"><a href="/es/" data-i18n="nf.home" hreflang="es">Volver a la página de inicio →</a> <a href="/es/shop/" data-i18n="nf.shop" hreflang="es">Ir a la tienda →</a></p>
+  </div>
+</section>
+
+<dialog class="wl" id="waitlist" aria-labelledby="wl-title">
+  <button type="button" class="wl-x" id="wl-close" aria-label="Cerrar" data-i18n-attr="aria-label:wl.close">
+    <svg width="16" height="16" viewbox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.6"></path></svg>
+  </button>
+  <form class="wl-form" id="wl-form" novalidate>
+    <div class="label" data-i18n="wl.label">Preventa</div>
+    <h2 id="wl-title"><span data-i18n="wl.title">Únete a la lista de espera de</span> <span class="wl-name" id="wl-product"></span></h2>
+    <p class="wl-lead" data-i18n="wl.lead">Sin pagar nada ahora. Déjanos tu correo y te escribiremos una sola vez, cuando esté listo para enviarse, con el precio y un enlace para hacer el pedido.</p>
+    <label class="fld"><span class="label" data-i18n="wl.email">Correo electrónico</span>
+      <input type="email" id="wl-email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
+    <label class="fld"><span class="label" data-i18n="wl.country">País (opcional)</span>
+      <input type="text" id="wl-country" name="country" autocomplete="country-name"></label>
+    <label class="chk"><input type="checkbox" id="wl-news" name="news"><span data-i18n="wl.news">Avisarme también cuando lancen otros productos de MSRA</span></label>
+    <button type="submit" class="btn btn-solid wl-go" id="wl-send" data-i18n="wl.send">Unirme a la lista de espera</button>
+    <p class="wl-fine" data-i18n="wl.fine">Solo usamos tu correo para informarte sobre este producto.</p>
+    <p class="wl-status" id="wl-status" role="status" aria-live="polite"></p>
+  </form>
+  <div class="wl-done" id="wl-done" hidden>
+    <svg width="40" height="40" viewbox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 20.5l5.5 5.5L28.5 14" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+    <h2 data-i18n="wl.done_title">Ya estás en la lista.</h2>
+    <p><span data-i18n="wl.done_text">Te escribiremos una sola vez, cuando este producto esté listo para enviarse:</span> <b class="wl-name" id="wl-done-product"></b></p>
+    <button type="button" class="btn btn-line" id="wl-done-close" data-i18n="wl.done_close">Volver a la tienda</button>
+  </div>
+</dialog>

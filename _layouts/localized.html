@@ -1,0 +1,51 @@
+{%- assign localization_registry = site.data.localization_registry -%}
+{%- assign localized_ui = site.data.localized_ui[page.locale] -%}
+{%- assign localized_source = localization_registry.resources[page.translation_key] -%}
+{%- assign localized_locale = localization_registry.locales[page.locale] -%}
+{%- assign localized_canonical = page.url | absolute_url -%}
+<!DOCTYPE html>
+<html data-content-locale="{{ page.locale | escape }}" lang="{{ page.locale | escape }}" dir="{{ localized_ui.direction | escape }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include analytics.html %}
+{% include localized-seo.html %}
+<link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/localized.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/subscriptions.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/navigation.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body class="localized-page" data-locale="{{ page.locale | escape }}" data-translation-key="{{ page.translation_key | escape }}">
+<a class="localized-skip" href="#localized-content">{{ localized_ui.skip_to_content | escape }}</a>
+{% include localized-header.html %}
+<span id="top"></span>
+<main id="localized-content" class="localized-wrap">
+  <aside class="localized-draft" aria-label="{{ localized_ui.preview_badge | escape }}"><strong>{{ localized_ui.preview_badge | escape }}</strong><p>{{ localized_ui.ai_draft_notice | escape }}</p>{% if localized_source.scope == 'full-resource' %}<p>{{ localized_ui.review_notice | escape }}</p>{% endif %}</aside>
+
+  <article class="localized-article"{% if localized_source.kind == 'report' %} id="report"{% endif %}>
+    <header class="localized-article__header">
+      <p class="localized-label">{{ page.content_label | escape }}</p>
+      <h1>{{ page.display_title | default: page.title | escape }}</h1>
+      <p class="localized-meta">MSRA Research{% if page.reading_time %} · {{ page.reading_time }} {{ localized_ui.reading_minutes | escape }}{% endif %}{% if page.source_prepared_date %} · {{ localized_ui.prepared | escape }} <time datetime="{{ page.source_prepared_date | escape }}">{{ page.source_prepared_date | escape }}</time>{% endif %}</p>
+    </header>
+    {% if page.translation_key == 'S00' %}<div class="localized-source-filter" data-localized-source-filter hidden><label for="localized-source-query">{{ localized_ui.source_search_label | escape }}</label><input id="localized-source-query" type="search" data-localized-source-query placeholder="{{ localized_ui.source_search_placeholder | escape }}" autocomplete="off"><p role="status" aria-live="polite" data-localized-source-status>{{ localized_ui.source_search_all | escape }}</p></div>{% endif %}
+    <div class="localized-prose" lang="{{ page.locale | escape }}" data-localized-body data-public-copy-id="{{ page.translation_key | escape }}"{% if localized_source.urgent %} data-urgent-paragraph="{{ localized_source.urgent_paragraph }}"{% endif %}>{% include localized-body.html content=content %}</div>
+    {% if page.translation_key == 'T24' %}<div class="localized-record-actions"><button type="button" data-localized-print>{{ localized_ui.print_record | escape }}</button><button type="button" data-localized-copy>{{ localized_ui.copy_record | escape }}</button><p role="status" aria-live="polite" data-localized-copy-status>{{ localized_ui.copy_idle | escape }}</p></div>{% endif %}
+  </article>
+  {% if localized_source.kind == 'report' %}<span id="sources"></span>{% endif %}
+  {% if page.translation_key == 'H00' %}<span id="study-analysis"></span><span id="maine-coon-context"></span>{% endif %}
+  {% if localized_source.topic %}<aside class="localized-reading" aria-labelledby="localized-reading-heading">
+    <h2 id="localized-reading-heading">{{ localized_ui.in_collection | escape }}</h2>
+    <ul>{% for related_pair in localization_registry.resources %}{% assign related_source = related_pair[1] %}{% if related_source.scope == 'full-resource' and related_source.topic == localized_source.topic and related_source.translation_key != page.translation_key %}{% assign related_variant = related_source.variants[page.locale] %}<li>{% if related_variant %}<a href="{{ related_variant.url | relative_url }}" data-localized-destination="{{ related_source.translation_key | escape }}">{{ related_variant.display_title | default: related_variant.title | escape }}</a>{% else %}<a href="{{ related_source.source_route | relative_url }}" hreflang="en" data-language-fallback="en">{{ related_source.variants.en.display_title | escape }} <span class="localized-language-label">({{ localized_ui.english_suffix | escape }})</span></a>{% endif %}</li>{% endif %}{% endfor %}</ul>
+  </aside>{% endif %}
+  {% include localized-subscription.html %}
+</main>
+<footer class="localized-footer"><div class="localized-wrap"><p>{{ localized_ui.footer_note | escape }}</p><p>{% include localized-nav-link.html key='page:learn-about' label=localized_ui.about %} · <a href="{{ localized_source.source_route | relative_url }}" hreflang="en" data-source-edition>{{ localized_ui.source_link | escape }}</a> · <a href="#localized-content">{{ localized_ui.back_to_top | escape }}</a></p><p>© {{ 'now' | date: '%Y' }} MSRA Lab</p></div></footer>
+
+<script id="localized-ui-data" type="application/json">{{ localized_ui | jsonify | replace: '</', '<\/' }}</script>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/localized.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/subscriptions.js' | relative_url }}"></script>
+{% include language-routing.html %}
+</body>
+</html>

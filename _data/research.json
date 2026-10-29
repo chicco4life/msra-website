@@ -1,1727 +1,1787 @@
 {
- "source": "https://github.com/chicco4life/MSRA-Open-Research",
- "projects": [
-  {
-   "dir": "2026-09-rabbit-digestion-weather",
-   "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-   "label": "Rabbit digestion and weather",
-   "date": "2026-09-10",
-   "updated": "2026-09-10",
-   "summary": "Heat is the best-studied weather threat to rabbit digestion. Betaine has more rabbit trials than any other heat additive, with gut-marker benefits but mixed growth results. Common electrolyte doses have no trials behind them, and cold-weather evidence is thin.",
-   "authors": "MSRA Research",
-   "species": [
-    "Rabbits"
-   ],
-   "url": "/research/2026-09-rabbit-digestion-weather/",
-   "studies": 40,
-   "free": 28
-  },
-  {
-   "dir": "2026-08-feline-urinary-health",
-   "title": "Preventing urinary blockages in cats: what the evidence supports",
-   "label": "Feline urinary health",
-   "date": "2026-08-20",
-   "updated": "2026-08-20",
-   "summary": "Feeding wet food is the best-supported way to keep a cat's urine dilute, and diet can dissolve struvite stones. After a blockage, most drugs tested, including the widely prescribed prazosin, have not reduced re-blocking in controlled trials.",
-   "authors": "MSRA Research",
-   "species": [
-    "Cats"
-   ],
-   "url": "/research/2026-08-feline-urinary-health/",
-   "studies": 40,
-   "free": 21
+  "source": "https://github.com/chicco4life/MSRA-Open-Research",
+  "projects": [
+    {
+      "dir": "2026-09-rabbit-digestion-weather",
+      "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+      "label": "Rabbit digestion and weather",
+      "date": "2026-09-10",
+      "updated": "2026-09-10",
+      "summary": "Heat is the best-studied weather threat to rabbit digestion. Betaine has more rabbit trials than any other heat additive, with gut-marker benefits but mixed growth results. Common electrolyte doses have no trials behind them, and cold-weather evidence is thin.",
+      "authors": "MSRA Research",
+      "species": [
+        "Rabbits"
+      ],
+      "url": "/research/2026-09-rabbit-digestion-weather/",
+      "studies": 40,
+      "free": 28,
+      "card_title": "Rabbit digestion and weather: a research review",
+      "card_excerpt": "What studies say about hot and cold weather, feeding and gut health—and where the evidence is still limited."
+    },
+    {
+      "dir": "2026-08-feline-urinary-health",
+      "title": "Feline urinary health: an evidence review of food, water and repeat blockage",
+      "label": "Feline urinary health",
+      "date": "2026-08-20",
+      "updated": null,
+      "summary": "Inspect the food, water and repeat-blockage evidence, with corrected denominators, endpoint distinctions and methods limits.",
+      "authors": "MSRA Research",
+      "species": [
+        "Cats"
+      ],
+      "url": "/research/2026-08-feline-urinary-health/",
+      "studies": 41,
+      "free": 22,
+      "content_id": "R00",
+      "seo_title": "Feline urinary health: food, water and recurrence evidence",
+      "description": "A bounded review of published feline urinary research: food, water, repeat blockage, study populations, source access and the limits of the synthesis.",
+      "card_title": "Cat urinary health: treatment and prevention research",
+      "card_excerpt": "A review of research on food, water, medicines and repeat urinary problems—with the limits explained.",
+      "original_publication_date": "2026-08-20",
+      "legacy_local_updated_date": "2026-10-29",
+      "datePublished": null,
+      "dateModified": null,
+      "prepared_date": "2026-10-29",
+      "publication_dates_pending": true,
+      "publication_state": "editorial-draft",
+      "release_approved": false,
+      "editorial": true,
+      "robots": "noindex",
+      "sitemap": false,
+      "frontend_edited": true,
+      "clinical_review_status": "not-independently-reviewed",
+      "evidence_review_status": "independently-editorially-proofread-clinical-review-pending",
+      "packet_version": "2.0",
+      "source_refs": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        11,
+        16,
+        25,
+        26,
+        31,
+        32,
+        33,
+        36,
+        39,
+        40
+      ]
+    }
+  ],
+  "library": [
+    {
+      "title": "Increasing Dietary Potassium Enhances Urine Production and Reduces Risk of Calcium Oxalate Stone Formation in Senior Cats",
+      "authors": "Hall JA, Yu S, Toillion AR, et al.",
+      "journal": "Animals",
+      "year": "2026",
+      "pmid": "42278121",
+      "doi": "10.3390/ani16111689",
+      "pmc": "PMC13255985",
+      "studied_in": "Healthy senior cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary potassium",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Lorazepam reduces recurrence of urethral obstruction in male cats: a prospective, randomized, double-blinded, placebo-controlled study",
+      "authors": "Splittstoesser A, Kerley J, Lulich J, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2026",
+      "pmid": "42091068",
+      "doi": "10.2460/javma.26.01.0045",
+      "pmc": "",
+      "studied_in": "Cats with urethral obstruction (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Diet format, protein, amino acids, salt, and osmolytes, as well as water viscosity, affect water consumption in domestic cats: a scoping review of 32 publications (published from 1975 to 2025) on water intake, hydration status, and related health outcomes",
+      "authors": "Kosmal PAL, Shoveller AK, Gillies G, et al.",
+      "journal": "Journal of Animal Science",
+      "year": "2026",
+      "pmid": "41389339",
+      "doi": "10.1093/jas/skaf434",
+      "pmc": "PMC12893781",
+      "studied_in": "Review (scoping review of 32 cat studies)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Water intake",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "A placebo-controlled study of an herbal compound used for management of lower urinary tract disease in healthy cats",
+      "authors": "Martin CE, Bartges JW, English CF, et al.",
+      "journal": "Frontiers in Veterinary Science",
+      "year": "2026",
+      "pmid": "42524264",
+      "doi": "10.3389/fvets.2026.1877164",
+      "pmc": "PMC13410768",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Supplements",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Essential Oil Blend and Ascorbic Acid Supplementation Improves Performance, Semen Characteristics, Redox Balance, and Intestinal Integrity in Heat-Stressed Male Rabbits",
+      "authors": "Alqhtani HA, Alqahtani HA, Elbaz AM, et al.",
+      "journal": "Veterinary Sciences",
+      "year": "2026",
+      "pmid": "42188923",
+      "doi": "10.3390/vetsci13050453",
+      "pmc": "PMC13211758",
+      "studied_in": "Adult bucks (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: vitamin C",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "An integrated in vitro antioxidant/in vivo metabolomics approach unravels the synergistic effects between oregano essential oil and vitamin C as a nutritional strategy for alleviating heat stress in rabbits",
+      "authors": "Sayedahmed MM, Safwat AM, Madkour M, et al.",
+      "journal": "Journal of Animal Science",
+      "year": "2026",
+      "pmid": "41837378",
+      "doi": "10.1093/jas/skag083",
+      "pmc": "PMC13061118",
+      "studied_in": "Adult male rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: vitamin C in water",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Comparing different water supplementation in cyclic heat stressed broilers. The effect of selected antioxidant mixtures, betaine, functional amino acids and electrolyzed reduced water",
+      "authors": "De Baets R, Van Nerom S, Buyse K, et al.",
+      "journal": "Poultry Science",
+      "year": "2026",
+      "pmid": "41447761",
+      "doi": "10.1016/j.psj.2025.106322",
+      "pmc": "PMC12800357",
+      "studied_in": "Broilers",
+      "tags": [
+        "Rabbits",
+        "Other"
+      ],
+      "topic": "Heat stress: drinking-water additives",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Use of Cool Drinking Water as a Strategy Under High-Ambient-Temperature Conditions in New Zealand Rabbits: Growth Performance, Carcass Traits and Physiological Responses",
+      "authors": "Molina-Gámez G, Robles-Estrada JC, Sánchez-Pérez JN, et al.",
+      "journal": "Veterinary Sciences",
+      "year": "2026",
+      "pmid": "41893679",
+      "doi": "10.3390/vetsci13030262",
+      "pmc": "PMC13030121",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: cool drinking water",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Synbiotics are Better Than Probiotics and Prebiotics for Use as Nutrition in Growing Rabbits",
+      "authors": "Alrajab K, Ghoorchi T, Toghdory A, et al.",
+      "journal": "Veterinary Medicine and Science",
+      "year": "2026",
+      "pmid": "42132366",
+      "doi": "10.1002/vms3.70977",
+      "pmc": "PMC13173768",
+      "studied_in": "Weaned rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Live yeast and prebiotic",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Understanding the current evidence base for the commonly recommended management strategies for recurrent feline idiopathic cystitis: a systematic review",
+      "authors": "Macleod B, Laven LJ, Laven RA, et al.",
+      "journal": "New Zealand Veterinary Journal",
+      "year": "2025",
+      "pmid": "40147044",
+      "doi": "10.1080/00480169.2025.2477542",
+      "pmc": "",
+      "studied_in": "Review (systematic review)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Idiopathic cystitis management",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "2025 iCatCare consensus guidelines on the diagnosis and management of lower urinary tract diseases in cats",
+      "authors": "Taylor S, Boysen S, Buffington T, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2025",
+      "pmid": "39935081",
+      "doi": "10.1177/1098612X241309176",
+      "pmc": "PMC11816079",
+      "studied_in": "Clinical consensus guideline (cats)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "LUT disease guideline and antimicrobial context",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Impact of Salix mucronata bark and betaine as natural alleviators on semen quality, serum biochemistry, and oxidative capacity in heat-stressed rabbit bucks",
+      "authors": "Farag MFM, Daader AH, El-Darawany AA, et al.",
+      "journal": "Tropical Animal Health and Production",
+      "year": "2025",
+      "pmid": "41441908",
+      "doi": "10.1007/s11250-025-04781-1",
+      "pmc": "PMC12738609",
+      "studied_in": "Adult bucks (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: betaine",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Enhancing growing rabbit heat stress resilience through dietary supplementation with natural antioxidants",
+      "authors": "El-Ratel IT, Mekawy A, Hassab SHM, et al.",
+      "journal": "BMC Veterinary Research",
+      "year": "2025",
+      "pmid": "39827123",
+      "doi": "10.1186/s12917-024-04466-1",
+      "pmc": "PMC11748597",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: vitamin C",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of rabbit gastrointestinal stasis (RGIS) on the fecal microbiota of pet rabbits (Oryctolagus cuniculus)",
+      "authors": "Rahic-Seggerman FM, Iske C, Graham J, et al.",
+      "journal": "PLoS One",
+      "year": "2025",
+      "pmid": "39999072",
+      "doi": "10.1371/journal.pone.0318810",
+      "pmc": "PMC11856277",
+      "studied_in": "Pet rabbits",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Gut stasis: microbiota",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Verification of the Utility of the Standardized Melissa officinalis Extract to Control Gut Contractility in Sheep-Ex Vivo Study",
+      "authors": "Posłuszny MA, Chłopecka-Słomińska M, Cherer SS, et al.",
+      "journal": "Animals",
+      "year": "2025",
+      "pmid": "40075909",
+      "doi": "10.3390/ani15050626",
+      "pmc": "PMC11898118",
+      "studied_in": "Sheep gut tissue",
+      "tags": [
+        "Rabbits",
+        "Other"
+      ],
+      "topic": "Herbs: lemon balm and gut motility",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "The 4 prokinetic drugs metoclopramide, cisapride, pyridostigmine, and capromorelin do not increase fecal output or food intake in healthy New Zealand rabbits (Oryctolagus cuniculus)",
+      "authors": "Di Girolamo N, Maranville RE, Pathak D, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2025",
+      "pmid": "40179972",
+      "doi": "10.2460/javma.25.01.0040",
+      "pmc": "",
+      "studied_in": "Healthy laboratory rabbits",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Gut stasis: prokinetic drugs",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Starch to protein ratio and food moisture content influence water balance and urine supersaturation in cats",
+      "authors": "Gonçalves Tozato ME, de Souza Theodoro S, Warde Luis L, et al.",
+      "journal": "PLoS One",
+      "year": "2024",
+      "pmid": "39693372",
+      "doi": "10.1371/journal.pone.0315949",
+      "pmc": "PMC11654968",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Wet vs dry diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Betaine addition to the diet alleviates intestinal injury in growing rabbits during the summer heat through the AAT/mTOR pathway",
+      "authors": "Li Z, Pu J, Chen X, et al.",
+      "journal": "Journal of Animal Science and Biotechnology",
+      "year": "2024",
+      "pmid": "38454493",
+      "doi": "10.1186/s40104-024-00998-6",
+      "pmc": "PMC10921597",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: betaine",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of Dietary Supplementations of Vitamin C, Organic Selenium, Betaine, and Pomegranate Peel on Alleviating the Effect of Heat Stress on Growing Rabbits",
+      "authors": "Abu Hafsa SH, Centoducati G, Hassan AA, et al.",
+      "journal": "Animals",
+      "year": "2024",
+      "pmid": "38540048",
+      "doi": "10.3390/ani14060950",
+      "pmc": "PMC10967313",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: betaine and vitamin C",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of betaine on growth performance and intestinal health of rabbits fed different digestible energy diets",
+      "authors": "Li Z, Pu J, Zeng T, et al.",
+      "journal": "Journal of Animal Science",
+      "year": "2024",
+      "pmid": "38290533",
+      "doi": "10.1093/jas/skae029",
+      "pmc": "PMC10889737",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Betaine: gut health",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Digestive problems in rabbit production: moving in the wrong direction?",
+      "authors": "van der Sluis M, van Zeeland YRA, de Greef KH",
+      "journal": "Frontiers in Veterinary Science",
+      "year": "2024",
+      "pmid": "38384954",
+      "doi": "10.3389/fvets.2024.1354651",
+      "pmc": "PMC10879550",
+      "studied_in": "Review (farmed rabbits)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Digestive disorders: mechanisms",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Screening of Organic Acid Type and Dosage in Drinking Water for Young Rabbits",
+      "authors": "Ramón-Moragues A, Vaggi CM, Franch-Dasí J, et al.",
+      "journal": "Animals",
+      "year": "2024",
+      "pmid": "39123703",
+      "doi": "10.3390/ani14152177",
+      "pmc": "PMC11311063",
+      "studied_in": "Weaned rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Drinking-water additives and intake",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Relative supersaturation values distinguish between feline urinary and non-urinary foods and align with expected urine analytes contributions to uroliths",
+      "authors": "Morris EM, McGrath AP, Brejda J, et al.",
+      "journal": "Frontiers in Veterinary Science",
+      "year": "2023",
+      "pmid": "37601750",
+      "doi": "10.3389/fvets.2023.1167840",
+      "pmc": "PMC10436620",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urinary diets and supersaturation",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Dietary Betaine improves the intestinal health and growth performance of heat-stressed growing rabbits in summer",
+      "authors": "Chen X, Li Z, Pu J, et al.",
+      "journal": "Journal of Animal Science",
+      "year": "2023",
+      "pmid": "37875147",
+      "doi": "10.1093/jas/skad363",
+      "pmc": "PMC10684048",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: betaine",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Seasonal Variations in Production Performance, Health Status, and Gut Microbiota of Meat Rabbit Reared in Semi-Confined Conditions",
+      "authors": "Ye D, Ding X, Pang S, et al.",
+      "journal": "Animals",
+      "year": "2023",
+      "pmid": "38200844",
+      "doi": "10.3390/ani14010113",
+      "pmc": "PMC10778228",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Season: gut microbiota",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Prazosin administration increases the rate of recurrent urethral obstruction in cats: 388 cases",
+      "authors": "Conway DS, Rozanski EA, Wayne AS",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2022",
+      "pmid": "35290210",
+      "doi": "10.2460/javma.21.10.0469",
+      "pmc": "",
+      "studied_in": "Cats with urethral obstruction",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "A new diet supplement formulation containing cranberry extract for the treatment of feline idiopathic cystitis",
+      "authors": "Colombino E, Cavana P, Martello E, et al.",
+      "journal": "Natural Product Research",
+      "year": "2022",
+      "pmid": "34039227",
+      "doi": "10.1080/14786419.2021.1925273",
+      "pmc": "",
+      "studied_in": "Cats with idiopathic cystitis (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Supplements",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Impacts of Heat Stress on Rabbit Immune Function, Endocrine, Blood Biochemical Changes, Antioxidant Capacity and Production Performance, and the Potential Mitigation Strategies of Nutritional Intervention",
+      "authors": "Liang ZL, Chen F, Park S, et al.",
+      "journal": "Frontiers in Veterinary Science",
+      "year": "2022",
+      "pmid": "35720853",
+      "doi": "10.3389/fvets.2022.906084",
+      "pmc": "PMC9201964",
+      "studied_in": "Review (rabbits)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: electrolytes",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Protective effect of valerian extract capsule (VEC) on ethanol- and indomethacin-induced gastric mucosa injury and ameliorative effect of VEC on gastrointestinal motility disorder",
+      "authors": "Feng Y, Dai W, Ke J, et al.",
+      "journal": "Pharmaceutical Biology",
+      "year": "2022",
+      "pmid": "35658820",
+      "doi": "10.1080/13880209.2022.2071449",
+      "pmc": "PMC9176630",
+      "studied_in": "Rabbit gut tissue; rats; mice",
+      "tags": [
+        "Rabbits",
+        "Other"
+      ],
+      "topic": "Herbs: valerian and gut motility",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of Dietary Supplementation of Lactobacillus acidophilus on Blood Parameters and Gut Health of Rabbits",
+      "authors": "Colombino E, Biasato I, Michetti A, et al.",
+      "journal": "Animals",
+      "year": "2022",
+      "pmid": "36552463",
+      "doi": "10.3390/ani12243543",
+      "pmc": "PMC9774759",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Probiotics",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of prazosin on feline recurrent urethral obstruction",
+      "authors": "Hanson KR, Rudloff E, Yuan L, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2021",
+      "pmid": "33749375",
+      "doi": "10.1177/1098612X211001283",
+      "pmc": "PMC10812159",
+      "studied_in": "Cats with urethral obstruction",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Increasing Dietary Potassium Chloride Promotes Urine Dilution and Decreases Calcium Oxalate Relative Supersaturation in Healthy Dogs and Cats",
+      "authors": "Bijsmans E, Quéau Y, Biourge V",
+      "journal": "Animals",
+      "year": "2021",
+      "pmid": "34204431",
+      "doi": "10.3390/ani11061809",
+      "pmc": "PMC8234551",
+      "studied_in": "Healthy cats and dogs",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary potassium",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Increased Water Viscosity Enhances Water Intake and Reduces Risk of Calcium Oxalate Stone Formation in Cats",
+      "authors": "Hall JA, Vanchina MA, Ogleby B, et al.",
+      "journal": "Animals",
+      "year": "2021",
+      "pmid": "34359236",
+      "doi": "10.3390/ani11072110",
+      "pmc": "PMC8300425",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Water additives",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of a struvite dissolution diet in cats with naturally occurring struvite urolithiasis",
+      "authors": "Tefft KM, Byron JK, Hostnik ET, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2021",
+      "pmid": "32705911",
+      "doi": "10.1177/1098612X20942382",
+      "pmc": "PMC8008402",
+      "studied_in": "Cats with struvite stones (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Struvite dissolution diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Increasing dietary sodium chloride promotes urine dilution and decreases struvite and calcium oxalate relative supersaturation in healthy dogs and cats",
+      "authors": "Queau Y, Bijsmans ES, Feugier A, et al.",
+      "journal": "Journal of Animal Physiology and Animal Nutrition",
+      "year": "2020",
+      "pmid": "32157751",
+      "doi": "10.1111/jpn.13329",
+      "pmc": "PMC7540452",
+      "studied_in": "Healthy cats and dogs",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary salt",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "The effect of a therapeutic urinary stress diet on the short-term recurrence of feline idiopathic cystitis",
+      "authors": "Naarden B, Corbee RJ",
+      "journal": "Veterinary Medicine and Science",
+      "year": "2020",
+      "pmid": "31532910",
+      "doi": "10.1002/vms3.197",
+      "pmc": "PMC7036317",
+      "studied_in": "Cats with non-obstructive idiopathic cystitis",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Idiopathic cystitis diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Health and welfare of rabbits farmed in different production systems",
+      "authors": "EFSA Panel on Animal Health and Welfare (AHAW), Saxmose Nielsen S, Alvarez J, et al.",
+      "journal": "EFSA Journal",
+      "year": "2020",
+      "pmid": "32626497",
+      "doi": "10.2903/j.efsa.2020.5944",
+      "pmc": "PMC7008839",
+      "studied_in": "Review (farmed rabbits)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Welfare: temperature and water",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Morbidity and mortality of domestic rabbits (Oryctolagus cuniculus) under primary veterinary care in England",
+      "authors": "O'Neill DG, Craven HC, Brodbelt DC, et al.",
+      "journal": "Veterinary Record",
+      "year": "2020",
+      "pmid": "31594841",
+      "doi": "10.1136/vr.105592",
+      "pmc": "PMC7279133",
+      "studied_in": "Pet rabbits (primary-care records)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Pet rabbit illness and deaths",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Quantified water intake in laboratory cats from still, free-falling and circulating water bowls, and its effects on selected urinary parameters",
+      "authors": "Robbins MT, Cline MG, Bartges JW, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2019",
+      "pmid": "30303439",
+      "doi": "10.1177/1098612X18803753",
+      "pmc": "PMC10814304",
+      "studied_in": "Healthy laboratory cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Water bowls and fountains",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Nutritional Management of Urolithiasis",
+      "authors": "Queau Y",
+      "journal": "Veterinary Clinics of North America: Small Animal Practice",
+      "year": "2019",
+      "pmid": "30583809",
+      "doi": "10.1016/j.cvsm.2018.10.004",
+      "pmc": "",
+      "studied_in": "Review (dogs and cats)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urolith nutrition",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "A prospective randomized study of efficacy of 2 treatment protocols in preventing recurrence of clinical signs in 51 male cats with obstructive idiopathic cystitis",
+      "authors": "Nivy R, Segev G, Rimer D, et al.",
+      "journal": "Journal of Veterinary Internal Medicine",
+      "year": "2019",
+      "pmid": "31400046",
+      "doi": "10.1111/jvim.15594",
+      "pmc": "PMC6766499",
+      "studied_in": "Cats with obstructive idiopathic cystitis",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Drinking Warm Water Improves Growth Performance and Optimizes the Gut Microbiota in Early Postweaning Rabbits during Winter",
+      "authors": "Wang Q, Fu W, Guo Y, et al.",
+      "journal": "Animals",
+      "year": "2019",
+      "pmid": "31212853",
+      "doi": "10.3390/ani9060346",
+      "pmc": "PMC6616395",
+      "studied_in": "Weaned rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Cold weather: drinking water temperature",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Clinical characteristics and short-term outcomes for rabbits with signs of gastrointestinal tract dysfunction: 117 cases (2014-2016)",
+      "authors": "Oparil KM, Gladden JN, Babyak JM, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2019",
+      "pmid": "31517584",
+      "doi": "10.2460/javma.255.7.837",
+      "pmc": "",
+      "studied_in": "Pet rabbits (hospital)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Gut stasis: outcomes",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of a nutrient-enriched water on water intake and indices of hydration in healthy domestic cats fed a dry kibble diet",
+      "authors": "Zanghi BM, Gerheart L, Gardner CL",
+      "journal": "American Journal of Veterinary Research",
+      "year": "2018",
+      "pmid": "29943634",
+      "doi": "10.2460/ajvr.79.7.733",
+      "pmc": "",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Water additives",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Comparison of the fecal microbiota of domestic commercial meat, laboratory, companion, and shelter rabbits (Oryctolagus cuniculi)",
+      "authors": "Kylie J, Weese JS, Turner PV",
+      "journal": "BMC Veterinary Research",
+      "year": "2018",
+      "pmid": "29703196",
+      "doi": "10.1186/s12917-018-1464-6",
+      "pmc": "PMC5924505",
+      "studied_in": "Farm, laboratory, companion and shelter rabbits",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Gut microbiota: housing and season",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Influence of Moringa oleifera extract, vitamin C, and sodium bicarbonate on heat stress-induced HSP70 expression and cellular immune response in rabbits",
+      "authors": "Abdel-Latif M, Sakran T, Badawi YK, et al.",
+      "journal": "Cell Stress & Chaperones",
+      "year": "2018",
+      "pmid": "29728855",
+      "doi": "10.1007/s12192-018-0906-1",
+      "pmc": "PMC6111078",
+      "studied_in": "Heat-stressed rabbits (experimental)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: vitamin C and bicarbonate",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Organic Selenium, Probiotics, and Prebiotics Effects on Growth, Blood Biochemistry, and Carcass Traits of Growing Rabbits During Summer and Winter Seasons",
+      "authors": "Ayyat MS, Al-Sagheer AA, Abd El-Latif KM, et al.",
+      "journal": "Biological Trace Element Research",
+      "year": "2018",
+      "pmid": "29516355",
+      "doi": "10.1007/s12011-018-1293-2",
+      "pmc": "",
+      "studied_in": "Growing rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Season: feed intake and additives",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Evidence Supports Tradition: The in Vitro Effects of Roman Chamomile on Smooth Muscles",
+      "authors": "Sándor Z, Mottaghipisheh J, Veres K, et al.",
+      "journal": "Frontiers in Pharmacology",
+      "year": "2018",
+      "pmid": "29681854",
+      "doi": "10.3389/fphar.2018.00323",
+      "pmc": "PMC5897738",
+      "studied_in": "Guinea pig, rat and human gut tissue",
+      "tags": [
+        "Rabbits",
+        "Other"
+      ],
+      "topic": "Herbs: chamomile and gut motility",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "The effect of changing the moisture levels of dry extruded and wet canned diets on physical activity in cats",
+      "authors": "Thomas DG, Post M, Bosch G",
+      "journal": "Journal of Nutritional Science",
+      "year": "2017",
+      "pmid": "28620484",
+      "doi": "10.1017/jns.2017.9",
+      "pmc": "PMC5465855",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Wet vs dry diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "The effect of prazosin on outcome in feline urethral obstruction",
+      "authors": "Reineke EL, Thomas EK, Syring RS, et al.",
+      "journal": "Journal of Veterinary Emergency and Critical Care",
+      "year": "2017",
+      "pmid": "28510274",
+      "doi": "10.1111/vec.12611",
+      "pmc": "",
+      "studied_in": "Cats with urethral obstruction",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Hydro-alcoholic extract of Matricaria recutita exhibited dual anti-spasmodic effect via modulation of Ca(2+) channels, NO and PKA(2)-kinase pathway in rabbit jejunum",
+      "authors": "Yazdi H, Seifi A, Changizi S, et al.",
+      "journal": "Avicenna Journal of Phytomedicine",
+      "year": "2017",
+      "pmid": "28884083",
+      "doi": "",
+      "pmc": "PMC5580871",
+      "studied_in": "Rabbit gut tissue",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Herbs: chamomile and gut motility",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of probiotic supplement (Bacillus subtilis and Lactobacillus acidophilus) on feed efficiency, growth performance, and microbial population of weaning rabbits",
+      "authors": "Phuoc TL, Jamikorn U",
+      "journal": "Asian-Australasian Journal of Animal Sciences",
+      "year": "2017",
+      "pmid": "27165020",
+      "doi": "10.5713/ajas.15.0823",
+      "pmc": "PMC5205607",
+      "studied_in": "Weaned rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Probiotics",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Evaluation of meloxicam for the treatment of obstructive feline idiopathic cystitis",
+      "authors": "Dorsch R, Zellner F, Schulz B, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2016",
+      "pmid": "26672127",
+      "doi": "10.1177/1098612X15621603",
+      "pmc": "PMC11132225",
+      "studied_in": "Cats with obstructive idiopathic cystitis",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Efficacy of intravesical pentosan polysulfate sodium in cats with obstructive feline idiopathic cystitis",
+      "authors": "Delille M, Fröhlich L, Müller RS, et al.",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2016",
+      "pmid": "26116618",
+      "doi": "10.1177/1098612X15588934",
+      "pmc": "PMC11185227",
+      "studied_in": "Cats with obstructive idiopathic cystitis",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Prognostic value of rectal temperature at hospital admission in client-owned rabbits",
+      "authors": "Di Girolamo N, Toth G, Selleri P",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2016",
+      "pmid": "26799108",
+      "doi": "10.2460/javma.248.3.288",
+      "pmc": "",
+      "studied_in": "Pet rabbits (hospital)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Hypothermia and survival",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Comparison of foods with differing nutritional profiles for long-term management of acute nonobstructive idiopathic cystitis in cats",
+      "authors": "Kruger JM, Lulich JP, MacLeay J, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2015",
+      "pmid": "26295556",
+      "doi": "10.2460/javma.247.5.508",
+      "pmc": "",
+      "studied_in": "Cats with non-obstructive idiopathic cystitis",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Idiopathic cystitis diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Lactating performance, water and feed consumption of rabbit does reared under a Mediterranean summer circadian cycle of temperature v. comfort temperature conditions",
+      "authors": "Bakr MH, Tusell L, Rafel O, et al.",
+      "journal": "Animal",
+      "year": "2015",
+      "pmid": "25592373",
+      "doi": "10.1017/S1751731114003310",
+      "pmc": "",
+      "studied_in": "Breeding does (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: feed and water intake",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Dietary fibres in the nutrition of the growing rabbit and recommendations to preserve digestive health: a review",
+      "authors": "Gidenne T",
+      "journal": "Animal",
+      "year": "2015",
+      "pmid": "25391534",
+      "doi": "10.1017/S1751731114002729",
+      "pmc": "",
+      "studied_in": "Review (growing rabbits)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Fibre requirements",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Cardiovascular effects of dietary salt intake in aged healthy cats: a 2-year prospective randomized, blinded, and controlled study",
+      "authors": "Chetboul V, Reynolds BS, Trehiou-Sechi E, et al.",
+      "journal": "PLoS One",
+      "year": "2014",
+      "pmid": "24941013",
+      "doi": "10.1371/journal.pone.0097862",
+      "pmc": "PMC4062415",
+      "studied_in": "Healthy aged cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary salt safety",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Short term effects of increasing dietary salt concentrations on urine composition in healthy cats",
+      "authors": "Paßlack N, Burmeier H, Brenten T, et al.",
+      "journal": "Veterinary Journal",
+      "year": "2014",
+      "pmid": "24881513",
+      "doi": "10.1016/j.tvjl.2014.04.015",
+      "pmc": "",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary salt",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Intravesical glycosaminoglycans for obstructive feline idiopathic cystitis: a pilot study",
+      "authors": "Bradley AM, Lappin MR",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2014",
+      "pmid": "24196569",
+      "doi": "10.1177/1098612X13510918",
+      "pmc": "PMC11112186",
+      "studied_in": "Cats with urethral obstruction (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Food and water intake and selective feeding in rabbits on four feeding regimes",
+      "authors": "Prebble JL, Meredith AL",
+      "journal": "Journal of Animal Physiology and Animal Nutrition",
+      "year": "2014",
+      "pmid": "24404980",
+      "doi": "10.1111/jpn.12163",
+      "pmc": "",
+      "studied_in": "Dutch rabbits on pet diets",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Diet type: muesli vs hay",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of probiotic Enterococcus faecium and Saccharomyces cerevisiae on the faecal microflora of pet rabbits",
+      "authors": "Benato L, Hastie P, O'Shaughnessy P, et al.",
+      "journal": "Journal of Small Animal Practice",
+      "year": "2014",
+      "pmid": "24961954",
+      "doi": "10.1111/jsap.12242",
+      "pmc": "",
+      "studied_in": "Pet rabbits",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Probiotics: pet rabbits",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Diagnosis and clinical management of gastrointestinal conditions in exotic companion mammals (rabbits, guinea pigs, and chinchillas)",
+      "authors": "Ritzman TK",
+      "journal": "Veterinary Clinics of North America: Exotic Animal Practice",
+      "year": "2014",
+      "pmid": "24767740",
+      "doi": "10.1016/j.cvex.2014.01.003",
+      "pmc": "",
+      "studied_in": "Review (rabbits and other small herbivores)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Gut stasis: clinical management",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Efficacy of two commercially available, low-magnesium, urine-acidifying dry foods for the dissolution of struvite uroliths in cats",
+      "authors": "Lulich JP, Kruger JM, Macleay JM, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2013",
+      "pmid": "24094262",
+      "doi": "10.2460/javma.243.8.1147",
+      "pmc": "",
+      "studied_in": "Cats with struvite stones",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Struvite dissolution diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Initial treatment factors associated with feline urethral obstruction recurrence rate: 192 cases (2004-2010)",
+      "authors": "Hetrick PF, Davidow EB",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "2013",
+      "pmid": "23902444",
+      "doi": "10.2460/javma.243.4.512",
+      "pmc": "",
+      "studied_in": "Cats with urethral obstruction",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction recurrence",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Companion Animals Symposium: dietary management of feline lower urinary tract symptoms",
+      "authors": "Kerr KR",
+      "journal": "Journal of Animal Science",
+      "year": "2013",
+      "pmid": "23408812",
+      "doi": "10.2527/jas.2012-6035",
+      "pmc": "",
+      "studied_in": "Review",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "FLUTD overview",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Intravesical application of lidocaine and sodium bicarbonate in the treatment of obstructive idiopathic lower urinary tract disease in cats",
+      "authors": "Zezza L, Reusch CE, Gerber B",
+      "journal": "Journal of Veterinary Internal Medicine",
+      "year": "2012",
+      "pmid": "22435459",
+      "doi": "10.1111/j.1939-1676.2012.00911.x",
+      "pmc": "",
+      "studied_in": "Cats with obstructive idiopathic lower urinary tract disease",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral obstruction treatment",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of intraurethral administration of atracurium besylate in male cats with urethral plugs",
+      "authors": "Galluzzi F, De Rensis F, Menozzi A, et al.",
+      "journal": "Journal of Small Animal Practice",
+      "year": "2012",
+      "pmid": "22747734",
+      "doi": "10.1111/j.1748-5827.2012.01239.x",
+      "pmc": "",
+      "studied_in": "Cats with urethral plugs",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Urethral plug removal",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "A diet with a struvite relative supersaturation less than 1 is effective in dissolving struvite stones in vivo",
+      "authors": "Houston DM, Weese HE, Evason MD, et al.",
+      "journal": "British Journal of Nutrition",
+      "year": "2011",
+      "pmid": "22005442",
+      "doi": "10.1017/S0007114511000894",
+      "pmc": "",
+      "studied_in": "Cats with struvite stones",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Struvite dissolution diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Cats and calcium oxalate: strategies for managing lower and upper tract stone disease",
+      "authors": "Palm C, Westropp J",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2011",
+      "pmid": "21872792",
+      "doi": "10.1016/j.jfms.2011.07.018",
+      "pmc": "PMC10832665",
+      "studied_in": "Review",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Calcium oxalate stones",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of dietary water intake on urinary output, specific gravity and relative supersaturation for calcium oxalate and struvite in the cat",
+      "authors": "Buckley CM, Hawthorne A, Colyer A, et al.",
+      "journal": "British Journal of Nutrition",
+      "year": "2011",
+      "pmid": "22005408",
+      "doi": "10.1017/S0007114511001875",
+      "pmc": "",
+      "studied_in": "Healthy cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Wet vs dry diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Antispasmodic and Antidiarrheal Activities of Valeriana hardwickii Wall. Rhizome Are Putatively Mediated through Calcium Channel Blockade",
+      "authors": "Bashir S, Memon R, Gilani AH",
+      "journal": "Evidence-Based Complementary and Alternative Medicine",
+      "year": "2011",
+      "pmid": "21423691",
+      "doi": "10.1155/2011/304960",
+      "pmc": "PMC3057483",
+      "studied_in": "Rabbit gut tissue; mice",
+      "tags": [
+        "Rabbits",
+        "Other"
+      ],
+      "topic": "Herbs: valerian and gut motility",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of water source on intake and urine concentration in healthy cats",
+      "authors": "Grant DC",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2010",
+      "pmid": "20005758",
+      "doi": "10.1016/j.jfms.2009.10.008",
+      "pmc": "PMC10822276",
+      "studied_in": "Healthy cats (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Water bowls and fountains",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Effects of dietary sodium chloride on health parameters in mature cats",
+      "authors": "Xu H, Laflamme DP, Long GL",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2009",
+      "pmid": "19073369",
+      "doi": "10.1016/j.jfms.2008.10.001",
+      "pmc": "PMC10832835",
+      "studied_in": "Healthy mature cats",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Dietary salt safety",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Effect of a starter diet supplementation with mannan-oligosaccharide or inulin on health status, caecal metabolism, digestibility of nutrients and growth of early weaned rabbits",
+      "authors": "Volek Z, Marounek M, Skřivanová V",
+      "journal": "Animal",
+      "year": "2007",
+      "pmid": "22444409",
+      "doi": "10.1017/S1751731107685012",
+      "pmc": "",
+      "studied_in": "Weaned rabbits (farm)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Prebiotics",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Evaluation of the efficacy of a commercial diet in the dissolution of feline struvite bladder uroliths",
+      "authors": "Houston DM, Rinkardt NE, Hilton J",
+      "journal": "Veterinary Therapeutics",
+      "year": "2004",
+      "pmid": "15578451",
+      "doi": "",
+      "pmc": "",
+      "studied_in": "Cats with struvite stones",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Struvite dissolution diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "Inter-relationship of microbial activity, digestion and gut health in the rabbit: effect of substituting fibre by starch in diets having a high proportion of rapidly fermentable polysaccharides",
+      "authors": "Gidenne T, Jehl N, Lapanouse A, et al.",
+      "journal": "British Journal of Nutrition",
+      "year": "2004",
+      "pmid": "15230992",
+      "doi": "10.1079/BJN20041173",
+      "pmc": "",
+      "studied_in": "Young rabbits (experimental)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Fibre and starch",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    },
+    {
+      "title": "Clinical evaluation of commercially available urinary acidification diets in the management of idiopathic cystitis in cats",
+      "authors": "Markwell PJ, Buffington CA, Chew DJ, et al.",
+      "journal": "Journal of the American Veterinary Medical Association",
+      "year": "1999",
+      "pmid": "10023397",
+      "doi": "10.2460/javma.1999.214.03.361",
+      "pmc": "",
+      "studied_in": "Cats with idiopathic cystitis (client-owned)",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Wet vs dry diet",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "The effect of diet on lower urinary tract diseases in cats",
+      "authors": "Markwell PJ, Buffington CT, Smith BH",
+      "journal": "Journal of Nutrition",
+      "year": "1998",
+      "pmid": "9868257",
+      "doi": "10.1093/jn/128.12.2753S",
+      "pmc": "",
+      "studied_in": "Review",
+      "tags": [
+        "Cats"
+      ],
+      "topic": "Diet and urine pH",
+      "projects": [
+        {
+          "dir": "2026-08-feline-urinary-health",
+          "title": "Preventing urinary blockages in cats: what the evidence supports",
+          "url": "/research/2026-08-feline-urinary-health/"
+        }
+      ]
+    },
+    {
+      "title": "The effects of elevated temperature and humidity on rectal temperature and respiration rate in the New Zealand white rabbit",
+      "authors": "Kasa W, Thwaites CJ",
+      "journal": "International Journal of Biometeorology",
+      "year": "1990",
+      "pmid": "2083981",
+      "doi": "10.1007/BF01048713",
+      "pmc": "",
+      "studied_in": "Adult rabbits (laboratory)",
+      "tags": [
+        "Rabbits"
+      ],
+      "topic": "Heat stress: physiology",
+      "projects": [
+        {
+          "dir": "2026-09-rabbit-digestion-weather",
+          "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
+          "url": "/research/2026-09-rabbit-digestion-weather/"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "projects": 2,
+    "studies": 81,
+    "free": 50
   }
- ],
- "library": [
-  {
-   "title": "Increasing Dietary Potassium Enhances Urine Production and Reduces Risk of Calcium Oxalate Stone Formation in Senior Cats",
-   "authors": "Hall JA, Yu S, Toillion AR, et al.",
-   "journal": "Animals",
-   "year": "2026",
-   "pmid": "42278121",
-   "doi": "10.3390/ani16111689",
-   "pmc": "PMC13255985",
-   "studied_in": "Healthy senior cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary potassium",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Lorazepam reduces recurrence of urethral obstruction in male cats: a prospective, randomized, double-blinded, placebo-controlled study",
-   "authors": "Splittstoesser A, Kerley J, Lulich J, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2026",
-   "pmid": "42091068",
-   "doi": "10.2460/javma.26.01.0045",
-   "pmc": "",
-   "studied_in": "Cats with urethral obstruction (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Diet format, protein, amino acids, salt, and osmolytes, as well as water viscosity, affect water consumption in domestic cats: a scoping review of 32 publications (published from 1975 to 2025) on water intake, hydration status, and related health outcomes",
-   "authors": "Kosmal PAL, Shoveller AK, Gillies G, et al.",
-   "journal": "Journal of Animal Science",
-   "year": "2026",
-   "pmid": "41389339",
-   "doi": "10.1093/jas/skaf434",
-   "pmc": "PMC12893781",
-   "studied_in": "Review (scoping review of 32 cat studies)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Water intake",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "A placebo-controlled study of an herbal compound used for management of lower urinary tract disease in healthy cats",
-   "authors": "Martin CE, Bartges JW, English CF, et al.",
-   "journal": "Frontiers in Veterinary Science",
-   "year": "2026",
-   "pmid": "42524264",
-   "doi": "10.3389/fvets.2026.1877164",
-   "pmc": "PMC13410768",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Supplements",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Essential Oil Blend and Ascorbic Acid Supplementation Improves Performance, Semen Characteristics, Redox Balance, and Intestinal Integrity in Heat-Stressed Male Rabbits",
-   "authors": "Alqhtani HA, Alqahtani HA, Elbaz AM, et al.",
-   "journal": "Veterinary Sciences",
-   "year": "2026",
-   "pmid": "42188923",
-   "doi": "10.3390/vetsci13050453",
-   "pmc": "PMC13211758",
-   "studied_in": "Adult bucks (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: vitamin C",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "An integrated in vitro antioxidant/in vivo metabolomics approach unravels the synergistic effects between oregano essential oil and vitamin C as a nutritional strategy for alleviating heat stress in rabbits",
-   "authors": "Sayedahmed MM, Safwat AM, Madkour M, et al.",
-   "journal": "Journal of Animal Science",
-   "year": "2026",
-   "pmid": "41837378",
-   "doi": "10.1093/jas/skag083",
-   "pmc": "PMC13061118",
-   "studied_in": "Adult male rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: vitamin C in water",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Comparing different water supplementation in cyclic heat stressed broilers. The effect of selected antioxidant mixtures, betaine, functional amino acids and electrolyzed reduced water",
-   "authors": "De Baets R, Van Nerom S, Buyse K, et al.",
-   "journal": "Poultry Science",
-   "year": "2026",
-   "pmid": "41447761",
-   "doi": "10.1016/j.psj.2025.106322",
-   "pmc": "PMC12800357",
-   "studied_in": "Broilers",
-   "tags": [
-    "Rabbits",
-    "Other"
-   ],
-   "topic": "Heat stress: drinking-water additives",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Use of Cool Drinking Water as a Strategy Under High-Ambient-Temperature Conditions in New Zealand Rabbits: Growth Performance, Carcass Traits and Physiological Responses",
-   "authors": "Molina-Gámez G, Robles-Estrada JC, Sánchez-Pérez JN, et al.",
-   "journal": "Veterinary Sciences",
-   "year": "2026",
-   "pmid": "41893679",
-   "doi": "10.3390/vetsci13030262",
-   "pmc": "PMC13030121",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: cool drinking water",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Synbiotics are Better Than Probiotics and Prebiotics for Use as Nutrition in Growing Rabbits",
-   "authors": "Alrajab K, Ghoorchi T, Toghdory A, et al.",
-   "journal": "Veterinary Medicine and Science",
-   "year": "2026",
-   "pmid": "42132366",
-   "doi": "10.1002/vms3.70977",
-   "pmc": "PMC13173768",
-   "studied_in": "Weaned rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Live yeast and prebiotic",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Understanding the current evidence base for the commonly recommended management strategies for recurrent feline idiopathic cystitis: a systematic review",
-   "authors": "Macleod B, Laven LJ, Laven RA, et al.",
-   "journal": "New Zealand Veterinary Journal",
-   "year": "2025",
-   "pmid": "40147044",
-   "doi": "10.1080/00480169.2025.2477542",
-   "pmc": "",
-   "studied_in": "Review (systematic review)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Idiopathic cystitis management",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Impact of Salix mucronata bark and betaine as natural alleviators on semen quality, serum biochemistry, and oxidative capacity in heat-stressed rabbit bucks",
-   "authors": "Farag MFM, Daader AH, El-Darawany AA, et al.",
-   "journal": "Tropical Animal Health and Production",
-   "year": "2025",
-   "pmid": "41441908",
-   "doi": "10.1007/s11250-025-04781-1",
-   "pmc": "PMC12738609",
-   "studied_in": "Adult bucks (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: betaine",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Enhancing growing rabbit heat stress resilience through dietary supplementation with natural antioxidants",
-   "authors": "El-Ratel IT, Mekawy A, Hassab SHM, et al.",
-   "journal": "BMC Veterinary Research",
-   "year": "2025",
-   "pmid": "39827123",
-   "doi": "10.1186/s12917-024-04466-1",
-   "pmc": "PMC11748597",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: vitamin C",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of rabbit gastrointestinal stasis (RGIS) on the fecal microbiota of pet rabbits (Oryctolagus cuniculus)",
-   "authors": "Rahic-Seggerman FM, Iske C, Graham J, et al.",
-   "journal": "PLoS One",
-   "year": "2025",
-   "pmid": "39999072",
-   "doi": "10.1371/journal.pone.0318810",
-   "pmc": "PMC11856277",
-   "studied_in": "Pet rabbits",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Gut stasis: microbiota",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Verification of the Utility of the Standardized Melissa officinalis Extract to Control Gut Contractility in Sheep-Ex Vivo Study",
-   "authors": "Posłuszny MA, Chłopecka-Słomińska M, Cherer SS, et al.",
-   "journal": "Animals",
-   "year": "2025",
-   "pmid": "40075909",
-   "doi": "10.3390/ani15050626",
-   "pmc": "PMC11898118",
-   "studied_in": "Sheep gut tissue",
-   "tags": [
-    "Rabbits",
-    "Other"
-   ],
-   "topic": "Herbs: lemon balm and gut motility",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "The 4 prokinetic drugs metoclopramide, cisapride, pyridostigmine, and capromorelin do not increase fecal output or food intake in healthy New Zealand rabbits (Oryctolagus cuniculus)",
-   "authors": "Di Girolamo N, Maranville RE, Pathak D, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2025",
-   "pmid": "40179972",
-   "doi": "10.2460/javma.25.01.0040",
-   "pmc": "",
-   "studied_in": "Healthy laboratory rabbits",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Gut stasis: prokinetic drugs",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Starch to protein ratio and food moisture content influence water balance and urine supersaturation in cats",
-   "authors": "Gonçalves Tozato ME, de Souza Theodoro S, Warde Luis L, et al.",
-   "journal": "PLoS One",
-   "year": "2024",
-   "pmid": "39693372",
-   "doi": "10.1371/journal.pone.0315949",
-   "pmc": "PMC11654968",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Wet vs dry diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Betaine addition to the diet alleviates intestinal injury in growing rabbits during the summer heat through the AAT/mTOR pathway",
-   "authors": "Li Z, Pu J, Chen X, et al.",
-   "journal": "Journal of Animal Science and Biotechnology",
-   "year": "2024",
-   "pmid": "38454493",
-   "doi": "10.1186/s40104-024-00998-6",
-   "pmc": "PMC10921597",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: betaine",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of Dietary Supplementations of Vitamin C, Organic Selenium, Betaine, and Pomegranate Peel on Alleviating the Effect of Heat Stress on Growing Rabbits",
-   "authors": "Abu Hafsa SH, Centoducati G, Hassan AA, et al.",
-   "journal": "Animals",
-   "year": "2024",
-   "pmid": "38540048",
-   "doi": "10.3390/ani14060950",
-   "pmc": "PMC10967313",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: betaine and vitamin C",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of betaine on growth performance and intestinal health of rabbits fed different digestible energy diets",
-   "authors": "Li Z, Pu J, Zeng T, et al.",
-   "journal": "Journal of Animal Science",
-   "year": "2024",
-   "pmid": "38290533",
-   "doi": "10.1093/jas/skae029",
-   "pmc": "PMC10889737",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Betaine: gut health",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Digestive problems in rabbit production: moving in the wrong direction?",
-   "authors": "van der Sluis M, van Zeeland YRA, de Greef KH",
-   "journal": "Frontiers in Veterinary Science",
-   "year": "2024",
-   "pmid": "38384954",
-   "doi": "10.3389/fvets.2024.1354651",
-   "pmc": "PMC10879550",
-   "studied_in": "Review (farmed rabbits)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Digestive disorders: mechanisms",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Screening of Organic Acid Type and Dosage in Drinking Water for Young Rabbits",
-   "authors": "Ramón-Moragues A, Vaggi CM, Franch-Dasí J, et al.",
-   "journal": "Animals",
-   "year": "2024",
-   "pmid": "39123703",
-   "doi": "10.3390/ani14152177",
-   "pmc": "PMC11311063",
-   "studied_in": "Weaned rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Drinking-water additives and intake",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Relative supersaturation values distinguish between feline urinary and non-urinary foods and align with expected urine analytes contributions to uroliths",
-   "authors": "Morris EM, McGrath AP, Brejda J, et al.",
-   "journal": "Frontiers in Veterinary Science",
-   "year": "2023",
-   "pmid": "37601750",
-   "doi": "10.3389/fvets.2023.1167840",
-   "pmc": "PMC10436620",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urinary diets and supersaturation",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Dietary Betaine improves the intestinal health and growth performance of heat-stressed growing rabbits in summer",
-   "authors": "Chen X, Li Z, Pu J, et al.",
-   "journal": "Journal of Animal Science",
-   "year": "2023",
-   "pmid": "37875147",
-   "doi": "10.1093/jas/skad363",
-   "pmc": "PMC10684048",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: betaine",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Seasonal Variations in Production Performance, Health Status, and Gut Microbiota of Meat Rabbit Reared in Semi-Confined Conditions",
-   "authors": "Ye D, Ding X, Pang S, et al.",
-   "journal": "Animals",
-   "year": "2023",
-   "pmid": "38200844",
-   "doi": "10.3390/ani14010113",
-   "pmc": "PMC10778228",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Season: gut microbiota",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Prazosin administration increases the rate of recurrent urethral obstruction in cats: 388 cases",
-   "authors": "Conway DS, Rozanski EA, Wayne AS",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2022",
-   "pmid": "35290210",
-   "doi": "10.2460/javma.21.10.0469",
-   "pmc": "",
-   "studied_in": "Cats with urethral obstruction",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "A new diet supplement formulation containing cranberry extract for the treatment of feline idiopathic cystitis",
-   "authors": "Colombino E, Cavana P, Martello E, et al.",
-   "journal": "Natural Product Research",
-   "year": "2022",
-   "pmid": "34039227",
-   "doi": "10.1080/14786419.2021.1925273",
-   "pmc": "",
-   "studied_in": "Cats with idiopathic cystitis (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Supplements",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Impacts of Heat Stress on Rabbit Immune Function, Endocrine, Blood Biochemical Changes, Antioxidant Capacity and Production Performance, and the Potential Mitigation Strategies of Nutritional Intervention",
-   "authors": "Liang ZL, Chen F, Park S, et al.",
-   "journal": "Frontiers in Veterinary Science",
-   "year": "2022",
-   "pmid": "35720853",
-   "doi": "10.3389/fvets.2022.906084",
-   "pmc": "PMC9201964",
-   "studied_in": "Review (rabbits)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: electrolytes",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Protective effect of valerian extract capsule (VEC) on ethanol- and indomethacin-induced gastric mucosa injury and ameliorative effect of VEC on gastrointestinal motility disorder",
-   "authors": "Feng Y, Dai W, Ke J, et al.",
-   "journal": "Pharmaceutical Biology",
-   "year": "2022",
-   "pmid": "35658820",
-   "doi": "10.1080/13880209.2022.2071449",
-   "pmc": "PMC9176630",
-   "studied_in": "Rabbit gut tissue; rats; mice",
-   "tags": [
-    "Rabbits",
-    "Other"
-   ],
-   "topic": "Herbs: valerian and gut motility",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of Dietary Supplementation of Lactobacillus acidophilus on Blood Parameters and Gut Health of Rabbits",
-   "authors": "Colombino E, Biasato I, Michetti A, et al.",
-   "journal": "Animals",
-   "year": "2022",
-   "pmid": "36552463",
-   "doi": "10.3390/ani12243543",
-   "pmc": "PMC9774759",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Probiotics",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of prazosin on feline recurrent urethral obstruction",
-   "authors": "Hanson KR, Rudloff E, Yuan L, et al.",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2021",
-   "pmid": "33749375",
-   "doi": "10.1177/1098612X211001283",
-   "pmc": "PMC10812159",
-   "studied_in": "Cats with urethral obstruction",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Increasing Dietary Potassium Chloride Promotes Urine Dilution and Decreases Calcium Oxalate Relative Supersaturation in Healthy Dogs and Cats",
-   "authors": "Bijsmans E, Quéau Y, Biourge V",
-   "journal": "Animals",
-   "year": "2021",
-   "pmid": "34204431",
-   "doi": "10.3390/ani11061809",
-   "pmc": "PMC8234551",
-   "studied_in": "Healthy cats and dogs",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary potassium",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Increased Water Viscosity Enhances Water Intake and Reduces Risk of Calcium Oxalate Stone Formation in Cats",
-   "authors": "Hall JA, Vanchina MA, Ogleby B, et al.",
-   "journal": "Animals",
-   "year": "2021",
-   "pmid": "34359236",
-   "doi": "10.3390/ani11072110",
-   "pmc": "PMC8300425",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Water additives",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of a struvite dissolution diet in cats with naturally occurring struvite urolithiasis",
-   "authors": "Tefft KM, Byron JK, Hostnik ET, et al.",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2021",
-   "pmid": "32705911",
-   "doi": "10.1177/1098612X20942382",
-   "pmc": "PMC8008402",
-   "studied_in": "Cats with struvite stones (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Struvite dissolution diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Increasing dietary sodium chloride promotes urine dilution and decreases struvite and calcium oxalate relative supersaturation in healthy dogs and cats",
-   "authors": "Queau Y, Bijsmans ES, Feugier A, et al.",
-   "journal": "Journal of Animal Physiology and Animal Nutrition",
-   "year": "2020",
-   "pmid": "32157751",
-   "doi": "10.1111/jpn.13329",
-   "pmc": "PMC7540452",
-   "studied_in": "Healthy cats and dogs",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary salt",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "The effect of a therapeutic urinary stress diet on the short-term recurrence of feline idiopathic cystitis",
-   "authors": "Naarden B, Corbee RJ",
-   "journal": "Veterinary Medicine and Science",
-   "year": "2020",
-   "pmid": "31532910",
-   "doi": "10.1002/vms3.197",
-   "pmc": "PMC7036317",
-   "studied_in": "Cats with non-obstructive idiopathic cystitis",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Idiopathic cystitis diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Health and welfare of rabbits farmed in different production systems",
-   "authors": "EFSA Panel on Animal Health and Welfare (AHAW), Saxmose Nielsen S, Alvarez J, et al.",
-   "journal": "EFSA Journal",
-   "year": "2020",
-   "pmid": "32626497",
-   "doi": "10.2903/j.efsa.2020.5944",
-   "pmc": "PMC7008839",
-   "studied_in": "Review (farmed rabbits)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Welfare: temperature and water",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Morbidity and mortality of domestic rabbits (Oryctolagus cuniculus) under primary veterinary care in England",
-   "authors": "O'Neill DG, Craven HC, Brodbelt DC, et al.",
-   "journal": "Veterinary Record",
-   "year": "2020",
-   "pmid": "31594841",
-   "doi": "10.1136/vr.105592",
-   "pmc": "PMC7279133",
-   "studied_in": "Pet rabbits (primary-care records)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Pet rabbit illness and deaths",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Quantified water intake in laboratory cats from still, free-falling and circulating water bowls, and its effects on selected urinary parameters",
-   "authors": "Robbins MT, Cline MG, Bartges JW, et al.",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2019",
-   "pmid": "30303439",
-   "doi": "10.1177/1098612X18803753",
-   "pmc": "PMC10814304",
-   "studied_in": "Healthy laboratory cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Water bowls and fountains",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Nutritional Management of Urolithiasis",
-   "authors": "Queau Y",
-   "journal": "Veterinary Clinics of North America: Small Animal Practice",
-   "year": "2019",
-   "pmid": "30583809",
-   "doi": "10.1016/j.cvsm.2018.10.004",
-   "pmc": "",
-   "studied_in": "Review (dogs and cats)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urolith nutrition",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "A prospective randomized study of efficacy of 2 treatment protocols in preventing recurrence of clinical signs in 51 male cats with obstructive idiopathic cystitis",
-   "authors": "Nivy R, Segev G, Rimer D, et al.",
-   "journal": "Journal of Veterinary Internal Medicine",
-   "year": "2019",
-   "pmid": "31400046",
-   "doi": "10.1111/jvim.15594",
-   "pmc": "PMC6766499",
-   "studied_in": "Cats with obstructive idiopathic cystitis",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Drinking Warm Water Improves Growth Performance and Optimizes the Gut Microbiota in Early Postweaning Rabbits during Winter",
-   "authors": "Wang Q, Fu W, Guo Y, et al.",
-   "journal": "Animals",
-   "year": "2019",
-   "pmid": "31212853",
-   "doi": "10.3390/ani9060346",
-   "pmc": "PMC6616395",
-   "studied_in": "Weaned rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Cold weather: drinking water temperature",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Clinical characteristics and short-term outcomes for rabbits with signs of gastrointestinal tract dysfunction: 117 cases (2014-2016)",
-   "authors": "Oparil KM, Gladden JN, Babyak JM, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2019",
-   "pmid": "31517584",
-   "doi": "10.2460/javma.255.7.837",
-   "pmc": "",
-   "studied_in": "Pet rabbits (hospital)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Gut stasis: outcomes",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of a nutrient-enriched water on water intake and indices of hydration in healthy domestic cats fed a dry kibble diet",
-   "authors": "Zanghi BM, Gerheart L, Gardner CL",
-   "journal": "American Journal of Veterinary Research",
-   "year": "2018",
-   "pmid": "29943634",
-   "doi": "10.2460/ajvr.79.7.733",
-   "pmc": "",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Water additives",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Comparison of the fecal microbiota of domestic commercial meat, laboratory, companion, and shelter rabbits (Oryctolagus cuniculi)",
-   "authors": "Kylie J, Weese JS, Turner PV",
-   "journal": "BMC Veterinary Research",
-   "year": "2018",
-   "pmid": "29703196",
-   "doi": "10.1186/s12917-018-1464-6",
-   "pmc": "PMC5924505",
-   "studied_in": "Farm, laboratory, companion and shelter rabbits",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Gut microbiota: housing and season",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Influence of Moringa oleifera extract, vitamin C, and sodium bicarbonate on heat stress-induced HSP70 expression and cellular immune response in rabbits",
-   "authors": "Abdel-Latif M, Sakran T, Badawi YK, et al.",
-   "journal": "Cell Stress & Chaperones",
-   "year": "2018",
-   "pmid": "29728855",
-   "doi": "10.1007/s12192-018-0906-1",
-   "pmc": "PMC6111078",
-   "studied_in": "Heat-stressed rabbits (experimental)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: vitamin C and bicarbonate",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Organic Selenium, Probiotics, and Prebiotics Effects on Growth, Blood Biochemistry, and Carcass Traits of Growing Rabbits During Summer and Winter Seasons",
-   "authors": "Ayyat MS, Al-Sagheer AA, Abd El-Latif KM, et al.",
-   "journal": "Biological Trace Element Research",
-   "year": "2018",
-   "pmid": "29516355",
-   "doi": "10.1007/s12011-018-1293-2",
-   "pmc": "",
-   "studied_in": "Growing rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Season: feed intake and additives",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Evidence Supports Tradition: The in Vitro Effects of Roman Chamomile on Smooth Muscles",
-   "authors": "Sándor Z, Mottaghipisheh J, Veres K, et al.",
-   "journal": "Frontiers in Pharmacology",
-   "year": "2018",
-   "pmid": "29681854",
-   "doi": "10.3389/fphar.2018.00323",
-   "pmc": "PMC5897738",
-   "studied_in": "Guinea pig, rat and human gut tissue",
-   "tags": [
-    "Rabbits",
-    "Other"
-   ],
-   "topic": "Herbs: chamomile and gut motility",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "The effect of changing the moisture levels of dry extruded and wet canned diets on physical activity in cats",
-   "authors": "Thomas DG, Post M, Bosch G",
-   "journal": "Journal of Nutritional Science",
-   "year": "2017",
-   "pmid": "28620484",
-   "doi": "10.1017/jns.2017.9",
-   "pmc": "PMC5465855",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Wet vs dry diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "The effect of prazosin on outcome in feline urethral obstruction",
-   "authors": "Reineke EL, Thomas EK, Syring RS, et al.",
-   "journal": "Journal of Veterinary Emergency and Critical Care",
-   "year": "2017",
-   "pmid": "28510274",
-   "doi": "10.1111/vec.12611",
-   "pmc": "",
-   "studied_in": "Cats with urethral obstruction",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Hydro-alcoholic extract of Matricaria recutita exhibited dual anti-spasmodic effect via modulation of Ca(2+) channels, NO and PKA(2)-kinase pathway in rabbit jejunum",
-   "authors": "Yazdi H, Seifi A, Changizi S, et al.",
-   "journal": "Avicenna Journal of Phytomedicine",
-   "year": "2017",
-   "pmid": "28884083",
-   "doi": "",
-   "pmc": "PMC5580871",
-   "studied_in": "Rabbit gut tissue",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Herbs: chamomile and gut motility",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of probiotic supplement (Bacillus subtilis and Lactobacillus acidophilus) on feed efficiency, growth performance, and microbial population of weaning rabbits",
-   "authors": "Phuoc TL, Jamikorn U",
-   "journal": "Asian-Australasian Journal of Animal Sciences",
-   "year": "2017",
-   "pmid": "27165020",
-   "doi": "10.5713/ajas.15.0823",
-   "pmc": "PMC5205607",
-   "studied_in": "Weaned rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Probiotics",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Evaluation of meloxicam for the treatment of obstructive feline idiopathic cystitis",
-   "authors": "Dorsch R, Zellner F, Schulz B, et al.",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2016",
-   "pmid": "26672127",
-   "doi": "10.1177/1098612X15621603",
-   "pmc": "PMC11132225",
-   "studied_in": "Cats with obstructive idiopathic cystitis",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Efficacy of intravesical pentosan polysulfate sodium in cats with obstructive feline idiopathic cystitis",
-   "authors": "Delille M, Fröhlich L, Müller RS, et al.",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2016",
-   "pmid": "26116618",
-   "doi": "10.1177/1098612X15588934",
-   "pmc": "PMC11185227",
-   "studied_in": "Cats with obstructive idiopathic cystitis",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Prognostic value of rectal temperature at hospital admission in client-owned rabbits",
-   "authors": "Di Girolamo N, Toth G, Selleri P",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2016",
-   "pmid": "26799108",
-   "doi": "10.2460/javma.248.3.288",
-   "pmc": "",
-   "studied_in": "Pet rabbits (hospital)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Hypothermia and survival",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Comparison of foods with differing nutritional profiles for long-term management of acute nonobstructive idiopathic cystitis in cats",
-   "authors": "Kruger JM, Lulich JP, MacLeay J, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2015",
-   "pmid": "26295556",
-   "doi": "10.2460/javma.247.5.508",
-   "pmc": "",
-   "studied_in": "Cats with non-obstructive idiopathic cystitis",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Idiopathic cystitis diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Lactating performance, water and feed consumption of rabbit does reared under a Mediterranean summer circadian cycle of temperature v. comfort temperature conditions",
-   "authors": "Bakr MH, Tusell L, Rafel O, et al.",
-   "journal": "Animal",
-   "year": "2015",
-   "pmid": "25592373",
-   "doi": "10.1017/S1751731114003310",
-   "pmc": "",
-   "studied_in": "Breeding does (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: feed and water intake",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Dietary fibres in the nutrition of the growing rabbit and recommendations to preserve digestive health: a review",
-   "authors": "Gidenne T",
-   "journal": "Animal",
-   "year": "2015",
-   "pmid": "25391534",
-   "doi": "10.1017/S1751731114002729",
-   "pmc": "",
-   "studied_in": "Review (growing rabbits)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Fibre requirements",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Cardiovascular effects of dietary salt intake in aged healthy cats: a 2-year prospective randomized, blinded, and controlled study",
-   "authors": "Chetboul V, Reynolds BS, Trehiou-Sechi E, et al.",
-   "journal": "PLoS One",
-   "year": "2014",
-   "pmid": "24941013",
-   "doi": "10.1371/journal.pone.0097862",
-   "pmc": "PMC4062415",
-   "studied_in": "Healthy aged cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary salt safety",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Short term effects of increasing dietary salt concentrations on urine composition in healthy cats",
-   "authors": "Paßlack N, Burmeier H, Brenten T, et al.",
-   "journal": "Veterinary Journal",
-   "year": "2014",
-   "pmid": "24881513",
-   "doi": "10.1016/j.tvjl.2014.04.015",
-   "pmc": "",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary salt",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Intravesical glycosaminoglycans for obstructive feline idiopathic cystitis: a pilot study",
-   "authors": "Bradley AM, Lappin MR",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2014",
-   "pmid": "24196569",
-   "doi": "10.1177/1098612X13510918",
-   "pmc": "PMC11112186",
-   "studied_in": "Cats with urethral obstruction (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Food and water intake and selective feeding in rabbits on four feeding regimes",
-   "authors": "Prebble JL, Meredith AL",
-   "journal": "Journal of Animal Physiology and Animal Nutrition",
-   "year": "2014",
-   "pmid": "24404980",
-   "doi": "10.1111/jpn.12163",
-   "pmc": "",
-   "studied_in": "Dutch rabbits on pet diets",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Diet type: muesli vs hay",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of probiotic Enterococcus faecium and Saccharomyces cerevisiae on the faecal microflora of pet rabbits",
-   "authors": "Benato L, Hastie P, O'Shaughnessy P, et al.",
-   "journal": "Journal of Small Animal Practice",
-   "year": "2014",
-   "pmid": "24961954",
-   "doi": "10.1111/jsap.12242",
-   "pmc": "",
-   "studied_in": "Pet rabbits",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Probiotics: pet rabbits",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Diagnosis and clinical management of gastrointestinal conditions in exotic companion mammals (rabbits, guinea pigs, and chinchillas)",
-   "authors": "Ritzman TK",
-   "journal": "Veterinary Clinics of North America: Exotic Animal Practice",
-   "year": "2014",
-   "pmid": "24767740",
-   "doi": "10.1016/j.cvex.2014.01.003",
-   "pmc": "",
-   "studied_in": "Review (rabbits and other small herbivores)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Gut stasis: clinical management",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Efficacy of two commercially available, low-magnesium, urine-acidifying dry foods for the dissolution of struvite uroliths in cats",
-   "authors": "Lulich JP, Kruger JM, Macleay JM, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2013",
-   "pmid": "24094262",
-   "doi": "10.2460/javma.243.8.1147",
-   "pmc": "",
-   "studied_in": "Cats with struvite stones",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Struvite dissolution diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Initial treatment factors associated with feline urethral obstruction recurrence rate: 192 cases (2004-2010)",
-   "authors": "Hetrick PF, Davidow EB",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "2013",
-   "pmid": "23902444",
-   "doi": "10.2460/javma.243.4.512",
-   "pmc": "",
-   "studied_in": "Cats with urethral obstruction",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction recurrence",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Companion Animals Symposium: dietary management of feline lower urinary tract symptoms",
-   "authors": "Kerr KR",
-   "journal": "Journal of Animal Science",
-   "year": "2013",
-   "pmid": "23408812",
-   "doi": "10.2527/jas.2012-6035",
-   "pmc": "",
-   "studied_in": "Review",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "FLUTD overview",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Intravesical application of lidocaine and sodium bicarbonate in the treatment of obstructive idiopathic lower urinary tract disease in cats",
-   "authors": "Zezza L, Reusch CE, Gerber B",
-   "journal": "Journal of Veterinary Internal Medicine",
-   "year": "2012",
-   "pmid": "22435459",
-   "doi": "10.1111/j.1939-1676.2012.00911.x",
-   "pmc": "",
-   "studied_in": "Cats with obstructive idiopathic lower urinary tract disease",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral obstruction treatment",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of intraurethral administration of atracurium besylate in male cats with urethral plugs",
-   "authors": "Galluzzi F, De Rensis F, Menozzi A, et al.",
-   "journal": "Journal of Small Animal Practice",
-   "year": "2012",
-   "pmid": "22747734",
-   "doi": "10.1111/j.1748-5827.2012.01239.x",
-   "pmc": "",
-   "studied_in": "Cats with urethral plugs",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Urethral plug removal",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "A diet with a struvite relative supersaturation less than 1 is effective in dissolving struvite stones in vivo",
-   "authors": "Houston DM, Weese HE, Evason MD, et al.",
-   "journal": "British Journal of Nutrition",
-   "year": "2011",
-   "pmid": "22005442",
-   "doi": "10.1017/S0007114511000894",
-   "pmc": "",
-   "studied_in": "Cats with struvite stones",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Struvite dissolution diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Cats and calcium oxalate: strategies for managing lower and upper tract stone disease",
-   "authors": "Palm C, Westropp J",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2011",
-   "pmid": "21872792",
-   "doi": "10.1016/j.jfms.2011.07.018",
-   "pmc": "PMC10832665",
-   "studied_in": "Review",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Calcium oxalate stones",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of dietary water intake on urinary output, specific gravity and relative supersaturation for calcium oxalate and struvite in the cat",
-   "authors": "Buckley CM, Hawthorne A, Colyer A, et al.",
-   "journal": "British Journal of Nutrition",
-   "year": "2011",
-   "pmid": "22005408",
-   "doi": "10.1017/S0007114511001875",
-   "pmc": "",
-   "studied_in": "Healthy cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Wet vs dry diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Antispasmodic and Antidiarrheal Activities of Valeriana hardwickii Wall. Rhizome Are Putatively Mediated through Calcium Channel Blockade",
-   "authors": "Bashir S, Memon R, Gilani AH",
-   "journal": "Evidence-Based Complementary and Alternative Medicine",
-   "year": "2011",
-   "pmid": "21423691",
-   "doi": "10.1155/2011/304960",
-   "pmc": "PMC3057483",
-   "studied_in": "Rabbit gut tissue; mice",
-   "tags": [
-    "Rabbits",
-    "Other"
-   ],
-   "topic": "Herbs: valerian and gut motility",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of water source on intake and urine concentration in healthy cats",
-   "authors": "Grant DC",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2010",
-   "pmid": "20005758",
-   "doi": "10.1016/j.jfms.2009.10.008",
-   "pmc": "PMC10822276",
-   "studied_in": "Healthy cats (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Water bowls and fountains",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Effects of dietary sodium chloride on health parameters in mature cats",
-   "authors": "Xu H, Laflamme DP, Long GL",
-   "journal": "Journal of Feline Medicine and Surgery",
-   "year": "2009",
-   "pmid": "19073369",
-   "doi": "10.1016/j.jfms.2008.10.001",
-   "pmc": "PMC10832835",
-   "studied_in": "Healthy mature cats",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Dietary salt safety",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Effect of a starter diet supplementation with mannan-oligosaccharide or inulin on health status, caecal metabolism, digestibility of nutrients and growth of early weaned rabbits",
-   "authors": "Volek Z, Marounek M, Skřivanová V",
-   "journal": "Animal",
-   "year": "2007",
-   "pmid": "22444409",
-   "doi": "10.1017/S1751731107685012",
-   "pmc": "",
-   "studied_in": "Weaned rabbits (farm)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Prebiotics",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Evaluation of the efficacy of a commercial diet in the dissolution of feline struvite bladder uroliths",
-   "authors": "Houston DM, Rinkardt NE, Hilton J",
-   "journal": "Veterinary Therapeutics",
-   "year": "2004",
-   "pmid": "15578451",
-   "doi": "",
-   "pmc": "",
-   "studied_in": "Cats with struvite stones",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Struvite dissolution diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "Inter-relationship of microbial activity, digestion and gut health in the rabbit: effect of substituting fibre by starch in diets having a high proportion of rapidly fermentable polysaccharides",
-   "authors": "Gidenne T, Jehl N, Lapanouse A, et al.",
-   "journal": "British Journal of Nutrition",
-   "year": "2004",
-   "pmid": "15230992",
-   "doi": "10.1079/BJN20041173",
-   "pmc": "",
-   "studied_in": "Young rabbits (experimental)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Fibre and starch",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  },
-  {
-   "title": "Clinical evaluation of commercially available urinary acidification diets in the management of idiopathic cystitis in cats",
-   "authors": "Markwell PJ, Buffington CA, Chew DJ, et al.",
-   "journal": "Journal of the American Veterinary Medical Association",
-   "year": "1999",
-   "pmid": "10023397",
-   "doi": "10.2460/javma.1999.214.03.361",
-   "pmc": "",
-   "studied_in": "Cats with idiopathic cystitis (client-owned)",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Wet vs dry diet",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "The effect of diet on lower urinary tract diseases in cats",
-   "authors": "Markwell PJ, Buffington CT, Smith BH",
-   "journal": "Journal of Nutrition",
-   "year": "1998",
-   "pmid": "9868257",
-   "doi": "10.1093/jn/128.12.2753S",
-   "pmc": "",
-   "studied_in": "Review",
-   "tags": [
-    "Cats"
-   ],
-   "topic": "Diet and urine pH",
-   "projects": [
-    {
-     "dir": "2026-08-feline-urinary-health",
-     "title": "Preventing urinary blockages in cats: what the evidence supports",
-     "url": "/research/2026-08-feline-urinary-health/"
-    }
-   ]
-  },
-  {
-   "title": "The effects of elevated temperature and humidity on rectal temperature and respiration rate in the New Zealand white rabbit",
-   "authors": "Kasa W, Thwaites CJ",
-   "journal": "International Journal of Biometeorology",
-   "year": "1990",
-   "pmid": "2083981",
-   "doi": "10.1007/BF01048713",
-   "pmc": "",
-   "studied_in": "Adult rabbits (laboratory)",
-   "tags": [
-    "Rabbits"
-   ],
-   "topic": "Heat stress: physiology",
-   "projects": [
-    {
-     "dir": "2026-09-rabbit-digestion-weather",
-     "title": "Rabbit digestion in hot and cold weather: what the evidence supports",
-     "url": "/research/2026-09-rabbit-digestion-weather/"
-    }
-   ]
-  }
- ],
- "totals": {
-  "projects": 2,
-  "studies": 80,
-  "free": 49
- }
 }

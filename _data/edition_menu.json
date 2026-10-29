@@ -1,0 +1,23 @@
+{
+  "primary_locales": ["en", "de", "fr", "es", "it", "nl", "ja"],
+  "more_labels": {
+    "en": "More languages",
+    "de": "Weitere Sprachen",
+    "fr": "Autres langues",
+    "it": "Altre lingue",
+    "es": "Más idiomas",
+    "nl": "Meer talen",
+    "pl": "Więcej języków",
+    "sv": "Fler språk",
+    "da": "Flere sprog",
+    "nb": "Flere språk",
+    "fi": "Lisää kieliä",
+    "ja": "その他の言語",
+    "pt-BR": "Mais idiomas",
+    "pt-PT": "Mais idiomas",
+    "ko": "다른 언어",
+    "zh-Hans": "更多语言",
+    "ru": "Другие языки",
+    "hi": "अन्य भाषाएँ"
+  }
+}

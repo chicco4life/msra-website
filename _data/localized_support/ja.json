@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "進行中のプロジェクト",
+  "choose_project": "研究テーマを選ぶ",
+  "feline_topic": "猫の尿路の健康",
+  "rabbit_topic": "ウサギの消化と天候",
+  "pinned_review": "固定表示・中心となるレビュー",
+  "articles_guides": "記事とガイド",
+  "article": "記事",
+  "format": "種類",
+  "draft": "原稿",
+  "no_articles": "個別の記事はまだありません。まず上の中心となるレビューをお読みください。新しい記事はここに掲載します。",
+  "read_review": "中心となるレビューを読む",
+  "overview": "飼い主向けの短い概要",
+  "sources": "出典と論文",
+  "record": "受診記録用紙",
+  "publications": "引用した論文",
+  "original_bibliography": "元の番号付き参考文献一覧",
+  "publication_count": "報の論文",
+  "full_text": "無料全文",
+  "sources_intro": "出典番号は各プロジェクトの一覧に対応します。レビューや、他の動物種・実験室の組織を扱った研究も含まれます。各論文が何を示せるかは研究レビューで確認してください。",
+  "sources_note": "全文リンクは入手可能性を示し、評価の完了や臨床上の推奨を意味しません。論文名、著者名、識別子は原語を維持しています。"
+}

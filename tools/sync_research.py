@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Copy the research projects from MSRA-Open-Research into this site, so every report is a real HTML page.
 
-Search engines and AI answer engines read the HTML a page sends, not what JavaScript adds later.
+Initial HTML keeps content accessible without JavaScript and predictable for crawlers and retrieval tools.
 This script writes, for each project folder in the knowledge base:
     _research/<folder>.md     the report, rendered by Jekyll at /research/<folder>/
 and one data file for the research hub, the library and the home page:
@@ -98,6 +98,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--kb', help='path to a local MSRA-Open-Research checkout (default: download from GitHub)')
     args = ap.parse_args()
+    # Locally audited corrections must be reconciled into their source before sync.
+    protected = [p for p in OUT_DOCS.glob('*.md') if front_matter(p.read_text())[0].get('frontend_edited') in (True, 'true')]
+    if protected:
+        sys.exit('Local editorial report corrections need source reconciliation before sync: ' + ', '.join(p.name for p in protected))
     kb = read_kb(args.kb)
     if not kb:
         sys.exit('No research projects found; nothing written.')

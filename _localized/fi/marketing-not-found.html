@@ -1,0 +1,82 @@
+---
+{
+  "layout": "localized-marketing",
+  "locale": "fi",
+  "translation_key": "page:not-found",
+  "locale_key": "page:not-found::fi",
+  "permalink": "/fi/404.html",
+  "source_fragment_ids": [
+    "top",
+    "waitlist",
+    "wl-close",
+    "wl-country",
+    "wl-done",
+    "wl-done-close",
+    "wl-done-product",
+    "wl-email",
+    "wl-form",
+    "wl-news",
+    "wl-product",
+    "wl-send",
+    "wl-status",
+    "wl-title"
+  ],
+  "source_content_id": null,
+  "source_route": "/404.html",
+  "source_file": "404.html",
+  "source_sha256": "97bce66c5a757c5297cf5ead15a2431adfa4510504d2c9447801022cd8bea708",
+  "source_prepared_date": null,
+  "source_refs": [],
+  "title": "Sivua ei löytynyt.",
+  "display_title": "Sivua ei löytynyt.",
+  "seo_title": "Sivua ei löytynyt.",
+  "description": "Sivua ei löytynyt.",
+  "summary": "Sivua ei löytynyt.",
+  "image": null,
+  "content_label": "Mystical Species Research Academy",
+  "translation_status": "ai-draft",
+  "native_review_status": "pending",
+  "clinical_review_status": "not-applicable",
+  "publication_state": "editorial-draft",
+  "release_approved": false,
+  "robots": "noindex",
+  "sitemap": false,
+  "marketing_product": null,
+  "dictionary_sha256": "6c34d69ed6ab715de895965f16aac61b8e4c8f5da01b8f44f8991d125b3fc136",
+  "generator_input_sha256": "b54b9c100daa58aef451f1fc480149dd685ef86cf9df8f623e0c251e26ae10be"
+}
+---
+
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="label">404</div>
+    <h1 data-i18n="nf.h1">Sivua ei löytynyt.</h1>
+    <p class="more"><a href="/fi/" data-i18n="nf.home" hreflang="fi">Takaisin etusivulle →</a> <a href="/fi/shop/" data-i18n="nf.shop" hreflang="fi">Siirry kauppaan →</a></p>
+  </div>
+</section>
+
+<dialog class="wl" id="waitlist" aria-labelledby="wl-title">
+  <button type="button" class="wl-x" id="wl-close" aria-label="Sulje" data-i18n-attr="aria-label:wl.close">
+    <svg width="16" height="16" viewbox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.6"></path></svg>
+  </button>
+  <form class="wl-form" id="wl-form" novalidate>
+    <div class="label" data-i18n="wl.label">Ennakkotilaus</div>
+    <h2 id="wl-title"><span data-i18n="wl.title">Liity tuotteen odotuslistalle</span> <span class="wl-name" id="wl-product"></span></h2>
+    <p class="wl-lead" data-i18n="wl.lead">Ei maksua nyt. Jätä sähköpostiosoitteesi, niin lähetämme yhden viestin, kun tuote on valmis toimitettavaksi. Viestissä on hinta ja tilauslinkki.</p>
+    <label class="fld"><span class="label" data-i18n="wl.email">Sähköposti</span>
+      <input type="email" id="wl-email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
+    <label class="fld"><span class="label" data-i18n="wl.country">Maa (vapaaehtoinen)</span>
+      <input type="text" id="wl-country" name="country" autocomplete="country-name"></label>
+    <label class="chk"><input type="checkbox" id="wl-news" name="news"><span data-i18n="wl.news">Kerro myös muiden MSRA-tuotteiden lanseerauksista</span></label>
+    <button type="submit" class="btn btn-solid wl-go" id="wl-send" data-i18n="wl.send">Liity odotuslistalle</button>
+    <p class="wl-fine" data-i18n="wl.fine">Käytämme sähköpostiosoitettasi vain kertoaksemme tästä tuotteesta.</p>
+    <p class="wl-status" id="wl-status" role="status" aria-live="polite"></p>
+  </form>
+  <div class="wl-done" id="wl-done" hidden>
+    <svg width="40" height="40" viewbox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 20.5l5.5 5.5L28.5 14" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+    <h2 data-i18n="wl.done_title">Olet listalla.</h2>
+    <p><span data-i18n="wl.done_text">Lähetämme yhden sähköpostin, kun tämä tuote on valmis toimitettavaksi:</span> <b class="wl-name" id="wl-done-product"></b></p>
+    <button type="button" class="btn btn-line" id="wl-done-close" data-i18n="wl.done_close">Takaisin kauppaan</button>
+  </div>
+</dialog>

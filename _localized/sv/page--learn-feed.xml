@@ -1,0 +1,34 @@
+---
+layout: null
+locale: "sv"
+translation_key: "page:learn-feed"
+locale_key: "page:learn-feed::sv"
+source_content_id: null
+source_inventory_id: "LIBRARY-FEED"
+source_route: "/learn/feed.xml"
+source_file: "learn/feed.xml"
+source_sha256: "db139e166145e22adfe9a1684e4de2c87c32fc38e75c123dc0d7d4d7649bf6be"
+source_prepared_date: null
+permalink: "/sv/learn/feed.xml"
+title: "MSRA:s djurhälsobibliotek"
+seo_title: "MSRA:s djurhälsobibliotek"
+display_title: "MSRA:s djurhälsobibliotek"
+description: "Ägarguider, evidensförklaringar och utvalda studieanalyser efter art och tillstånd."
+summary: "Ägarguider, evidensförklaringar och utvalda studieanalyser efter art och tillstånd."
+content_label: "Djurhälsobibliotek"
+source_refs: []
+translation_status: "ai-draft"
+native_review_status: "pending"
+clinical_review_status: "not-applicable"
+publication_state: "editorial-draft"
+release_approved: false
+robots: "noindex"
+sitemap: false
+primary_keyword: null
+keyword_status: "support_utility_no_acquisition_keyword"
+monthly_search_volume: null
+keyword_difficulty: null
+CPC: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSRA:s djurhälsobibliotek</title><link>{{ '/sv/learn/' | absolute_url | xml_escape }}</link><description>Ägarguider, evidensförklaringar och utvalda studieanalyser efter art och tillstånd.</description><language>sv</language><atom:link href="{{ '/sv/learn/feed.xml' | absolute_url | xml_escape }}" rel="self" type="application/rss+xml"/></channel></rss>

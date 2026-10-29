@@ -1,0 +1,9 @@
+{% if site.localization_public_release %}
+{% assign alternate_identity = site.data.localization_registry.by_route[page.url] %}{% assign alternate_resource = site.data.localization_registry.resources[alternate_identity.translation_key] %}
+{% assign alternate_release = site.data.publication_manifest.resources[alternate_identity.translation_key] %}
+{% assign alternate_current_sha = alternate_release.variant_sha256[alternate_identity.locale] %}{% assign alternate_current_variant = alternate_resource.variants[alternate_identity.locale] %}
+{% if alternate_release.indexable and alternate_current_variant and alternate_current_sha and alternate_current_variant.document_sha256 and alternate_current_sha == alternate_current_variant.document_sha256 %}
+{% unless alternate_resource.kind == 'feed' or alternate_identity.translation_key == 'page:not-found' or alternate_identity.translation_key == 'page:research-project' or alternate_identity.translation_key == 'page:learn-updates' %}
+{% for alternate_pair in alternate_resource.variants %}{% assign alternate_edition = alternate_pair[1] %}{% assign alternate_sha = alternate_release.variant_sha256[alternate_edition.locale] %}{% if alternate_sha and alternate_edition.document_sha256 and alternate_sha == alternate_edition.document_sha256 %}<link rel="alternate" hreflang="{{ alternate_edition.locale | escape }}" href="{{ alternate_edition.url | absolute_url }}">
+{% endif %}{% endfor %}{% if alternate_resource.variants.en and alternate_release.variant_sha256.en and alternate_resource.variants.en.document_sha256 and alternate_release.variant_sha256.en == alternate_resource.variants.en.document_sha256 %}<link rel="alternate" hreflang="x-default" href="{{ alternate_resource.variants.en.url | absolute_url }}">{% endif %}
+{% endunless %}{% endif %}{% endif %}

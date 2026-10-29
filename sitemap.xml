@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for sitemap_pair in site.data.localization_registry.resources %}{% assign sitemap_source = sitemap_pair[1] %}{% assign sitemap_key = sitemap_pair[0] %}
+{% unless sitemap_source.kind == 'feed' or sitemap_key == 'page:not-found' or sitemap_key == 'page:research-project' or sitemap_key == 'page:learn-updates' %}
+{% assign sitemap_release = site.data.publication_manifest.resources[sitemap_key] %}
+{% for sitemap_edition_pair in sitemap_source.variants %}{% assign sitemap_edition = sitemap_edition_pair[1] %}
+{% assign sitemap_release_sha = sitemap_release.variant_sha256[sitemap_edition.locale] %}{% assign sitemap_include = false %}{% if site.localization_public_release %}{% if sitemap_release.indexable and sitemap_release_sha and sitemap_edition.document_sha256 and sitemap_release_sha == sitemap_edition.document_sha256 %}{% assign sitemap_include = true %}{% endif %}{% elsif sitemap_edition.source_indexable %}{% assign sitemap_include = true %}{% endif %}
+{% if sitemap_include %}<url><loc>{{ sitemap_edition.url | absolute_url | xml_escape }}</loc>{% if site.localization_public_release %}{% for sitemap_alternate_pair in sitemap_source.variants %}{% assign sitemap_alternate = sitemap_alternate_pair[1] %}{% assign sitemap_alternate_sha = sitemap_release.variant_sha256[sitemap_alternate.locale] %}{% if sitemap_alternate_sha and sitemap_alternate.document_sha256 and sitemap_alternate_sha == sitemap_alternate.document_sha256 %}<xhtml:link rel="alternate" hreflang="{{ sitemap_alternate.locale | xml_escape }}" href="{{ sitemap_alternate.url | absolute_url | xml_escape }}"/>{% endif %}{% endfor %}{% if sitemap_release.variant_sha256.en and sitemap_source.variants.en.document_sha256 and sitemap_release.variant_sha256.en == sitemap_source.variants.en.document_sha256 %}<xhtml:link rel="alternate" hreflang="x-default" href="{{ sitemap_source.source_route | absolute_url | xml_escape }}"/>{% endif %}{% endif %}</url>
+{% endif %}{% endfor %}{% endunless %}{% endfor %}
+</urlset>

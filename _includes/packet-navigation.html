@@ -1,0 +1,5 @@
+{% assign packet_nav = site.data.feline_packet.navigation[include.content_id] %}
+<nav class="knowledge-packet__navigation" aria-label="Related collection navigation">
+  <div class="label">In this collection</div>
+  {% for link in packet_nav.sidebar %}<a href="{{ link.target | relative_url }}">{{ link.label | escape }} →</a>{% endfor %}
+</nav>

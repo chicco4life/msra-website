@@ -1,0 +1,5 @@
+{% assign packet_related = site.data.feline_packet.navigation[include.content_id] %}
+<section class="wrap knowledge-related" aria-labelledby="packet-related-reading"><div class="label">Keep reading</div><h2 id="packet-related-reading">Related questions</h2><div class="knowledge-cards">
+{% for link in packet_related.related_cards %}{% assign packet_card = site.data.feline_packet.assets[link.content_id] %}{% assign packet_consumer_copy = site.data.library.cards[link.content_id] %}
+<article class="knowledge-card" data-content-id="{{ link.content_id | escape }}"><div class="label">{{ site.data.library.cards[link.content_id].label | escape }}</div><h3><a href="{{ link.target | relative_url }}">{{ packet_consumer_copy.title | default: packet_card.card_title | escape }}</a></h3><p>{{ packet_consumer_copy.summary | default: packet_card.card_excerpt | escape }}</p><span class="knowledge-card__status">Editorial preview · qualified veterinary review pending</span><a href="{{ link.target | relative_url }}">{{ link.label | escape }} →</a></article>
+{% endfor %}</div></section>

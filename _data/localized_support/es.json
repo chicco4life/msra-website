@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Proyectos en curso",
+  "choose_project": "Elige un tema de investigación",
+  "feline_topic": "Salud urinaria del gato",
+  "rabbit_topic": "Digestión del conejo y condiciones meteorológicas",
+  "pinned_review": "Fijado · Revisión principal",
+  "articles_guides": "Artículos y guías",
+  "article": "Artículo",
+  "format": "Formato",
+  "draft": "Borrador",
+  "no_articles": "Todavía no hay artículos independientes. Empieza por la revisión principal de arriba; los nuevos artículos aparecerán aquí.",
+  "read_review": "Leer la revisión principal",
+  "overview": "Resumen breve para quienes cuidan de un gato",
+  "sources": "Fuentes y publicaciones",
+  "record": "Registro para la consulta veterinaria",
+  "publications": "Publicaciones citadas",
+  "original_bibliography": "Bibliografía numerada original",
+  "publication_count": "publicaciones",
+  "full_text": "Texto completo gratuito",
+  "sources_intro": "Los números de referencia siguen la lista de fuentes de cada proyecto. Incluyen revisiones y trabajos en otras especies o tejidos de laboratorio; lee el informe para saber qué puede demostrar cada publicación.",
+  "sources_note": "Un enlace al texto completo indica su disponibilidad, no una evaluación crítica terminada ni una recomendación clínica. Los títulos de las publicaciones, los autores y los identificadores conservan su idioma original."
+}

@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "진행 중인 프로젝트",
+  "choose_project": "연구 주제 선택",
+  "feline_topic": "고양이 비뇨기 건강",
+  "rabbit_topic": "토끼 소화와 날씨",
+  "pinned_review": "고정 · 핵심 검토",
+  "articles_guides": "글과 안내서",
+  "article": "글",
+  "format": "형식",
+  "draft": "초안",
+  "no_articles": "아직 별도 글이 없습니다. 위 핵심 검토부터 시작하세요. 새 글은 여기에 표시됩니다.",
+  "read_review": "핵심 검토 읽기",
+  "overview": "짧은 보호자 개요",
+  "sources": "출처와 출판물",
+  "record": "진료 기록지",
+  "publications": "인용 출판물",
+  "original_bibliography": "원래 번호 참고문헌",
+  "publication_count": "출판물",
+  "full_text": "무료 원문",
+  "sources_intro": "참고문헌 번호는 각 프로젝트의 출처 목록을 따릅니다. 고찰과 다른 종·실험실 조직의 연구도 포함하므로 각 출판물이 무엇을 확립할 수 있는지는 보고서에서 확인하세요.",
+  "sources_note": "원문 링크는 가용성을 나타내며 완료된 평가나 임상 권고가 아닙니다. 제목·저자·식별자는 원래 언어를 유지합니다."
+}

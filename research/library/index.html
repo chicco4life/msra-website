@@ -11,9 +11,11 @@ kb: lib
     <h1 data-i18n="lib.h1">Every study our research cites</h1>
     <p class="lead" data-i18n="lib.lead">All the peer-reviewed studies cited across our research projects. Those marked open access can be read in full for free.</p>
     <p class="more">
+      <a href="{{ '/research/#referenced-publications' | relative_url }}">Browse numbered references by project →</a>
       <a href="{{ site.repo_url }}" target="_blank" rel="noopener" data-i18n="lib.github_link">See each project's sources on GitHub →</a>
       <a href="{{ site.repo_url }}/issues/new?title=Study%20suggestion" target="_blank" rel="noopener" data-i18n="lib.suggest">Suggest a study or a correction →</a>
     </p>
+    {% include research-updates-cta.html topic='new-research' source='research-library-intro' title='Follow new research and its source trail.' description='Choose new research launches or an existing research topic.' compact=true %}
   </div>
 </section>
 <section class="page-body">
@@ -38,5 +40,6 @@ kb: lib
       </table>
     </div>
     <p class="refs-note"><span data-i18n="lib.showing">Studies shown:</span> <b id="lib-count">{{ site.data.research.library | size }}</b></p>
+    {% include research-updates-cta.html source='research-library-end' title='Keep following the evidence.' description='Choose new research launches, feline urinary health or rabbit digestive health. Reading a source or using a species filter does not change your email preferences.' %}
   </div>
 </section>

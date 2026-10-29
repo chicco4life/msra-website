@@ -1,0 +1,7 @@
+<nav class="library-project-picker" aria-label="Ongoing research projects" data-library-project-browser>
+  <div class="library-project-picker__label"><span class="label">Ongoing projects</span><span>Choose a research question</span></div>
+  <label class="library-project-picker__control" hidden data-library-project-enhanced><span class="library-visually-hidden">Choose an ongoing project</span><select data-library-project-picker aria-label="Choose an ongoing project">{% for project in site.data.library_projects.projects %}<option value="{{ project.id | escape }}"{% if project.id == site.data.library_projects.default_project %} selected{% endif %}>{{ project.label | escape }}</option>{% endfor %}</select></label>
+  <div class="library-project-picker__fallback" data-library-project-fallback>{% for project in site.data.library_projects.projects %}<a href="#project-{{ project.id | escape }}">{{ project.label | escape }} →</a>{% endfor %}</div>
+</nav>
+<p class="library-project-status" role="status" aria-live="polite" data-library-project-status></p>
+{% for project in site.data.library_projects.projects %}{% include library-project.html project=project %}{% endfor %}

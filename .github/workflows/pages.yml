@@ -1,0 +1,107 @@
+name: Checked GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validate and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: read
+    env:
+      JEKYLL_ENV: production
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Ruby and bundled gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler: "2.5.23"
+          bundler-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      # These checks never regenerate either committed snapshot. A content change
+      # must be reconciled and deliberately approved before it can be deployed.
+      - name: Require a current localization registry
+        run: python3 tools/prepare_localizations.py --check
+
+      - name: Require a current frozen publication allowlist
+        run: python3 tools/prepare_publication_manifest.py --check
+
+      - name: Validate keyword evidence and metadata freshness
+        run: python3 tools/import_full_site_keywords.py --check
+
+      - name: Test keyword evidence boundaries
+        run: python3 tools/import_full_site_keywords.py --self-test
+
+      - name: Test raw keyword export handling
+        run: python3 tools/import_google_keyword_evidence.py --self-test
+
+      - name: Verify every commissioned source edition
+        run: python3 tools/verify_localizations.py --complete
+
+      - name: Test language routing without network requests
+        run: node tools/test_language_routing.cjs
+
+      - name: Build production Jekyll site
+        run: bundle exec jekyll build --destination "$RUNNER_TEMP/msra-pages-site" --trace
+
+      - name: Verify the rendered production release
+        run: python3 tools/verify_full_site.py --built "$RUNNER_TEMP/msra-pages-site" --complete --release
+
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
+
+      - name: Upload the checked site
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/msra-pages-site
+
+  deploy:
+    name: Deploy checked artifact
+    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

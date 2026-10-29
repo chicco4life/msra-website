@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Projetos em curso",
+  "choose_project": "Escolha um tema de investigação",
+  "feline_topic": "Saúde urinária dos gatos",
+  "rabbit_topic": "Digestão dos coelhos e condições meteorológicas",
+  "pinned_review": "Em destaque · Revisão principal",
+  "articles_guides": "Artigos e guias",
+  "article": "Artigo",
+  "format": "Formato",
+  "draft": "Rascunho",
+  "no_articles": "Ainda não existem artigos separados. Comece pela revisão principal acima; os novos artigos serão apresentados aqui.",
+  "read_review": "Ler a revisão principal",
+  "overview": "Síntese breve para cuidadores",
+  "sources": "Fontes e publicações",
+  "record": "Registo para a consulta veterinária",
+  "publications": "Publicações referenciadas",
+  "original_bibliography": "Bibliografia original numerada",
+  "publication_count": "publicações",
+  "full_text": "Texto integral gratuito",
+  "sources_intro": "Os números das referências seguem a lista de fontes de cada projeto. Incluem revisões e trabalhos noutras espécies ou em tecidos de laboratório; leia o relatório para perceber o que cada publicação permite concluir.",
+  "sources_note": "Uma ligação para o texto integral indica disponibilidade, não uma avaliação concluída nem uma recomendação clínica. Os títulos, autores e identificadores das publicações mantêm o idioma original."
+}

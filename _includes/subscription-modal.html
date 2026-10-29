@@ -1,0 +1,57 @@
+{% assign updates_config = site.data.subscriptions %}
+{% assign updates_privacy_url = updates_config.privacy_url | default: '' | strip %}
+{% assign updates_account_ready = false %}
+{% if updates_config.enabled == true and updates_config.account_checks_verified == true and updates_config.signup.topic_choices_verified == true and updates_config.provider_name == 'Kit' and updates_privacy_url != '' %}{% assign updates_account_ready = true %}{% endif %}
+{% assign updates_inline = updates_config.signup.inline %}
+{% assign updates_inline_ready = false %}
+{% if updates_account_ready and updates_config.signup.mode == 'inline' and updates_inline.form_id == '10113119' and updates_inline.uid == '924e9b0702' and updates_inline.action == 'https://app.kit.com/forms/10113119/subscriptions' and updates_inline.script_url == 'https://f.convertkit.com/ckjs/ck.5.js' and updates_inline.email_field == 'email_address' and updates_inline.topic_field == 'tags[]' and updates_inline.topic_tags.size == 3 and updates_inline.topic_tags.feline-urinary == '25146776' and updates_inline.topic_tags.rabbit-gut == '25146778' and updates_inline.topic_tags.new-research == '25146779' and updates_config.topics.size == 3 and updates_config.topics.feline_urinary.id == 'feline-urinary' and updates_config.topics.rabbit_gut.id == 'rabbit-gut' and updates_config.topics.new_research.id == 'new-research' and updates_config.topics.feline_urinary.enabled == true and updates_config.topics.rabbit_gut.enabled == true and updates_config.topics.new_research.enabled == true %}{% assign updates_inline_ready = true %}{% endif %}
+{% assign updates_provider_url = updates_config.signup.hosted_form_url | default: '' | strip %}
+{% assign updates_provider_prefix = updates_provider_url | slice: 0, 8 %}
+{% assign updates_provider_parts = updates_provider_url | split: '/' %}
+{% assign updates_provider_host = updates_provider_parts[2] | default: '' | downcase %}
+{% assign updates_host_allowed = false %}
+{% for updates_host in updates_config.allowed_hosts %}
+  {% assign updates_host_suffix = '.' | append: updates_host %}
+  {% assign updates_host_length = updates_host_suffix.size %}
+  {% assign updates_host_start = 0 | minus: updates_host_length %}
+  {% assign updates_host_tail = updates_provider_host | slice: updates_host_start, updates_host_length %}
+  {% if updates_provider_host == updates_host or updates_host_tail == updates_host_suffix %}{% assign updates_host_allowed = true %}{% endif %}
+{% endfor %}
+{% assign updates_encoded_url = updates_provider_url | url_encode %}
+{% if updates_provider_host contains '@' or updates_provider_host contains '?' or updates_provider_host contains '#' or updates_provider_host contains ':' or updates_encoded_url contains '%5C' or updates_encoded_url contains '%0A' or updates_encoded_url contains '%0D' or updates_encoded_url contains '%09' or updates_provider_url contains ' ' %}{% assign updates_host_allowed = false %}{% endif %}
+{% assign updates_signup_ready = false %}
+{% if updates_account_ready and updates_config.signup.mode == 'hosted-reconfirm' and updates_provider_prefix == 'https://' and updates_host_allowed %}{% assign updates_signup_ready = true %}{% endif %}
+{% comment %}One shared dialog per page. Provider markup is rendered only after all release gates pass.{% endcomment %}
+<dialog id="research-subscription-dialog" class="subscription-dialog" aria-labelledby="subscription-dialog-title" aria-describedby="subscription-dialog-help" data-subscription-modal data-signup-ready="{{ updates_inline_ready }}" data-signup-mode="{% if updates_inline_ready %}inline{% elsif updates_signup_ready %}hosted-reconfirm{% else %}preview{% endif %}">
+  <div class="subscription-dialog__inner">
+    <button type="button" class="subscription-dialog__close" aria-label="Close research updates" data-subscription-close>×</button>
+    <p class="label">MSRA research updates</p>
+    <h2 id="subscription-dialog-title">What would you like to follow?</h2>
+    <p id="subscription-dialog-help">Choose one or more topics. We’ll email you when there’s something new to read.</p>
+    {% if updates_inline_ready %}
+    <div class="subscription-dialog__provider" data-subscription-inline data-signup-ready="true" data-form-id="{{ updates_inline.form_id | escape }}" data-form-uid="{{ updates_inline.uid | escape }}" data-form-action="{{ updates_inline.action | escape }}" data-topic-tags="{{ updates_inline.topic_tags | jsonify | escape }}">
+      {% include kit-research-form.html %}
+      <p role="status" aria-live="polite" class="subscription-dialog__status" data-subscription-selection>Choose at least one topic.</p>
+    </div>
+    {% else %}
+    <form class="subscription-dialog__preview" method="dialog" data-subscription-preview-form>
+      <label class="subscription-dialog__email">Your email address<input type="email" autocomplete="email" inputmode="email" required data-subscription-email placeholder="Your email address"></label>
+      <fieldset class="subscription-dialog__topics"><legend>Research topics</legend>
+        {% for entry in updates_config.topics %}{% assign updates_option = entry[1] %}{% if updates_option.enabled %}
+        <label class="subscription-dialog__topic"><input type="checkbox" value="{{ updates_option.id | escape }}" data-subscription-topic><span><strong>{{ updates_option.label | escape }}</strong><span>{{ updates_option.description | escape }}</span></span></label>
+        {% endif %}{% endfor %}
+      </fieldset>
+      {% if updates_signup_ready %}
+      <p class="subscription-dialog__status">Continue to Kit to enter your email and choose your topics again. Nothing has been sent yet.</p>
+      <a class="btn btn-solid subscription-dialog__submit" href="{{ updates_provider_url | escape }}" rel="external noreferrer" data-subscription-link>Continue on Kit</a>
+      {% else %}
+      <p class="subscription-dialog__preview-note" role="status">Preview only. Your email and choices are not saved or sent.</p>
+      <button class="btn btn-solid subscription-dialog__submit" type="button" disabled>Receive research updates</button>
+      {% endif %}
+    </form>
+    {% endif %}
+    {% unless updates_inline_ready %}<p class="subscription-dialog__fine">Confirm your email to start receiving updates. Change topics or unsubscribe at any time. All our research stays free to read.</p>{% endunless %}
+    <a class="subscription-dialog__privacy" href="{{ '/privacy/' | relative_url }}">Email privacy and preferences</a>
+  </div>
+</dialog>
+<noscript><p class="wrap subscription-nojs">{% if updates_account_ready and updates_provider_prefix == 'https://' and updates_host_allowed %}<a href="{{ updates_provider_url | escape }}" rel="external noreferrer">Subscribe to research updates on Kit</a>. Choose your topics there and confirm your email.{% else %}Email signup is in preview. Nothing is collected or sent.{% endif %}</p></noscript>

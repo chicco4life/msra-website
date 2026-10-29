@@ -1,0 +1,14 @@
+{% comment %}Every entry opens the same dialog. A suggested topic is editable and is not stored consent.{% endcomment %}
+{%- assign updates_key = include.topic | default: '' | replace: '-', '_' -%}
+{%- assign updates_topic = site.data.subscriptions.topics[updates_key] -%}
+<aside class="research-updates-cta{% if include.compact %} research-updates-cta--compact{% endif %}" lang="en" data-research-updates data-topic="{{ updates_topic.id | default: '' | escape }}" data-source="{{ include.source | default: 'topic-resource' | escape }}">
+  <div class="research-updates-cta__copy">
+    {% unless include.compact %}<p class="label">Research in your inbox{% if updates_topic.label %} · {{ updates_topic.label | escape }}{% endif %}</p>{% endunless %}
+    <h2>{{ include.title | default: updates_topic.title | default: 'Follow the questions that matter to you.' | escape }}</h2>
+    <p>{{ include.description | default: updates_topic.description | default: 'Choose the topics you follow and receive updates when we publish new research.' | escape }}</p>
+  </div>
+  <div class="research-updates-cta__action">
+    {% include subscription-bar.html topic=updates_topic.id source=include.source %}
+    <p class="research-updates-cta__note">Choose your topics next. Change them or unsubscribe at any time.</p>
+  </div>
+</aside>

@@ -1,0 +1,47 @@
+{%- assign release_record = site.data.publication_manifest.resources[page.translation_key] -%}
+{%- assign release_variant = localized_source.variants[page.locale] -%}
+{%- assign release_variant_sha = release_record.variant_sha256[page.locale] -%}
+{%- assign localized_canonical = page.url | absolute_url -%}
+{%- assign seo_override = site.data.localized_seo[page.translation_key][page.locale] -%}
+{%- assign edition_seo_title = seo_override.title | default: page.seo_title | default: page.title -%}
+{%- assign edition_seo_description = seo_override.description | default: page.description -%}
+<title>{{ edition_seo_title | escape }}{% unless edition_seo_title contains 'MSRA' %} | {{ site.brand | escape }}{% endunless %}</title>
+<meta name="description" content="{{ edition_seo_description | escape }}">
+<meta name="robots" content="{% if site.localization_public_release and release_record.indexable and release_variant and release_variant_sha and release_variant.document_sha256 and release_variant_sha == release_variant.document_sha256 %}index,follow{% else %}noindex,follow{% endif %}">
+<link rel="canonical" href="{{ localized_canonical }}">
+{% include language-alternates.html %}
+<meta property="og:type" content="{% if localized_source.kind == 'article' or localized_source.kind == 'report' %}article{% else %}website{% endif %}">
+<meta property="og:locale" content="{{ localized_locale.og_locale | escape }}">
+<meta property="og:site_name" content="{{ site.brand | escape }}">
+<meta property="og:title" content="{{ edition_seo_title | escape }}">
+<meta property="og:description" content="{{ edition_seo_description | escape }}">
+<meta property="og:url" content="{{ localized_canonical }}">
+<meta property="og:image" content="{{ page.image | default: site.default_image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- assign localized_author_page = site.data.localization_registry.resources['page:learn-about'].variants[page.locale] -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"{% if localized_source.kind == 'article' or localized_source.kind == 'report' %}Article{% else %}WebPage{% endif %}","@id":{{ localized_canonical | append: '#page' | jsonify }},"url":{{ localized_canonical | jsonify }},"mainEntityOfPage":{{ localized_canonical | jsonify }},"headline":{{ page.display_title | default: page.title | jsonify }},"description":{{ edition_seo_description | jsonify }},"inLanguage":{{ page.locale | jsonify }},{% if localized_source.kind == 'article' or localized_source.kind == 'report' %}"author":{"@type":"Organization","name":"MSRA Research"{% if localized_author_page %},"url":{{ localized_author_page.url | absolute_url | jsonify }}{% endif %}},{% endif %}{% if page.image and content contains page.image %}"image":{{ page.image | absolute_url | jsonify }},{% endif %}{% if seo_override.primary_keyword %}"about":{"@type":"Thing","name":{{ seo_override.primary_keyword | jsonify }}},{% endif %}"creativeWorkStatus":"Draft","isAccessibleForFree":true,"isBasedOn":{{ localized_source.source_route | absolute_url | jsonify }},"publisher":{"@type":"Organization","name":{{ site.org_name | jsonify }},"url":{{ '/' | absolute_url | jsonify }}}}</script>
+{%- comment -%}
+  Describe only the real library, research or shop hierarchy available in this
+  edition. Names come from visible navigation labels and page headings; this is
+  neither a clinical-review claim nor an additional keyword list.
+{%- endcomment -%}
+{%- assign localized_breadcrumb_keys = '' -%}
+{%- assign localized_source_route = localized_source.source_route -%}
+{%- if localized_source_route contains '/learn/' and localized_source_route != '/learn/' -%}
+  {%- assign localized_breadcrumb_keys = 'page:learn' -%}
+  {%- if localized_source_route contains '/learn/cats/' and localized_source_route != '/learn/cats/' -%}
+    {%- assign localized_breadcrumb_keys = localized_breadcrumb_keys | append: ',page:learn-cats' -%}
+    {%- if localized_source_route contains '/learn/cats/urinary-health/' and localized_source_route != '/learn/cats/urinary-health/' -%}
+      {%- assign localized_breadcrumb_keys = localized_breadcrumb_keys | append: ',H00' -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- elsif localized_source_route contains '/research/' and localized_source_route != '/research/' -%}
+  {%- assign localized_breadcrumb_keys = 'page:research' -%}
+{%- elsif localized_source_route contains '/shop/' and localized_source_route != '/shop/' -%}
+  {%- assign localized_breadcrumb_keys = 'page:shop' -%}
+{%- endif -%}
+{%- if localized_breadcrumb_keys != empty -%}
+  {%- assign localized_breadcrumb_parents = localized_breadcrumb_keys | split: ',' -%}
+  {%- assign localized_breadcrumb_position = 1 -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":{{ localized_canonical | append: '#breadcrumb' | jsonify }},"itemListElement":[{%- for localized_breadcrumb_key in localized_breadcrumb_parents -%}{%- assign localized_breadcrumb_source = site.data.localization_registry.resources[localized_breadcrumb_key] -%}{%- assign localized_breadcrumb_variant = localized_breadcrumb_source.variants[page.locale] -%}{%- if localized_breadcrumb_variant -%}{%- assign localized_breadcrumb_name = localized_breadcrumb_variant.display_title | default: localized_breadcrumb_variant.title -%}{%- if localized_breadcrumb_key == 'page:learn' -%}{%- assign localized_breadcrumb_name = localized_ui.library -%}{%- elsif localized_breadcrumb_key == 'page:research' -%}{%- assign localized_breadcrumb_name = localized_ui.open_research -%}{%- elsif localized_breadcrumb_key == 'page:shop' -%}{%- assign localized_breadcrumb_name = site.data.marketing_ui[page.locale]['nav.shop'] | default: localized_breadcrumb_name -%}{%- endif -%}{"@type":"ListItem","position":{{ localized_breadcrumb_position }},"name":{{ localized_breadcrumb_name | jsonify }},"item":{{ localized_breadcrumb_variant.url | absolute_url | jsonify }}},{%- assign localized_breadcrumb_position = localized_breadcrumb_position | plus: 1 -%}{%- endif -%}{%- endfor -%}{"@type":"ListItem","position":{{ localized_breadcrumb_position }},"name":{{ page.display_title | default: page.title | jsonify }},"item":{{ localized_canonical | jsonify }}}]}</script>
+{%- endif -%}

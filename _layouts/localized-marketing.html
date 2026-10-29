@@ -1,0 +1,31 @@
+{%- assign localization_registry = site.data.localization_registry -%}
+{%- assign localized_ui = site.data.localized_ui[page.locale] -%}
+{%- assign nav_support_ui = site.data.localized_support[page.locale] -%}
+{%- assign localized_source = localization_registry.resources[page.translation_key] -%}
+{%- assign localized_locale = localization_registry.locales[page.locale] -%}
+{%- assign marketing_dictionary = site.data.marketing_ui[page.locale] -%}
+<!DOCTYPE html>
+<html lang="{{ page.locale | escape }}" data-content-locale="{{ page.locale | escape }}" dir="{{ localized_ui.direction | escape }}">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+{% include analytics.html %}
+{% include localized-seo.html %}
+<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/navigation.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/subscriptions.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/marketing-localized.css' | relative_url }}">
+</head><body class="marketing-edition" data-locale="{{ page.locale | escape }}" data-translation-key="{{ page.translation_key | escape }}">
+<a class="localized-skip" href="#top">{{ localized_ui.skip_to_content | escape }}</a>
+{% include localized-header.html %}
+<main id="top" data-localized-body>{{ content }}</main>
+<footer><div class="wrap foot"><span>© {{ 'now' | date: '%Y' }} MSRA · {{ marketing_dictionary['brand.name'] | escape }} · msralab.com</span>
+<span class="foot-links">{% include localized-nav-link.html key='page:learn' label=localized_ui.library %} · {% include localized-nav-link.html key='page:research' label=localized_ui.open_research %} · {% include localized-nav-link.html key='page:research-library' label=localized_ui.research_sources %} · {% assign local_privacy = localization_registry.resources['page:privacy'].variants[page.locale] %}<a href="{{ local_privacy.url | relative_url }}">{{ site.data.marketing_extras[page.locale].privacy | escape }}</a></span><p>{{ marketing_dictionary['foot.disclaimer'] | escape }}</p></div></footer>
+<div class="wrap marketing-email">{% include localized-subscription.html %}</div>
+<script id="marketing-ui-data" type="application/json">{{ marketing_dictionary | jsonify | replace: '</', '<\/' }}</script>
+<script id="marketing-config" type="application/json">{"shop":{{ site.data.shop | jsonify }},"mail":{{ site.contact_email | jsonify }},"locale":{{ page.locale | jsonify }},"shopPage":{{ '/' | append: page.locale | downcase | append: '/shop/' | relative_url | jsonify }},"products":{ {% for p in site.data.products %}{{ p.slug | jsonify }}:{{ p.name | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %} }}</script>
+<script src="{{ '/assets/js/marketing-localized.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/subscriptions.js' | relative_url }}"></script>
+{% include language-routing.html %}
+</body></html>

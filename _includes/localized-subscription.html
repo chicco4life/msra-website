@@ -1,0 +1,19 @@
+{% assign email_extra = site.data.marketing_extras[page.locale] %}
+<aside class="localized-email"><h2>{{ localized_ui.email_heading | escape }}</h2><p>{{ email_extra.free | escape }}</p>
+<form class="subscription-entry" action="{{ '/' | append: page.locale | downcase | append: '/learn/updates/' | relative_url }}" method="get" data-subscription-entry data-topic="{{ localized_source.topic | default: '' | escape }}" data-source="localized-resource" aria-label="{{ localized_ui.email_heading | escape }}">
+<label class="subscription-entry__email"><span class="visually-hidden">{{ email_extra.email | escape }}</span><input type="email" autocomplete="email" inputmode="email" placeholder="{{ email_extra.email | escape }}" aria-label="{{ email_extra.email | escape }}" required data-subscription-entry-email></label>
+<button class="btn btn-solid" type="submit" aria-haspopup="dialog" aria-controls="research-subscription-dialog">{{ email_extra.receive | escape }}</button>
+</form></aside>
+<dialog id="research-subscription-dialog" class="subscription-dialog" aria-labelledby="subscription-dialog-title" aria-describedby="subscription-dialog-help" data-subscription-modal data-signup-ready="false" data-signup-mode="preview">
+<div class="subscription-dialog__inner"><button type="button" class="subscription-dialog__close" aria-label="{{ email_extra.close | escape }}" data-subscription-close>×</button>
+<p class="label">{{ localized_ui.email_heading | escape }}</p><h2 id="subscription-dialog-title">{{ email_extra.follow | escape }}</h2><p id="subscription-dialog-help">{{ email_extra.choose | escape }}</p>
+<form class="subscription-dialog__preview" method="dialog" data-subscription-preview-form>
+<label class="subscription-dialog__email">{{ email_extra.email | escape }}<input type="email" autocomplete="email" inputmode="email" required data-subscription-email placeholder="{{ email_extra.email | escape }}"></label>
+<fieldset class="subscription-dialog__topics"><legend>{{ nav_support_ui.ongoing_projects | escape }}</legend>
+<label class="subscription-dialog__topic"><input type="checkbox" value="feline-urinary" data-subscription-topic><span><strong>{{ nav_support_ui.feline_topic | escape }}</strong></span></label>
+<label class="subscription-dialog__topic"><input type="checkbox" value="rabbit-gut" data-subscription-topic><span><strong>{{ nav_support_ui.rabbit_topic | escape }}</strong></span></label>
+<label class="subscription-dialog__topic"><input type="checkbox" value="new-research" data-subscription-topic><span><strong>{{ localized_ui.open_research | escape }}</strong></span></label>
+</fieldset><p class="subscription-dialog__preview-note" role="status">{{ localized_ui.email_hold_notice | escape }}</p>
+<button class="btn btn-solid subscription-dialog__submit" type="button" disabled>{{ email_extra.receive | escape }}</button></form>
+<p class="subscription-dialog__fine">{{ email_extra.preferences | escape }}</p>
+{% assign privacy_edition = localization_registry.resources['page:privacy'].variants[page.locale] %}<a class="subscription-dialog__privacy" href="{{ privacy_edition.url | relative_url }}">{{ email_extra.privacy | escape }}</a></div></dialog>

@@ -1,0 +1,5 @@
+{% comment %}Local first step only. The email is passed to the shared dialog in memory, never in a URL.{% endcomment %}
+<form class="subscription-entry" action="{{ '/learn/updates/' | relative_url }}" method="get" data-subscription-entry data-topic="{{ include.topic | default: '' | escape }}" data-source="{{ include.source | default: 'research-updates' | escape }}" aria-label="Research email updates">
+  <label class="subscription-entry__email"><span class="visually-hidden">Your email address</span><input type="email" autocomplete="email" inputmode="email" placeholder="Your email address" aria-label="Your email address" required data-subscription-entry-email></label>
+  <button class="btn btn-solid" type="submit" aria-haspopup="dialog" aria-controls="research-subscription-dialog">Receive research updates</button>
+</form>

@@ -1,0 +1,10 @@
+---
+layout: default
+editorial: true
+title: "Cat health research and guides"
+description: "Read the feline urinary health evidence review and browse all related MSRA articles and guides in one list."
+---
+<section class="library-index"><div class="wrap">
+  <header class="library-index__header"><nav class="knowledge-breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/learn/' | relative_url }}">Pet Health Library</a><span aria-hidden="true">/</span><span aria-current="page">Cats</span></nav><h1>Cat health research and guides</h1><p>One core review, with the related articles below.</p><a class="library-index__back" href="{{ '/learn/' | relative_url }}">All ongoing projects →</a></header>
+  {% assign feline_project = site.data.library_projects.projects | where: 'id', 'feline-urinary' | first %}{% include library-project.html project=feline_project %}
+</div></section>

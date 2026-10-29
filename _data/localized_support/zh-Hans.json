@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "进行中的项目",
+  "choose_project": "选择研究专题",
+  "feline_topic": "猫咪泌尿健康",
+  "rabbit_topic": "兔子消化与天气",
+  "pinned_review": "置顶 · 核心综述",
+  "articles_guides": "文章与指南",
+  "article": "文章",
+  "format": "类型",
+  "draft": "草稿",
+  "no_articles": "暂时没有单独的文章。请从上方核心综述开始，新文章将出现在这里。",
+  "read_review": "阅读核心综述",
+  "overview": "主人简明概览",
+  "sources": "来源与文献",
+  "record": "就诊记录表",
+  "publications": "引用文献",
+  "original_bibliography": "原始编号书目",
+  "publication_count": "篇文献",
+  "full_text": "免费全文",
+  "sources_intro": "参考编号沿用各项目的来源清单。其中包括综述、其他物种或实验室组织研究；每篇文献能证明什么，请结合报告阅读。",
+  "sources_note": "全文链接表示可以获取，不表示已完成评估或构成临床建议。文献标题、作者及标识符保留原始语言。"
+}

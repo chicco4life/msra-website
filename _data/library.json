@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "configuration_role": "Curated navigation and card presentation; independent of acquisition ranking.",
+  "editorial_context": {
+    "status": "packet-v2-selected-local-preview",
+    "priority_note": "growth-research/FELINE_GROWTH_PRIORITY_REVIEW_2026-10-29.md",
+    "briefs_directory": "growth-research/feline-urinary/",
+    "keyword_demand_verified": false,
+    "automatic_brief_import": false,
+    "packet_version": "2.0",
+    "qualified_clinical_review": "unperformed",
+    "promotion_sequence": [
+      "G02",
+      "G04",
+      "G03",
+      "O00"
+    ]
+  },
+  "topics": {
+    "feline-urinary": {
+      "overview_id": "O00",
+      "tool_id": "T24",
+      "guide_ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05"
+      ],
+      "featured_ids": [
+        "G02",
+        "G04",
+        "G03"
+      ],
+      "related_ids": [
+        "G02",
+        "G04",
+        "G03",
+        "G01",
+        "G05",
+        "E09"
+      ],
+      "study_ids": [
+        "E09"
+      ]
+    }
+  },
+  "cards": {
+    "O00": {
+      "title": "Can a cat’s urinary blockage happen again? What research tells us",
+      "summary": "An overview of food, water and medicine evidence, with the limits kept visible and links to the questions that matter now.",
+      "label": "Research overview"
+    },
+    "G01": {
+      "title": "Is your cat straining to pee? Contact a vet now",
+      "summary": "Get urgent veterinary help. This guide helps you describe what you saw, including when you cannot tell whether urine is coming out.",
+      "label": "Owner guide"
+    },
+    "G02": {
+      "title": "Still straining after a urinary blockage? What to tell your vet",
+      "summary": "What to report to the clinic, what recovery studies actually counted and how to make the discharge plan workable.",
+      "label": "Owner guide"
+    },
+    "G03": {
+      "title": "UTI, cystitis or crystals? Understanding your cat’s tests",
+      "summary": "Make sense of the terms on your cat’s record and the different questions that urine tests, culture and imaging can answer.",
+      "label": "Owner guide"
+    },
+    "G04": {
+      "title": "Which urinary food does my cat need—and what if they refuse it?",
+      "summary": "Compare food purposes, ordinary wet food and prescribed diets, then prepare questions about a plan your cat can eat.",
+      "label": "Owner guide"
+    },
+    "G05": {
+      "title": "Medicines after a cat’s urinary blockage: what each one is for",
+      "summary": "Separate pain relief, infection treatment and repeat-blockage research, with questions to take back to the prescribing clinic.",
+      "label": "Owner guide"
+    },
+    "E09": {
+      "title": "Prazosin after a cat’s urinary blockage: what the trial found",
+      "summary": "",
+      "label": ""
+    },
+    "T24": {
+      "title": "A simple record for your cat’s next vet visit",
+      "summary": "Keep observations, clinic instructions and questions together. Copy it to your phone or print it; write “unknown” when you are not sure.",
+      "label": "Free owner tool"
+    },
+    "V25": {
+      "title": "Maine Coon urinary problems: signs to watch for and care questions",
+      "summary": "",
+      "label": ""
+    },
+    "H00": {
+      "title": "Cat urinary health: guides, research and practical help",
+      "summary": "Find the relevant guide, keep a useful record for the clinic and inspect the research behind the explanations.",
+      "label": "Collection hub"
+    },
+    "S00": {
+      "title": "The studies behind our cat urinary health guides",
+      "summary": "Look up original papers, the cats and outcomes studied, and which source material was actually available to check.",
+      "label": "Source index"
+    },
+    "R00": {
+      "title": "Cat urinary health: treatment and prevention research",
+      "summary": "A review of research on food, water, medicines and repeat urinary problems—with the limits explained.",
+      "label": "Core research review"
+    }
+  }
+}

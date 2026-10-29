@@ -1,0 +1,25 @@
+---
+layout: default
+editorial: true
+---
+{% assign consumer_copy = site.data.library.cards[page.content_id] %}
+<article class="knowledge-article knowledge-record-page">
+  <header class="wrap knowledge-article__head knowledge-record-head">
+    <div class="label">Free owner tool · Copy or print</div>
+    <h1>{{ consumer_copy.title | default: page.title | escape }}</h1>
+    <div class="knowledge-meta"><span>By {{ page.authors | escape }}</span><span>Prepared <time datetime="{{ page.prepared_date }}">{{ page.prepared_date | date: '%d %B %Y' }}</time></span></div>
+    <p class="knowledge-review-status">Editorial preview · Qualified veterinary review pending.</p>
+  </header>
+  <div class="wrap">
+    <div class="prose knowledge-prose knowledge-record-v2" data-public-copy-id="T24">{{ content | replace: ':</p>', ':<span class="knowledge-record-v2__field-space" aria-hidden="true"></span></p>' }}</div>
+    <div class="knowledge-record-actions" id="record-actions">
+      <button type="button" class="btn btn-solid knowledge-print-button" data-print-record>Print the record</button>
+      <button type="button" class="btn btn-line knowledge-copy-button" data-copy-record>Copy the record</button>
+      <p class="knowledge-review-status" role="status" aria-live="polite" data-copy-record-status>Copy the fields into your notes, or use your browser’s print options.</p>
+    </div>
+    <nav class="knowledge-breadcrumbs knowledge-record-breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/learn/' | relative_url }}">Pet Health Library</a><span aria-hidden="true">/</span><a href="{{ '/learn/cats/' | relative_url }}">Cats</a><span aria-hidden="true">/</span><a href="{{ '/learn/cats/urinary-health/' | relative_url }}">Urinary health</a><span aria-hidden="true">/</span><span aria-current="page">Vet-visit record</span></nav>
+  </div>
+  <div class="wrap knowledge-record-navigation">{% include packet-navigation.html content_id='T24' %}</div>
+  {% include packet-related.html content_id=page.content_id %}
+  <div class="wrap knowledge-article__follow">{% include research-updates-cta.html topic=page.topic source='library-record' compact=true %}</div>
+</article>

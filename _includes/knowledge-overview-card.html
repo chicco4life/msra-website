@@ -1,0 +1,5 @@
+{% assign overview_copy = site.data.library.cards[include.article.content_id] %}
+<article class="knowledge-overview-card" data-content-id="{{ include.article.content_id | escape }}">
+  <div><div class="label">{{ overview_copy.label | default: 'Start here · Owner evidence overview' | escape }}</div><h2><a href="{{ include.article.url | relative_url }}">{{ overview_copy.title | default: include.article.title | escape }}</a></h2><p>{{ overview_copy.summary | default: include.article.summary | escape }}</p><a class="btn btn-solid" href="{{ include.article.url | relative_url }}">Read the evidence overview →</a></div>
+  <div class="knowledge-overview-card__side"><span class="label">A map, with a paper trail</span><p>Owner guides, a free vet-visit record, and original publications linked from a complete source index.</p>{% unless include.article.publication_state == 'published' %}<span class="knowledge-card__status">MSRA editorial draft · veterinary review not recorded</span>{% endunless %}</div>
+</article>

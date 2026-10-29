@@ -22,6 +22,34 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function onLang(fn) { document.addEventListener('msra:lang', fn); }
 
+  function researchUpdatesCta(project, compact) {
+    var subscriptions = M.subscriptions || {};
+    var topics = {
+      'new-research': 'New research launches',
+      'feline-urinary': 'Feline urinary health',
+      'rabbit-gut': 'Rabbit digestive health'
+    };
+    var mapped = (subscriptions.projectTopics || {})[project];
+    var topic = Object.prototype.hasOwnProperty.call(topics, mapped) ? mapped : 'new-research';
+    // Use only the configured internal chooser path and an allowlisted topic.
+    // Never carry the incoming project query, email or other URL parameters onward.
+    var updatesPage = subscriptions.updatesPage;
+    if (typeof updatesPage !== 'string' || !/^\/(?:[A-Za-z0-9_-]+\/)*learn\/updates\/$/.test(updatesPage)) {
+      updatesPage = '/learn/updates/';
+    }
+    var title = compact ? 'Follow this research topic' : 'Follow the next finding on this question.';
+    var description = compact ? 'Choose the research updates you want to receive.' :
+      'Choose updates on this topic, new research launches, or both. The report and its sources remain free to read without subscribing.';
+    return '<aside class="research-updates-cta' + (compact ? ' research-updates-cta--compact' : '') +
+      '" lang="en" data-research-updates data-topic="' + esc(topic) + '" data-source="research-dynamic-' + (compact ? 'intro' : 'end') + '">' +
+      '<div class="research-updates-cta__copy">' + (compact ? '' : '<p class="label">Research in your inbox · ' + esc(topics[topic]) + '</p>') +
+      '<h2>' + esc(title) + '</h2><p>' + esc(description) + '</p></div>' +
+      '<div class="research-updates-cta__action"><form class="subscription-entry" action="' + esc(updatesPage) + '" method="get" data-subscription-entry data-topic="' + esc(topic) + '" data-source="research-dynamic" aria-label="Research email updates">' +
+      '<label class="subscription-entry__email"><span class="visually-hidden">Your email address</span><input type="email" autocomplete="email" inputmode="email" placeholder="Your email address" aria-label="Your email address" required data-subscription-entry-email></label>' +
+      '<button class="btn btn-solid" type="submit" aria-haspopup="dialog" aria-controls="research-subscription-dialog">Receive research updates</button></form>' +
+      '<p class="research-updates-cta__note">Choose your topics next. Change them or unsubscribe at any time.</p></div></aside>';
+  }
+
   function cacheGet(k) { try { var v = JSON.parse(sessionStorage.getItem(k)); if (v && Date.now() - v.t < 600000) return v.d; } catch (e) {} return null; }
   function cacheSet(k, d) { try { sessionStorage.setItem(k, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} }
   function fmtDate(d) { if (!d) return ''; if (d instanceof Date) return d.toISOString().slice(0, 10); return String(d).slice(0, 10); }
@@ -137,7 +165,10 @@
         var foot = '<p class="post-source"><a href="' + TREE + encodeURIComponent(dir) + '" target="_blank" rel="noopener">' +
           esc(T('kb.history', 'View this project and its history on GitHub')) + '</a> · ' +
           '<a href="' + HOME + '/issues/new?title=' + encodeURIComponent('Correction: ' + (m.title || dir)) + '" target="_blank" rel="noopener">' + esc(T('kb.correct', 'Suggest a correction or a source')) + '</a></p>';
-        holder.innerHTML = head + '<div class="prose" lang="en">' + proj.html + '</div>' + srcPanel + foot;
+        holder.innerHTML = head + researchUpdatesCta(dir, true) + '<div class="prose" lang="en">' + proj.html + '</div>' + srcPanel + foot + researchUpdatesCta(dir, false);
+        if (window.MSRASubscriptions && typeof window.MSRASubscriptions.init === 'function') {
+          window.MSRASubscriptions.init(holder);
+        }
         // Relative links inside a report point at files in the project folder on GitHub.
         holder.querySelectorAll('.prose a[href]').forEach(function (a) {
           var h = a.getAttribute('href');

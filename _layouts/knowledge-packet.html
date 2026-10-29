@@ -1,0 +1,33 @@
+---
+layout: default
+editorial: true
+---
+{% assign consumer_copy = site.data.library.cards[page.content_id] %}
+{% assign packet_topic = site.data.knowledge.topics | where: 'id', page.topic | first %}
+<article class="knowledge-article knowledge-packet" data-packet-asset="{{ page.content_id | escape }}">
+  <header class="knowledge-article__head wrap">
+    <div class="label">{{ page.content_label | default: 'Owner guide' | escape }}</div>
+    <h1>{{ consumer_copy.title | default: page.title | escape }}</h1>
+    <div class="knowledge-meta"><span>Prepared by {{ page.authors | escape }} with AI assistance</span><span>Interpretation prepared <time datetime="{{ page.prepared_date }}">{{ page.prepared_date | date: '%d %B %Y' }}</time></span></div>
+    <p class="knowledge-review-status">Editorial proofreading complete · qualified veterinary review pending.</p>
+  </header>
+  <div class="wrap knowledge-article__grid knowledge-packet__grid">
+    <div>
+      {% if page.content_id == 'S00' %}<div class="knowledge-source-filter" data-packet-source-filter hidden><label for="source-query">Find a source</label><input id="source-query" type="search" data-source-search placeholder="Search a title, author, year or population" autocomplete="off"><p data-source-search-status role="status" aria-live="polite">All 41 numbered sources are available below.</p></div>{% endif %}
+      <div class="prose knowledge-prose knowledge-packet__body" lang="en" data-public-copy-id="{{ page.content_id | escape }}">{{ content }}</div>
+    </div>
+    <aside class="knowledge-aside knowledge-packet__aside">
+      <nav class="knowledge-breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/learn/' | relative_url }}">Pet Health Library</a><span aria-hidden="true">/</span><a href="{{ '/learn/cats/' | relative_url }}">Cats</a><span aria-hidden="true">/</span>{% if page.content_id != 'H00' %}<a href="{{ '/learn/cats/urinary-health/' | relative_url }}">Urinary health</a><span aria-hidden="true">/</span>{% endif %}<span aria-current="page">{% if page.content_id == 'H00' %}Urinary health{% else %}{{ page.content_label | escape }}{% endif %}</span></nav>
+      {% include packet-navigation.html content_id=page.content_id %}
+    </aside>
+  </div>
+  {% if page.source_refs.size > 0 and page.content_id != 'S00' %}<section class="wrap knowledge-article__sources" aria-labelledby="article-sources"><div class="label">Trace the interpretation</div><h2 id="article-sources">Sources cited in this explanation</h2><ul class="knowledge-cited-sources">{% for ref in page.source_refs %}{% assign source = site.data.feline_sources.records | where: 'ref', ref | first %}{% if source %}<li><a href="{{ '/learn/cats/urinary-health/studies/#ref-' | append: ref | relative_url }}">[{{ ref }}] {{ source.title | escape }}</a><span>Original publication: {{ source.year }} · {{ source.population | escape }}</span></li>{% endif %}{% endfor %}</ul></section>{% endif %}
+  {% if page.content_id == 'H00' %}
+  <span id="study-analysis" aria-hidden="true"></span><span id="maine-coon-context" aria-hidden="true"></span>
+  {% endif %}
+  {% if page.content_id == 'S00' %}
+  <section class="wrap knowledge-related" id="study-analysis-module"><div class="label">Studies explained · Retained interpretation</div><h2>A finding in its own context.</h2><div class="knowledge-cards">{% assign study_article = site.articles | where: 'content_id', 'E09' | first %}{% if study_article %}{% include knowledge-card.html article=study_article %}{% endif %}</div></section>
+  {% endif %}
+  {% unless page.content_id == 'H00' %}{% include packet-related.html content_id=page.content_id %}{% endunless %}
+  <div class="wrap knowledge-article__follow">{% include research-updates-cta.html topic=page.topic source='library-packet' compact=true %}</div>
+</article>

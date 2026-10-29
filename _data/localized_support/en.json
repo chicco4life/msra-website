@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Ongoing projects",
+  "choose_project": "Choose a research topic",
+  "feline_topic": "Cat urinary health",
+  "rabbit_topic": "Rabbit digestion and weather",
+  "pinned_review": "Pinned · Core review",
+  "articles_guides": "Articles and guides",
+  "article": "Article",
+  "format": "Format",
+  "draft": "Draft",
+  "no_articles": "No separate articles yet. Start with the core review above; new articles will appear here.",
+  "read_review": "Read the core review",
+  "overview": "Short owner overview",
+  "sources": "Sources and publications",
+  "record": "Vet-visit record",
+  "publications": "Referenced publications",
+  "original_bibliography": "Original numbered bibliography",
+  "publication_count": "publications",
+  "full_text": "Free full text",
+  "sources_intro": "Reference numbers follow each project's source list. These include reviews and work in other species or laboratory tissues; read the report for what each publication can establish.",
+  "sources_note": "A full-text link records availability, not a completed appraisal or clinical recommendation. Publication titles, authors and identifiers retain their original language."
+}

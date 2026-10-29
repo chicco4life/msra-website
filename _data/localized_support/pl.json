@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Trwające projekty",
+  "choose_project": "Wybierz temat badawczy",
+  "feline_topic": "Zdrowie układu moczowego kotów",
+  "rabbit_topic": "Trawienie królików i pogoda",
+  "pinned_review": "Przypięte · Przegląd główny",
+  "articles_guides": "Artykuły i poradniki",
+  "article": "Artykuł",
+  "format": "Format",
+  "draft": "Szkic",
+  "no_articles": "Nie ma jeszcze osobnych artykułów. Zacznij od głównego przeglądu powyżej; nowe artykuły pojawią się tutaj.",
+  "read_review": "Przeczytaj główny przegląd",
+  "overview": "Krótki przegląd dla opiekuna",
+  "sources": "Źródła i publikacje",
+  "record": "Karta wizyty weterynaryjnej",
+  "publications": "Cytowane publikacje",
+  "original_bibliography": "Oryginalna numerowana bibliografia",
+  "publication_count": "publikacji",
+  "full_text": "Bezpłatny pełny tekst",
+  "sources_intro": "Numery źródeł odpowiadają liście danego projektu. Obejmują przeglądy i prace innych gatunków lub tkanek laboratoryjnych; raport wyjaśnia, co każda publikacja może potwierdzić.",
+  "sources_note": "Link do pełnego tekstu opisuje dostępność, nie ukończoną ocenę ani zalecenie kliniczne. Tytuły, autorzy i identyfikatory zachowują oryginalny język."
+}

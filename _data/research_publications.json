@@ -1,0 +1,348 @@
+{
+  "description": "Reference ordering and identifiers from the two project source bibliographies. Publication metadata is reused from research.library; feline source limits remain in feline_sources and its complete index.",
+  "metadata_source": "_data/research.json: library",
+  "projects": [
+    {
+      "id": "rabbit-digestion",
+      "project_dir": "2026-09-rabbit-digestion-weather",
+      "open": true,
+      "source_path": "2026-09-rabbit-digestion-weather/sources/sources.csv",
+      "source_sha256": "98f8a7fe2e6397584972772492d983546464b7a119fe67072f2b1b80777e0ce4",
+      "references": [
+        {
+          "ref": 1,
+          "pmid": "25592373"
+        },
+        {
+          "ref": 2,
+          "pmid": "37875147"
+        },
+        {
+          "ref": 3,
+          "pmid": "38454493"
+        },
+        {
+          "ref": 4,
+          "pmid": "38540048"
+        },
+        {
+          "ref": 5,
+          "pmid": "38290533"
+        },
+        {
+          "ref": 6,
+          "pmid": "41441908"
+        },
+        {
+          "ref": 7,
+          "pmid": "39827123"
+        },
+        {
+          "ref": 8,
+          "pmid": "42188923"
+        },
+        {
+          "ref": 9,
+          "pmid": "41837378"
+        },
+        {
+          "ref": 10,
+          "pmid": "35720853"
+        },
+        {
+          "ref": 11,
+          "pmid": "31212853"
+        },
+        {
+          "ref": 12,
+          "pmid": "28884083"
+        },
+        {
+          "ref": 13,
+          "pmid": "21423691"
+        },
+        {
+          "ref": 14,
+          "pmid": "35658820"
+        },
+        {
+          "ref": 15,
+          "pmid": "38384954"
+        },
+        {
+          "ref": 16,
+          "pmid": "32626497"
+        },
+        {
+          "ref": 17,
+          "pmid": "2083981"
+        },
+        {
+          "ref": 18,
+          "pmid": "29703196"
+        },
+        {
+          "ref": 19,
+          "pmid": "29728855"
+        },
+        {
+          "ref": 20,
+          "pmid": "41447761"
+        },
+        {
+          "ref": 21,
+          "pmid": "39123703"
+        },
+        {
+          "ref": 22,
+          "pmid": "41893679"
+        },
+        {
+          "ref": 23,
+          "pmid": "29516355"
+        },
+        {
+          "ref": 24,
+          "pmid": "38200844"
+        },
+        {
+          "ref": 25,
+          "pmid": "31517584"
+        },
+        {
+          "ref": 26,
+          "pmid": "26799108"
+        },
+        {
+          "ref": 27,
+          "pmid": "25391534"
+        },
+        {
+          "ref": 28,
+          "pmid": "15230992"
+        },
+        {
+          "ref": 29,
+          "pmid": "24404980"
+        },
+        {
+          "ref": 30,
+          "pmid": "22444409"
+        },
+        {
+          "ref": 31,
+          "pmid": "24961954"
+        },
+        {
+          "ref": 32,
+          "pmid": "42132366"
+        },
+        {
+          "ref": 33,
+          "pmid": "27165020"
+        },
+        {
+          "ref": 34,
+          "pmid": "36552463"
+        },
+        {
+          "ref": 35,
+          "pmid": "39999072"
+        },
+        {
+          "ref": 36,
+          "pmid": "40075909"
+        },
+        {
+          "ref": 37,
+          "pmid": "29681854"
+        },
+        {
+          "ref": 38,
+          "pmid": "40179972"
+        },
+        {
+          "ref": 39,
+          "pmid": "31594841"
+        },
+        {
+          "ref": 40,
+          "pmid": "24767740"
+        }
+      ]
+    },
+    {
+      "id": "feline-urinary",
+      "project_dir": "2026-08-feline-urinary-health",
+      "open": false,
+      "source_path": "2026-08-feline-urinary-health/sources/sources.csv",
+      "source_sha256": "1c91396c8bffc55e43c37423a5ebdeb7c0b4be2d840e38cf29daf5698361086c",
+      "references": [
+        {
+          "ref": 1,
+          "pmid": "39693372"
+        },
+        {
+          "ref": 2,
+          "pmid": "28620484"
+        },
+        {
+          "ref": 3,
+          "pmid": "32157751"
+        },
+        {
+          "ref": 4,
+          "pmid": "42278121"
+        },
+        {
+          "ref": 5,
+          "pmid": "24941013"
+        },
+        {
+          "ref": 6,
+          "pmid": "30303439"
+        },
+        {
+          "ref": 7,
+          "pmid": "20005758"
+        },
+        {
+          "ref": 8,
+          "pmid": "22005442"
+        },
+        {
+          "ref": 9,
+          "pmid": "24094262"
+        },
+        {
+          "ref": 10,
+          "pmid": "23902444"
+        },
+        {
+          "ref": 11,
+          "pmid": "33749375"
+        },
+        {
+          "ref": 12,
+          "pmid": "28510274"
+        },
+        {
+          "ref": 13,
+          "pmid": "26672127"
+        },
+        {
+          "ref": 14,
+          "pmid": "26116618"
+        },
+        {
+          "ref": 15,
+          "pmid": "22435459"
+        },
+        {
+          "ref": 16,
+          "pmid": "42091068"
+        },
+        {
+          "ref": 17,
+          "pmid": "23408812"
+        },
+        {
+          "ref": 18,
+          "pmid": "21872792"
+        },
+        {
+          "ref": 19,
+          "pmid": "30583809"
+        },
+        {
+          "ref": 20,
+          "pmid": "41389339"
+        },
+        {
+          "ref": 21,
+          "pmid": "22005408"
+        },
+        {
+          "ref": 22,
+          "pmid": "34204431"
+        },
+        {
+          "ref": 23,
+          "pmid": "34359236"
+        },
+        {
+          "ref": 24,
+          "pmid": "29943634"
+        },
+        {
+          "ref": 25,
+          "pmid": "10023397"
+        },
+        {
+          "ref": 26,
+          "pmid": "40147044"
+        },
+        {
+          "ref": 27,
+          "pmid": "32705911"
+        },
+        {
+          "ref": 28,
+          "pmid": "9868257"
+        },
+        {
+          "ref": 29,
+          "pmid": "19073369"
+        },
+        {
+          "ref": 30,
+          "pmid": "24881513"
+        },
+        {
+          "ref": 31,
+          "pmid": "35290210"
+        },
+        {
+          "ref": 32,
+          "pmid": "31400046"
+        },
+        {
+          "ref": 33,
+          "pmid": "24196569"
+        },
+        {
+          "ref": 34,
+          "pmid": "22747734"
+        },
+        {
+          "ref": 35,
+          "pmid": "15578451"
+        },
+        {
+          "ref": 36,
+          "pmid": "26295556"
+        },
+        {
+          "ref": 37,
+          "pmid": "31532910"
+        },
+        {
+          "ref": 38,
+          "pmid": "37601750"
+        },
+        {
+          "ref": 39,
+          "pmid": "34039227"
+        },
+        {
+          "ref": 40,
+          "pmid": "42524264"
+        },
+        {
+          "ref": 41,
+          "pmid": "39935081"
+        }
+      ]
+    }
+  ]
+}

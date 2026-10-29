@@ -1,0 +1,31 @@
+---
+layout: null
+locale: "it"
+translation_key: "page:learn-feed"
+locale_key: "page:learn-feed::it"
+source_content_id: null
+source_route: "/learn/feed.xml"
+permalink: "/it/learn/feed.xml"
+title: "MSRA Biblioteca sulla salute degli animali — feed in bozza"
+description: "Feed RSS italiano in bozza per guide, spiegazioni delle evidenze e analisi di studi. Non contiene articoli: le traduzioni locali non sono state autorizzate alla pubblicazione."
+reading_time: null
+authors: "MSRA Research"
+source_file: "learn/feed.xml"
+source_sha256: "db139e166145e22adfe9a1684e4de2c87c32fc38e75c123dc0d7d4d7649bf6be"
+source_prepared_date: null
+translation_status: "ai-draft"
+native_review_status: "pending"
+clinical_review_status: "not-applicable"
+publication_state: "editorial-draft"
+release_approved: false
+robots: "noindex"
+sitemap: false
+source_refs: []
+keyword_pair_id: "LIBRARY-FEED::it"
+keyword_target: null
+monthly_search_volume: null
+keyword_difficulty: null
+CPC: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSRA Biblioteca sulla salute degli animali — feed in bozza</title><link>https://msralab.com/it/learn/</link><description>Feed RSS italiano in bozza per guide, spiegazioni delle evidenze e analisi di studi. Non contiene articoli: le traduzioni locali non sono state autorizzate alla pubblicazione.</description><language>it</language><atom:link href="https://msralab.com/it/learn/feed.xml" rel="self" type="application/rss+xml"/></channel></rss>

@@ -1,0 +1,33 @@
+{% assign project = include.project %}
+{% assign project_core = site.research | where: 'dir', project.core_dir | first %}
+{% assign core_copy = site.data.library.cards[project.core_id] %}
+<section class="library-project" id="project-{{ project.id | escape }}" data-library-project="{{ project.id | escape }}" aria-labelledby="project-{{ project.id | escape }}-title">
+  <article class="library-core" data-library-core="{{ project.core_dir | escape }}">
+    <div class="library-core__heading"><p class="label library-core__pin"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m7 2 7 0-1 6 3 3v2H5v-2l3-3-1-6ZM10.5 13v5"/></svg>Pinned · Core review<span>{{ project.species | escape }}</span></p>{% if project_core.publication_state == 'editorial-draft' %}<span class="library-project__status">Editorial draft · review pending</span>{% endif %}</div>
+    <h2 id="project-{{ project.id | escape }}-title"><a href="{{ project_core.url | relative_url }}">{{ core_copy.title | default: project.core_title | default: project_core.title | escape }}</a></h2>
+    <p>{{ core_copy.summary | default: project.core_summary | default: project_core.summary | escape }}</p>
+    <a class="library-core__read" href="{{ project_core.url | relative_url }}">Read the core review <span aria-hidden="true">→</span></a>
+    <nav class="library-project__resources" aria-label="{{ project.label | escape }} resources">
+      {% for utility_id in project.utility_ids %}{% assign utility = site.pages | where: 'content_id', utility_id | first %}{% if utility %}<a href="{{ utility.url | relative_url }}">{{ project.utility_labels[utility_id] | default: utility.title | escape }} →</a>{% endif %}{% endfor %}
+      {% if project.publications_url %}<a href="{{ project.publications_url | relative_url }}">Sources and publications →</a>{% endif %}
+    </nav>
+  </article>
+  <div class="library-articles" data-library-articles>
+    <div class="library-articles__heading"><h2>Articles and guides</h2><span>{{ project.article_ids.size }}{% if project.article_ids.size == 1 %} article{% else %} articles{% endif %}</span></div>
+    {% if project.article_ids.size > 0 %}
+    <table class="library-article-table">
+      <caption class="library-visually-hidden">Articles and guides for {{ project.label | escape }}</caption>
+      <thead><tr><th scope="col">Article</th><th scope="col">Format</th></tr></thead>
+      <tbody>{% for article_id in project.article_ids %}{% assign article = site.articles | where: 'content_id', article_id | first %}{% assign article_copy = site.data.library.cards[article_id] %}{% if article %}
+        <tr data-library-article-id="{{ article_id | escape }}">
+          <th scope="row"><a href="{{ article.url | relative_url }}">{{ article_copy.title | default: article.title | escape }}</a><p>{{ article_copy.summary | default: article.summary | default: article.description | escape }}</p></th>
+          <td><span>{{ article_copy.label | default: article.content_label | escape }}</span>{% if article.reading_time %}<span class="library-article-table__time">{{ article.reading_time }} min read</span>{% endif %}{% unless article.publication_state == 'published' %}<span class="library-article-table__draft">Draft</span>{% endunless %}</td>
+        </tr>
+      {% endif %}{% endfor %}</tbody>
+    </table>
+    {% else %}
+    <p class="library-articles__empty">No separate articles yet. Start with the core review above; new articles will appear here.</p>
+    {% endif %}
+  </div>
+  <div class="library-project__follow"><h2>Follow this project</h2><p>Receive new research and articles on this topic.</p>{% include subscription-bar.html topic=project.id source='library-project-index' %}</div>
+</section>

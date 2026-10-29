@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Igangværende projekter",
+  "choose_project": "Vælg et forskningsemne",
+  "feline_topic": "Kattens urinveje",
+  "rabbit_topic": "Kaniners fordøjelse og vejr",
+  "pinned_review": "Fastgjort · Hovedgennemgang",
+  "articles_guides": "Artikler og vejledninger",
+  "article": "Artikel",
+  "format": "Format",
+  "draft": "Udkast",
+  "no_articles": "Ingen særskilte artikler endnu. Begynd med hovedgennemgangen ovenfor; nye artikler kommer her.",
+  "read_review": "Læs hovedgennemgangen",
+  "overview": "Kort ejeroversigt",
+  "sources": "Kilder og publikationer",
+  "record": "Noter til dyrlægebesøget",
+  "publications": "Citerede publikationer",
+  "original_bibliography": "Original nummereret bibliografi",
+  "publication_count": "publikationer",
+  "full_text": "Gratis fuldtekst",
+  "sources_intro": "Referencenumre følger hvert projekts kildeliste. De omfatter reviews og andre arter eller laboratorievæv; læs rapporten for at se, hvad hver publikation kan fastslå.",
+  "sources_note": "Et fuldtekstlink angiver tilgængelighed, ikke afsluttet vurdering eller klinisk anbefaling. Titler, forfattere og identifikatorer bevarer originalsproget."
+}

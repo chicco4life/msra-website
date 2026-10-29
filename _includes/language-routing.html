@@ -1,0 +1,21 @@
+{%- comment -%}
+Same-content routing uses actual registry variants only. Production host guard and
+preview gate prevent IP requests locally. Country.is returns ip + country; the
+client reads only country, sends no referrer/cookies and persists no raw result.
+Official service: https://country.is/ and https://api.country.is/openapi.json
+{%- endcomment -%}
+{%- assign language_route_identity = site.data.localization_registry.by_route[page.url] -%}
+{%- assign language_route_source = site.data.localization_registry.resources[language_route_identity.translation_key] -%}
+{%- assign language_route_release = site.data.publication_manifest.resources[language_route_identity.translation_key] -%}
+<script id="msra-language-routing" type="application/json">{
+"enabled":{% if jekyll.environment == 'production' and site.language_routing_enabled == true and language_route_release and language_route_release.variant_sha256.en and language_route_source.variants.en.document_sha256 and language_route_release.variant_sha256.en == language_route_source.variants.en.document_sha256 %}true{% else %}false{% endif %},
+"siteUrl":{{ site.url | jsonify }},
+"resourceKey":{{ language_route_identity.translation_key | jsonify }},
+"currentLocale":{{ language_route_identity.locale | default: page.locale | default: 'en' | jsonify }},
+"sourceRoute":{{ language_route_source.source_route | relative_url | jsonify }},
+"countryEndpoint":"https://api.country.is/",
+"timeoutMs":1200,
+"locales":{{ site.data.localization_registry.locales | jsonify | replace: '</', '<\/' }},
+"variants":{ {% assign language_route_first = true %}{% for language_route_pair in language_route_source.variants %}{% assign language_route_locale = language_route_pair[0] %}{% assign language_route_variant = language_route_pair[1] %}{% assign language_route_sha = language_route_release.variant_sha256[language_route_locale] %}{% if language_route_sha and language_route_variant.document_sha256 and language_route_sha == language_route_variant.document_sha256 %}{% unless language_route_first %},{% endunless %}{% assign language_route_first = false %}{{ language_route_locale | jsonify }}:{"url":{{ language_route_variant.url | relative_url | jsonify }},"fragmentIds":{{ language_route_variant.fragment_ids | jsonify | replace: '</', '<\/' }}}{% endif %}{% endfor %} }
+}</script>
+<script src="{{ '/assets/js/language-routing.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

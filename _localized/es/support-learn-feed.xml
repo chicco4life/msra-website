@@ -1,0 +1,31 @@
+---
+layout: null
+locale: "es"
+translation_key: "page:learn-feed"
+locale_key: "page:learn-feed::es"
+source_content_id: null
+source_route: "/learn/feed.xml"
+permalink: "/es/learn/feed.xml"
+title: "MSRA Biblioteca de salud animal — feed en borrador"
+description: "Feed RSS en español en borrador para guías, explicaciones de evidencia y análisis de estudios. No contiene artículos: las traducciones locales no tienen autorización de publicación."
+reading_time: null
+authors: "MSRA Research"
+source_file: "learn/feed.xml"
+source_sha256: "db139e166145e22adfe9a1684e4de2c87c32fc38e75c123dc0d7d4d7649bf6be"
+source_prepared_date: null
+translation_status: "ai-draft"
+native_review_status: "pending"
+clinical_review_status: "not-applicable"
+publication_state: "editorial-draft"
+release_approved: false
+robots: "noindex"
+sitemap: false
+source_refs: []
+keyword_pair_id: "LIBRARY-FEED::es"
+keyword_target: null
+monthly_search_volume: null
+keyword_difficulty: null
+CPC: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSRA Biblioteca de salud animal — feed en borrador</title><link>https://msralab.com/es/learn/</link><description>Feed RSS en español en borrador para guías, explicaciones de evidencia y análisis de estudios. No contiene artículos: las traducciones locales no tienen autorización de publicación.</description><language>es</language><atom:link href="https://msralab.com/es/learn/feed.xml" rel="self" type="application/rss+xml"/></channel></rss>

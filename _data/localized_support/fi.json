@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Käynnissä olevat projektit",
+  "choose_project": "Valitse tutkimusaihe",
+  "feline_topic": "Kissan virtsateiden terveys",
+  "rabbit_topic": "Kanin ruoansulatus ja sää",
+  "pinned_review": "Kiinnitetty · Pääkatsaus",
+  "articles_guides": "Artikkelit ja oppaat",
+  "article": "Artikkeli",
+  "format": "Muoto",
+  "draft": "Luonnos",
+  "no_articles": "Erillisiä artikkeleita ei vielä ole. Aloita yllä olevasta pääkatsauksesta; uudet artikkelit tulevat tähän.",
+  "read_review": "Lue pääkatsaus",
+  "overview": "Lyhyt omistajan katsaus",
+  "sources": "Lähteet ja julkaisut",
+  "record": "Vastaanottolomake",
+  "publications": "Viitatut julkaisut",
+  "original_bibliography": "Alkuperäinen numeroitu lähdeluettelo",
+  "publication_count": "julkaisua",
+  "full_text": "Maksuton kokoteksti",
+  "sources_intro": "Viitenumerot seuraavat projektien lähdeluetteloita. Mukana on katsauksia ja muiden lajien tai laboratoriokudosten tutkimuksia; lue raportista, mitä kukin julkaisu voi osoittaa.",
+  "sources_note": "Kokotekstilinkki kertoo saatavuudesta, ei valmiista arvioinnista tai kliinisestä suosituksesta. Otsikot, tekijät ja tunnisteet säilyttävät alkuperäisen kielensä."
+}

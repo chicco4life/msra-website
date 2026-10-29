@@ -32,16 +32,6 @@ section { padding-block: clamp(64px, 9vw, 112px); }
 .sec-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
 .sec-head h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.12; }
 
-/* nav */
-.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 64px; }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand img { height: 20px; width: auto; }
-.brand span { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
-.nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; }
-.nav-links a:hover { color: var(--blue); }
-.nav-right { display: flex; align-items: center; gap: 12px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 14.5px var(--f-body); text-decoration: none; padding: 12px 22px; border-radius: 4px; border: 1.5px solid var(--blue); transition: background .2s, color .2s; cursor: pointer; }
 .btn-solid { background: var(--blue); color: var(--paper); }
 .btn-solid:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
@@ -152,7 +142,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 
 @media (max-width: 980px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .nav-links { display: none; }
 }
 @media (max-width: 760px) {
   .hero-grid, .man-grid, .r-grid, .contact-grid, .made-grid { grid-template-columns: minmax(0, 1fr); }
@@ -489,3 +478,8 @@ table.lib tr:last-child td { border-bottom: 0; }
 .sp-nums b { font-family: var(--f-display); font-size: 26px; font-weight: 500; color: var(--blue); margin-right: 4px; }
 .src-panel .btn { padding: 13px 22px; }
 .filters .filter { white-space: nowrap; }
+
+/* Owner-first route into the preserved technical research report. */
+.knowledge-report-link { padding-top: 30px; font-size: 14px; }
+
+/* Actual complete-body editions; every option resolves through the source registry. */

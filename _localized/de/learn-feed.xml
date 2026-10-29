@@ -1,0 +1,32 @@
+---
+layout: null
+locale: "de"
+translation_key: "page:learn-feed"
+locale_key: "page:learn-feed::de"
+source_content_id: null
+source_route: "/learn/feed.xml"
+permalink: "/de/learn/feed.xml"
+title: "MSRA-Tiergesundheitsbibliothek – lokale Entwürfe"
+description: "Lokaler Entwurfsfeed für Ratgeber, Evidenzerläuterungen und ausgewählte Studienanalysen. Es sind noch keine freigegebenen übersetzten Einträge enthalten."
+reading_time: null
+authors: "MSRA Research"
+source_file: "learn/feed.xml"
+source_sha256: "db139e166145e22adfe9a1684e4de2c87c32fc38e75c123dc0d7d4d7649bf6be"
+source_prepared_date: null
+translation_status: "ai-draft"
+native_review_status: "pending"
+clinical_review_status: "not-applicable"
+publication_state: "editorial-draft"
+release_approved: false
+robots: "noindex"
+sitemap: false
+source_refs: []
+primary_keyword: null
+keyword_status: "support-utility-not-keyword-targeted"
+keyword_pair_id: "LIBRARY-FEED::de"
+monthly_search_volume: null
+keyword_difficulty: null
+CPC: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSRA-Tiergesundheitsbibliothek – lokale Entwürfe</title><link>{{ '/de/learn/' | absolute_url | xml_escape }}</link><description>Lokaler Entwurfsfeed für Ratgeber, Evidenzerläuterungen und ausgewählte Studienanalysen. Es sind noch keine freigegebenen übersetzten Einträge enthalten.</description><language>de</language><atom:link href="{{ '/de/learn/feed.xml' | absolute_url | xml_escape }}" rel="self" type="application/rss+xml"/></channel></rss>

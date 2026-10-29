@@ -1,0 +1,36 @@
+---
+layout: default
+editorial: true
+---
+{% assign consumer_copy = site.data.library.cards[page.content_id] %}
+{% assign knowledge_topic = site.data.knowledge.topics | where: 'id', page.topic | first %}
+{% assign knowledge_follow_title = 'Follow ' | append: knowledge_topic.title %}
+<article class="knowledge-article">
+  <header class="knowledge-article__head wrap">
+    <nav class="knowledge-breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/learn/' | relative_url }}">Pet Health Library</a><span aria-hidden="true">/</span><a href="{{ knowledge_topic.species_url | relative_url }}">{{ knowledge_topic.species }}</a><span aria-hidden="true">/</span><a href="{{ knowledge_topic.url | relative_url }}">{{ knowledge_topic.condition }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.content_label | default: 'Owner guide' }}</span></nav>
+    <div class="label">{{ page.content_label | default: 'Owner guide' }}</div>
+    <h1>{{ consumer_copy.title | default: page.title | escape }}</h1>
+    <p class="lead">{{ page.summary | default: page.description | escape }}</p>
+    <div class="knowledge-meta"><span>By {{ page.authors | default: 'MSRA Research' | escape }}</span><span>{% if page.publication_state == 'published' %}Published{% else %}Draft prepared{% endif %} <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %B %Y' }}</time></span>{% if page.last_modified_at %}<span>Updated <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: '%d %B %Y' }}</time></span>{% endif %}{% if page.reading_time %}<span>{{ page.reading_time }} min read</span>{% endif %}</div>
+    <p class="knowledge-review-status">Source-linked MSRA literature interpretation. {% if page.clinical_review_status == 'independently-reviewed' and page.clinical_reviewer and page.clinical_review_date and page.clinical_review_scope %}Clinical review by {{ page.clinical_reviewer | escape }} on <time datetime="{{ page.clinical_review_date | date: '%Y-%m-%d' }}">{{ page.clinical_review_date | date: '%d %B %Y' }}</time>; scope: {{ page.clinical_review_scope | escape }}.{% else %}Independent veterinary review has not been recorded.{% endif %} <a href="{{ '/learn/about/' | relative_url }}">Review and corrections policy</a></p>
+    {% if page.study_year %}<p class="knowledge-study-year">Original study: <b>{{ page.study_year }}</b>. The MSRA article date above is the date of this interpretation.</p>{% endif %}
+    {% if page.evidence_population or page.evidence_outcome %}<dl class="knowledge-evidence-summary">{% if page.evidence_population %}<div><dt>Who was studied</dt><dd>{{ page.evidence_population | escape }}</dd></div>{% endif %}{% if page.evidence_outcome %}<div><dt>What was measured</dt><dd>{{ page.evidence_outcome | escape }}</dd></div>{% endif %}{% if page.evidence_limits %}<div><dt>What remains uncertain</dt><dd>{{ page.evidence_limits | escape }}</dd></div>{% endif %}</dl>{% endif %}
+    {% if page.urgent and knowledge_topic.urgent_heading %}<aside class="knowledge-urgent" aria-label="Urgent veterinary guidance"><b>{{ knowledge_topic.urgent_heading | escape }}</b><p>{{ knowledge_topic.urgent_body | escape }}</p><a href="{{ knowledge_topic.urgent_source_url | escape }}" target="_blank" rel="noopener">Read the veterinary source →</a></aside>{% endif %}
+  </header>
+  <div class="wrap knowledge-article__grid">
+    <div class="prose knowledge-prose" lang="en">{{ content }}</div>
+    <aside class="knowledge-aside">
+      <div class="label">In this collection</div><h2>{{ knowledge_topic.title }}</h2>
+      <a href="{{ knowledge_topic.url | append: 'evidence-overview/' | relative_url }}">Start with the evidence overview →</a>
+      <a href="{{ knowledge_topic.url | relative_url }}">All five owner guides →</a>
+      {% if knowledge_topic.owner_tool_url %}<a href="{{ knowledge_topic.owner_tool_url | relative_url }}">Print a vet-visit record →</a>{% endif %}
+      <a href="{{ knowledge_topic.url | append: 'studies/' | relative_url }}">Complete source index →</a>
+      {% if page.source_project %}<a href="{{ '/research/' | append: page.source_project | append: '/' | relative_url }}">Full report and methods →</a>{% endif %}
+      <p class="knowledge-aside__note">The source index separates study year, population and outcomes from access availability and the sections actually checked.</p>
+    </aside>
+  </div>
+  {% if page.source_refs %}<section class="wrap knowledge-article__sources" aria-labelledby="article-sources"><div class="label">Trace the interpretation</div><h2 id="article-sources">Sources used in this explanation</h2><ul class="knowledge-cited-sources">{% for ref in page.source_refs %}{% assign source = site.data.feline_sources.records | where: 'ref', ref | first %}{% if source %}<li><a href="{{ '/learn/cats/urinary-health/studies/#ref-' | append: ref | relative_url }}">[{{ ref }}] {{ source.title | escape }}</a><span>Original publication: {{ source.year }} · {{ source.population | escape }}</span></li>{% endif %}{% endfor %}</ul><p>These links retain the report's reference numbers. The index shows original papers, review limits and related MSRA interpretations.</p></section>{% endif %}
+  <section class="wrap knowledge-related" aria-labelledby="related-reading"><div class="label">Keep reading</div><h2 id="related-reading">Related questions</h2><div class="knowledge-cards">{% assign related_count = 0 %}{% assign library_topic = site.data.library.topics[page.topic] %}{% for content_id in library_topic.related_ids %}{% assign related = site.articles | where: 'content_id', content_id | first %}{% if related %}{% unless related.url == page.url %}{% if related_count < 3 %}{% include knowledge-card.html article=related %}{% assign related_count = related_count | plus: 1 %}{% endif %}{% endunless %}{% endif %}{% endfor %}</div></section>
+  <div class="wrap knowledge-article__follow">{% include topic-subscription.html topic=page.topic title=knowledge_follow_title %}</div>
+  <div class="wrap knowledge-corrections"><p>Found a missing source or an error? <a href="{{ site.repo_url }}/issues/new?title={{ 'Correction: ' | append: page.title | url_encode }}" target="_blank" rel="noopener">Suggest a correction</a>. Keep identifiable veterinary records out of public issues.</p><p>Literature interpretation can inform questions for your veterinarian; it does not establish an individual diagnosis or validate an MSRA product.</p></div>
+</article>

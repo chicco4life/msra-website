@@ -1,0 +1,32 @@
+{%- comment -%}
+  Only exact actual source URLs are rewritten. Closing-quote and fragment
+  patterns prevent a hub prefix from rewriting an unrelated descendant route.
+  Source IDs, fragments and external DOI/PMID/citation URLs are unchanged.
+  This is static Liquid output; no client-side body translation is performed.
+{%- endcomment -%}
+{%- assign localized_body = include.content -%}
+{%- for resource_pair in site.data.localization_registry.resources -%}
+  {%- assign link_source = resource_pair[1] -%}
+  {%- assign link_variant = link_source.variants[page.locale] -%}
+  {%- assign link_destination = link_source.source_route -%}
+  {%- if link_variant -%}{%- assign link_destination = link_variant.url -%}{%- endif -%}
+  {%- capture original_href -%}href="{{ link_source.source_route }}"{%- endcapture -%}
+  {%- capture replacement_href -%}href="{{ link_destination | relative_url }}"{% unless link_variant %} hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}"{% endunless %}{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+  {%- capture original_href -%}href="{{ link_source.source_route }}#{%- endcapture -%}
+  {%- capture replacement_href -%}{% unless link_variant %}hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}" {% endunless %}href="{{ link_destination | relative_url }}#{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+  {%- capture original_href -%}href='{{ link_source.source_route }}'{%- endcapture -%}
+  {%- capture replacement_href -%}href='{{ link_destination | relative_url }}'{% unless link_variant %} hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}"{% endunless %}{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+  {%- capture original_href -%}href='{{ link_source.source_route }}#{%- endcapture -%}
+  {%- capture replacement_href -%}{% unless link_variant %}hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}" {% endunless %}href='{{ link_destination | relative_url }}#{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+  {%- capture original_href -%}href="{{ link_source.source_route | absolute_url }}"{%- endcapture -%}
+  {%- capture replacement_href -%}href="{{ link_destination | relative_url }}"{% unless link_variant %} hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}"{% endunless %}{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+  {%- capture original_href -%}href="{{ link_source.source_route | absolute_url }}#{%- endcapture -%}
+  {%- capture replacement_href -%}{% unless link_variant %}hreflang="en" data-language-fallback="en" data-fallback-label="{{ localized_ui.english_suffix | escape }}" {% endunless %}href="{{ link_destination | relative_url }}#{%- endcapture -%}
+  {%- assign localized_body = localized_body | replace: original_href, replacement_href -%}
+{%- endfor -%}
+{{ localized_body }}

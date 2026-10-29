@@ -9,10 +9,8 @@ layout: default
           <div class="label" data-i18n="home.eyebrow">Mystical Species Research Academy · An open research lab for pet health</div>
           <h1 data-i18n="home.h1">Every species. Every condition. <em>The same standard of care.</em></h1>
           <p class="lead" data-i18n="home.lead">MSRA is a research lab for the animals the pet industry overlooks. AI-powered research, our own lab and our own manufacturing work as one closed loop: every formula is researched, tested in our lab and made in our own facility. We started with reptiles, rabbits, parrots and cats.</p>
-          <div class="hero-actions">
-            <a class="btn btn-solid" href="{{ '/shop/' | relative_url }}" data-i18n="home.cta_shop">Shop the products</a>
-            <a class="btn btn-line" href="{{ '/research/' | relative_url }}" data-i18n="home.cta_research">Read the open research</a>
-          </div>
+          {% include subscription-bar.html source='homepage-hero' %}
+          <p class="research-updates-hero-note">New research, on the topics you choose. Free to follow.</p>
         </div>
         <figure class="emblem">
           <img src="{{ '/assets/img/tortoise.webp' | relative_url }}" alt="Engraving of a tortoise carrying an apple, the MSRA emblem" width="680" height="755" fetchpriority="high">
@@ -53,6 +51,10 @@ layout: default
       </div>
     </div>
   </section>
+
+  <section class="research-updates-section"><div class="wrap">
+    {% include research-updates-cta.html source='homepage-research' title='Follow the questions that matter to your animal.' description='Choose new research launches across species or follow the feline urinary and rabbit digestive topics. Your email preferences stay separate from product news.' %}
+  </div></section>
 
   <!-- MANIFESTO -->
   <section class="manifesto" id="about">

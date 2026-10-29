@@ -1,0 +1,64 @@
+# Public configuration only. Never add credentials or subscriber information.
+# Follow docs/MAILING_LIST_SETUP.md before enabling a real provider handoff.
+enabled: false
+account_checks_verified: false
+provider_name: Kit
+allowed_hosts:
+  - kit.com
+privacy_url: ""
+unavailable_message: "Email signup is not connected yet. You can preview your topic choices here; nothing is saved or sent."
+public_resources_message: "All guides, research and the blank vet-visit record stay free to read without subscribing."
+
+# One list, with genuine topic tags on one multi-topic Kit form.
+# Hosted Share URLs do not transfer local choices; visitors must reselect.
+# Preferred activation uses the real inline Form HTML and verified tag fields.
+signup:
+  mode: inline
+  hosted_form_url: "https://msra.kit.com/924e9b0702"
+  topic_choices_verified: false
+  # These public identifiers match the saved, genuine Kit HTML exactly.
+  # The include is fixed markup; changing these values alone cannot swap forms.
+  inline:
+    form_id: "10113119"
+    uid: "924e9b0702"
+    action: "https://app.kit.com/forms/10113119/subscriptions"
+    script_url: "https://f.convertkit.com/ckjs/ck.5.js"
+    email_field: email_address
+    topic_field: "tags[]"
+    topic_tags:
+      feline-urinary: "25146776"
+      rabbit-gut: "25146778"
+      new-research: "25146779"
+
+topics:
+  feline_urinary:
+    id: feline-urinary
+    enabled: true
+    label: "Feline urinary health"
+    title: "Follow feline urinary research"
+    description: "New guides, research and meaningful evidence updates on feline urinary health."
+    consent_version: feline-urinary-2026-10-29
+  rabbit_gut:
+    id: rabbit-gut
+    enabled: true
+    label: "Rabbit digestive health"
+    title: "Follow rabbit digestive research"
+    description: "New research and evidence updates on rabbit digestion, appetite and droppings. Owner guides are planned."
+    consent_version: rabbit-gut-2026-10-29
+  new_research:
+    id: new-research
+    enabled: true
+    label: "New research launches"
+    title: "Get notified about new research"
+    description: "New MSRA research projects and questions across species. Follow the next question from the start."
+    consent_version: new-research-2026-10-29
+
+project_topics:
+  2026-08-feline-urinary-health: feline-urinary
+  2026-09-rabbit-digestion-weather: rabbit-gut
+
+# Commercial messages require their own explicit choice and setup.
+product_updates:
+  enabled: false
+  hosted_form_url: ""
+  consent_version: product-availability-2026-10-29

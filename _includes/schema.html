@@ -2,6 +2,9 @@
   One compact JSON-LD graph per page, built from the same fields as the visible text.
   Home: the organization and the site name. Research reports: Article + breadcrumb. Product pages: breadcrumb.
 {%- endcomment -%}
+{%- assign consumer_copy = site.data.library.cards[page.content_id] -%}
+{%- assign consumer_project = site.data.research.projects | where: 'url', page.url | first -%}
+{%- assign consumer_title = consumer_copy.title | default: consumer_project.card_title | default: page.title -%}
 {%- assign org_id = '/#organization' | absolute_url -%}
 {%- if page.url == '/' -%}
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
@@ -11,8 +14,22 @@
 {%- elsif page.collection == 'research' -%}
 {%- assign seo_url = page.url | absolute_url -%}
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
-{"@type":"Article","@id":{{ seo_url | append: '#article' | jsonify }},"headline":{{ page.title | jsonify }},"description":{{ page.summary | jsonify }},"datePublished":{{ page.date | date: '%Y-%m-%d' | jsonify }},"dateModified":{{ page.last_modified_at | default: page.date | date: '%Y-%m-%d' | jsonify }},"inLanguage":"en","isAccessibleForFree":true,"mainEntityOfPage":{{ seo_url | jsonify }},"author":{"@type":"Organization","name":{{ page.authors | default: 'MSRA Research' | jsonify }},"url":{{ '/research/' | absolute_url | jsonify }}},"publisher":{"@type":"Organization","@id":{{ org_id | jsonify }},"name":{{ site.short_name | jsonify }},"logo":{"@type":"ImageObject","url":{{ site.logo_wide | absolute_url | jsonify }}}},"about":[{% for s in page.species %}{"@type":"Thing","name":{{ s | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research","item":{{ '/research/' | absolute_url | jsonify }}},{"@type":"ListItem","position":2,"name":{{ page.label | default: page.title | jsonify }},"item":{{ seo_url | jsonify }}}]}
+{"@type":"Article","@id":{{ seo_url | append: '#article' | jsonify }},"headline":{{ consumer_title | default: page.title | jsonify }},"description":{{ page.description | default: page.summary | jsonify }},{% if page.publication_dates_pending %}"creativeWorkStatus":"Draft",{% else %}"datePublished":{{ page.date | date: '%Y-%m-%d' | jsonify }},"dateModified":{{ page.last_modified_at | default: page.date | date: '%Y-%m-%d' | jsonify }},{% endif %}"inLanguage":"en","isAccessibleForFree":true,"mainEntityOfPage":{{ seo_url | jsonify }},"author":{"@type":"Organization","name":{{ page.authors | default: 'MSRA Research' | jsonify }},"url":{{ '/research/' | absolute_url | jsonify }}},"publisher":{"@type":"Organization","@id":{{ org_id | jsonify }},"name":{{ site.short_name | jsonify }},"logo":{"@type":"ImageObject","url":{{ site.logo_wide | absolute_url | jsonify }}}},"about":[{% for s in page.species %}{"@type":"Thing","name":{{ s | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research","item":{{ '/research/' | absolute_url | jsonify }}},{"@type":"ListItem","position":2,"name":{{ page.label | default: consumer_title | default: page.title | jsonify }},"item":{{ seo_url | jsonify }}}]}
+]}</script>
+{%- elsif page.collection == 'articles' or page.layout == 'knowledge-article' or page.schema_type == 'Article' -%}
+{%- assign article_url = page.url | absolute_url -%}
+{%- assign article_topic = site.data.knowledge.topics | where: 'id', page.topic | first -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Article","@id":{{ article_url | append: '#article' | jsonify }},"headline":{{ consumer_title | default: page.title | jsonify }},"description":{{ page.description | default: page.summary | jsonify }},{% if page.publication_dates_pending %}"dateCreated":{{ page.prepared_date | date: '%Y-%m-%d' | jsonify }},"creativeWorkStatus":"Draft",{% else %}{% if page.publication_state == 'published' %}"datePublished":{{ page.date | date: '%Y-%m-%d' | jsonify }},"creativeWorkStatus":"Published",{% else %}"dateCreated":{{ page.date | date: '%Y-%m-%d' | jsonify }},"creativeWorkStatus":"Draft",{% endif %}"dateModified":{{ page.last_modified_at | default: page.date | date: '%Y-%m-%d' | jsonify }},{% endif %}"inLanguage":"en","isAccessibleForFree":true,"mainEntityOfPage":{{ article_url | jsonify }},"author":{"@type":"Organization","name":{{ page.authors | default: 'MSRA Research' | jsonify }},"url":{{ '/learn/about/' | absolute_url | jsonify }}},"publisher":{"@type":"Organization","name":{{ site.org_name | jsonify }},"url":{{ '/' | absolute_url | jsonify }}},"about":[{"@type":"Thing","name":{{ article_topic.title | jsonify }}}]},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Pet Health Library","item":{{ '/learn/' | absolute_url | jsonify }}},{"@type":"ListItem","position":2,"name":{{ article_topic.species | jsonify }},"item":{{ article_topic.species_url | absolute_url | jsonify }}},{"@type":"ListItem","position":3,"name":{{ article_topic.condition | jsonify }},"item":{{ article_topic.url | absolute_url | jsonify }}},{"@type":"ListItem","position":4,"name":{{ consumer_title | default: page.title | jsonify }},"item":{{ article_url | jsonify }}}]}
+]}</script>
+{%- elsif page.editorial -%}
+{%- assign editorial_url = page.url | absolute_url -%}
+{%- assign crumb_position = 1 -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":{{ page.schema_type | default: 'CollectionPage' | jsonify }},"@id":{{ editorial_url | jsonify }},"name":{{ consumer_title | default: page.title | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":"en","isAccessibleForFree":true},
+{"@type":"BreadcrumbList","itemListElement":[{% if page.url != '/learn/' %}{"@type":"ListItem","position":{{ crumb_position }},"name":"Pet Health Library","item":{{ '/learn/' | absolute_url | jsonify }}},{% assign crumb_position = crumb_position | plus: 1 %}{% endif %}{% if page.url contains '/learn/cats/' and page.url != '/learn/cats/' %}{"@type":"ListItem","position":{{ crumb_position }},"name":"Cats","item":{{ '/learn/cats/' | absolute_url | jsonify }}},{% assign crumb_position = crumb_position | plus: 1 %}{% endif %}{% if page.url contains '/learn/cats/urinary-health/' and page.url != '/learn/cats/urinary-health/' %}{"@type":"ListItem","position":{{ crumb_position }},"name":"Urinary health","item":{{ '/learn/cats/urinary-health/' | absolute_url | jsonify }}},{% assign crumb_position = crumb_position | plus: 1 %}{% endif %}{"@type":"ListItem","position":{{ crumb_position }},"name":{{ consumer_title | default: page.title | jsonify }},"item":{{ editorial_url | jsonify }}}]}
 ]}</script>
 {%- elsif page.layout == 'product' -%}
 {%- assign p = site.data.products | where: "slug", page.product | first -%}

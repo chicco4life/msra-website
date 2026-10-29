@@ -1,0 +1,6 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSRA Pet Health Library</title><link>{{ '/learn/' | absolute_url | xml_escape }}</link><description>Owner guides, evidence explanations and selected paper analyses by species and condition.</description><language>en</language><atom:link href="{{ '/learn/feed.xml' | absolute_url | xml_escape }}" rel="self" type="application/rss+xml"/>{% assign articles = site.articles | where: 'publication_state', 'published' | where: 'release_approved', true | sort: 'date' | reverse %}{% for article in articles %}<item><title>{{ article.title | xml_escape }}</title><link>{{ article.url | absolute_url | xml_escape }}</link><guid isPermaLink="true">{{ article.url | absolute_url | xml_escape }}</guid><description>{{ article.summary | xml_escape }}</description><pubDate>{{ article.date | date_to_rfc822 }}</pubDate><category>{{ article.topic | xml_escape }}</category></item>{% endfor %}</channel></rss>

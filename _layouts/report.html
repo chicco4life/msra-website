@@ -3,26 +3,44 @@ layout: default
 ---
 {%- comment -%} One research report from MSRA-Open-Research, written into _research/ by tools/sync_research.py. {%- endcomment -%}
 {%- assign proj = site.data.research.projects | where: "dir", page.dir | first -%}
+{%- assign report_topic = site.data.subscriptions.project_topics[page.dir] | default: 'new-research' -%}
 {%- assign d_pub = page.date | date: '%Y-%m-%d' -%}{%- assign d_mod = page.last_modified_at | default: page.date | date: '%Y-%m-%d' -%}
+{%- assign report_packet_v2 = false -%}
+{%- if page.packet_version == '2.0' -%}{%- assign report_packet_v2 = true -%}{%- endif -%}
 <article class="post" id="report">
+{% unless report_packet_v2 %}{% if page.dir == '2026-08-feline-urinary-health' %}<div class="wrap knowledge-report-link"><a href="{{ '/learn/cats/urinary-health/evidence-overview/' | relative_url }}">For owners: start with the feline urinary evidence overview →</a></div>{% endif %}{% endunless %}
   <div class="wrap post-wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/research/' | relative_url }}" data-i18n="foot.research">Research</a><span aria-hidden="true">/</span><span>{{ page.label }}</span></nav>
     <div class="label" data-i18n="kb.project">Research project</div>
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1 class="post-title">{{ site.data.library.cards[page.content_id].title | default: proj.card_title | default: page.title | escape }}</h1>
     {% if page.summary != '' %}<p class="lead">{{ page.summary }}</p>{% endif %}
+    {% if report_packet_v2 %}
+    <div class="post-meta"><span>Original report published <time datetime="{{ page.original_publication_date | date: '%Y-%m-%d' }}">{{ page.original_publication_date | date: '%Y-%m-%d' }}</time> · Local draft prepared <time datetime="{{ page.prepared_date | date: '%Y-%m-%d' }}">{{ page.prepared_date | date: '%d %B %Y' }}</time></span><span>{{ page.authors }}</span>{% for s in page.species %}<span class="chip">{{ s }}</span>{% endfor %}<a class="chip chip-link" href="#sources">{{ proj.studies }} numbered publications</a></div>
+    <p class="knowledge-review-status">Editorial preview · qualified veterinary review pending. The current body has not been released as a public revision.</p>
+    {% else %}
     <div class="post-meta"><span><span data-i18n="kb.published">Published</span> <time datetime="{{ d_pub }}">{{ d_pub }}</time>{% if d_mod != d_pub %} · <span data-i18n="kb.updated">Updated</span> <time datetime="{{ d_mod }}">{{ d_mod }}</time>{% endif %}</span>{% if page.authors != '' %}<span>{{ page.authors }}</span>{% endif %}{% for s in page.species %}<span class="chip">{{ s }}</span>{% endfor %}{% if proj.studies > 0 %}<a class="chip chip-link" href="#sources">{{ proj.studies }} <span data-i18n="kb.studies">studies</span></a>{% endif %}</div>
     <div class="rp-actions">{% include evidence-btn.html dir=page.dir cls="btn-line btn-sm" %}</div>
     <p class="lang-note" data-i18n="kb.english_only" data-nonen hidden>This report is published in English.</p>
-    <div class="prose" lang="en">
+    {% include research-updates-cta.html topic=report_topic source='research-report-intro' title='Follow this research topic' description='Choose the research updates you want to receive.' compact=true %}
+    {% endif %}
+    <div class="prose" lang="en"{% if report_packet_v2 %} data-public-copy-id="R00"{% endif %}>
 {{ content }}
     </div>
+    {% if report_packet_v2 %}{% include packet-navigation.html content_id=page.content_id %}{% endif %}
     <aside class="src-panel" id="sources">
+      {% if report_packet_v2 %}
+      <div class="sp-text"><span class="label">Sources and provenance</span><h2>Inspect the numbered source index</h2><p>The index preserves the 41 numbered publications, source-access notes and the guideline added locally. An available full-text link does not establish that the full paper was appraised.</p></div>
+      <a class="btn btn-solid" href="{{ '/learn/cats/urinary-health/studies/' | relative_url }}">Read the source index →</a>
+      {% else %}
       <div class="sp-text"><span class="label" data-i18n="kb.src_label">The scientific publications</span>
         <h2 data-i18n="kb.src_h">Read every study this report used</h2>
         <p data-i18n="kb.src_p">All the papers behind this report are listed in its sources folder on GitHub, with links to PubMed and to the free full text where one exists.</p>
         <div class="sp-nums"><span><b>{{ proj.studies }}</b> <span data-i18n="kb.studies">studies</span></span><span><b>{{ proj.free }}</b> <span data-i18n="open.free_full_text">with free full text</span></span></div></div>
       {% include evidence-btn.html dir=page.dir cls="btn-solid" %}
+      {% endif %}
     </aside>
     <p class="post-source"><a href="{{ site.repo_url }}/tree/{{ site.research_branch }}/{{ page.dir }}" target="_blank" rel="noopener" data-i18n="kb.history">View this project and its history on GitHub</a> · <a href="{{ site.repo_url }}/issues/new?title={{ 'Correction: ' | append: page.title | url_encode }}" target="_blank" rel="noopener" data-i18n="kb.correct">Suggest a correction or a source</a></p>
+    {% include research-updates-cta.html topic=report_topic source='research-report-end' title='Follow the next finding on this question.' description='Choose updates on this topic, new research launches, or both. The report and its sources remain free to read without subscribing.' %}
   </div>
+  {% if report_packet_v2 %}{% include packet-related.html content_id=page.content_id %}{% endif %}
 </article>

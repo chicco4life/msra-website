@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-content-locale="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 {% include analytics.html %}
-<script>
-/* Pick the language before the page paints, so a translated page does not flash English. */
-(function () {
-  try {
-    var ok = /^(en|ja|nl|es|zh)$/, l = new URLSearchParams(location.search).get('lang');
-    if (!ok.test(l || '')) l = localStorage.getItem('msra-lang');
-    if (l === 'cn') l = 'zh';
-    if (!ok.test(l || '')) { var n = (navigator.language || '').toLowerCase(); l = /^ja/.test(n) ? 'ja' : /^nl/.test(n) ? 'nl' : /^es/.test(n) ? 'es' : /^zh/.test(n) ? 'zh' : 'en'; }
-    document.documentElement.setAttribute('data-lang', l);
-    if (l !== 'en') document.documentElement.className += ' i18n-wait';
-  } catch (e) {}
-})();
-</script>
+
 {% include seo.html %}
 <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/navigation.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/subscriptions.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+{% if page.research_publications %}<link rel="stylesheet" href="{{ '/assets/css/research-publications.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
+{% if page.editorial or page.collection == 'articles' %}<link rel="stylesheet" href="{{ '/assets/css/knowledge.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
 </head>
-<body>
+<body{% if page.editorial %} class="editorial-page"{% endif %}>
 {% include nav.html %}
 <main id="top">
+{% if page.editorial and page.publication_state != 'published' %}<div class="knowledge-preview-strip"><div class="wrap">{% if page.packet_version %}Editorial preview · qualified veterinary review pending.{% else %}Editorial preview · Draft content for review. Not independently veterinary reviewed.{% endif %}</div></div>{% endif %}
 {{ content }}
 </main>
 {% include schema.html %}
 {% include footer.html %}
-{% include waitlist.html %}
+{% include subscription-modal.html %}
+{% unless page.editorial %}{% include waitlist.html %}{% endunless %}
 <script>window.MSRA = { shop: {{ site.data.shop | jsonify }}, mail: {{ site.contact_email | jsonify }}, v: {{ site.time | date: '%s' | jsonify }},
   i18n: {{ '/assets/i18n/' | relative_url | jsonify }}, shopPage: {{ '/shop/' | relative_url | jsonify }},
+  subscriptions: { updatesPage: {{ '/learn/updates/' | relative_url | jsonify }}, projectTopics: {{ site.data.subscriptions.project_topics | jsonify }}, enabled: {{ site.data.subscriptions.enabled | jsonify }} },
   products: { {% for p in site.data.products %}{{ p.slug | jsonify }}: {{ p.name | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %} },
   kb: { repo: {{ site.research_repo | jsonify }}, branch: {{ site.research_branch | jsonify }}, projectPage: {{ '/research/project/' | relative_url | jsonify }}, researchPage: {{ '/research/' | relative_url | jsonify }},
         synced: {{ site.data.research.projects | map: 'dir' | jsonify }} } };</script>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/subscriptions.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% if page.editorial or page.collection == 'articles' %}<script src="{{ '/assets/js/library.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endif %}
 {% if page.kb %}{% unless page.kb == 'lib' %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -45,5 +43,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>{% endif %}
 <script src="{{ '/assets/js/kb.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% endif %}
+{% include language-routing.html %}
 </body>
 </html>

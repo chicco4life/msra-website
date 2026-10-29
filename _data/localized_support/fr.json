@@ -1,0 +1,22 @@
+{
+  "ongoing_projects": "Projets en cours",
+  "choose_project": "Choisir un sujet de recherche",
+  "feline_topic": "Santé urinaire du chat",
+  "rabbit_topic": "Digestion du lapin et météo",
+  "pinned_review": "Épinglé · Revue principale",
+  "articles_guides": "Articles et guides",
+  "article": "Article",
+  "format": "Format",
+  "draft": "Brouillon",
+  "no_articles": "Pas encore d’articles distincts. Commencez par la revue principale ci-dessus ; les nouveaux articles apparaîtront ici.",
+  "read_review": "Lire la revue principale",
+  "overview": "Bref aperçu pour les propriétaires",
+  "sources": "Sources et publications",
+  "record": "Fiche de consultation vétérinaire",
+  "publications": "Publications citées",
+  "original_bibliography": "Bibliographie originale numérotée",
+  "publication_count": "publications",
+  "full_text": "Texte intégral gratuit",
+  "sources_intro": "Les numéros de référence suivent la liste de sources de chaque projet. Ils incluent des revues et des travaux sur d’autres espèces ou sur des tissus en laboratoire ; lisez le rapport pour comprendre ce que chaque publication peut établir.",
+  "sources_note": "Un lien vers le texte intégral indique sa disponibilité, pas une évaluation achevée ni une recommandation clinique. Les titres des publications, les auteurs et les identifiants conservent leur langue d’origine."
+}

@@ -1,0 +1,38 @@
+{%- assign nav_support_ui = site.data.localized_support[page.locale] | default: site.data.localized_support.en -%}
+{%- assign nav_source_route = localized_source.source_route -%}
+<header class="nav localized-header localized-nav" data-msra-nav data-nav-breakpoint="980">
+  <div class="nav-in">
+    {% assign nav_home_identity = localization_registry.by_route['/'] %}{% assign nav_home_source = localization_registry.resources[nav_home_identity.translation_key] %}{% assign nav_home_variant = nav_home_source.variants[page.locale] %}
+    <a class="brand" href="{{ nav_home_variant.url | default: '/' | relative_url }}"{% unless nav_home_variant %} hreflang="en"{% endunless %} aria-label="{{ localized_ui.home | escape }}{% unless nav_home_variant %} ({{ localized_ui.english_suffix | escape }}){% endunless %}"><img src="{{ '/assets/img/wordmark.png' | relative_url }}" alt="MSRA" width="84" height="20"></a>
+    <nav class="primary-nav" aria-label="{{ localized_ui.primary_navigation | escape }}">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav-links" aria-expanded="false" aria-label="{{ localized_ui.primary_navigation | escape }}" hidden><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg></button>
+      <ul class="nav-links" id="primary-nav-links">
+        {% assign nav_sections = 'library,research' | split: ',' %}
+        {% for nav_section in nav_sections %}
+          {% if nav_section == 'library' %}{% assign nav_section_key = 'page:learn' %}{% assign nav_section_label = localized_ui.library %}{% else %}{% assign nav_section_key = 'page:research' %}{% assign nav_section_label = localized_ui.open_research %}{% endif %}
+          {% assign nav_root_source = localization_registry.resources[nav_section_key] %}{% assign nav_root_variant = nav_root_source.variants[page.locale] %}{% assign nav_root_url = nav_root_variant.url | default: nav_root_source.source_route %}
+        <li class="nav-disclosure nav-disclosure--root" data-nav-disclosure>
+          <div class="nav-row">
+            <a id="nav-{{ nav_section }}-link" href="{{ nav_root_url | relative_url }}"{% if nav_root_variant %} data-localized-destination="{{ nav_section_key | escape }}"{% else %} hreflang="en" data-language-fallback="en"{% endif %}{% if nav_source_route contains nav_root_source.source_route %} aria-current="{% if nav_source_route == nav_root_source.source_route %}page{% else %}true{% endif %}"{% endif %}>{{ nav_section_label | escape }}{% unless nav_root_variant %} <span class="localized-language-label">({{ localized_ui.english_suffix | escape }})</span>{% endunless %}</a>
+            <button class="nav-disclosure-toggle" type="button" aria-expanded="false" aria-controls="nav-{{ nav_section }}-topics" aria-label="{{ nav_support_ui.choose_project | escape }}: {{ nav_section_label | escape }}" data-nav-disclosure-toggle hidden><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          </div>
+          <ul class="nav-panel nav-panel--topics" id="nav-{{ nav_section }}-topics" aria-labelledby="nav-{{ nav_section }}-link" data-nav-panel hidden>
+            {% for nav_project in site.data.library_projects.projects %}
+              {% assign nav_report = site.data.research.projects | where: 'dir', nav_project.core_dir | first %}
+              {% assign nav_report_identity = localization_registry.by_route[nav_report.url] %}{% assign nav_report_key = nav_report_identity.translation_key %}{% assign nav_report_source = localization_registry.resources[nav_report_key] %}
+              {% if nav_project.id == 'feline-urinary' %}{% assign nav_topic_label = nav_support_ui.feline_topic %}{% else %}{% assign nav_topic_label = nav_support_ui.rabbit_topic %}{% endif %}
+              {% if nav_section == 'library' or nav_report_source %}
+                {% if nav_section == 'library' %}{% assign nav_topic_url = nav_root_url | append: '#project-' | append: nav_project.id %}{% assign nav_topic_variant = nav_root_variant %}{% else %}{% assign nav_topic_variant = nav_report_source.variants[page.locale] %}{% assign nav_topic_url = nav_topic_variant.url | default: nav_report_source.source_route %}{% endif %}
+              <li class="nav-project"><a id="nav-{{ nav_section }}-{{ nav_project.id }}-link" href="{{ nav_topic_url | relative_url }}"{% unless nav_topic_variant %} hreflang="en" data-language-fallback="en"{% endunless %}{% if nav_section == 'research' and page.url == nav_topic_url %} aria-current="page"{% endif %}>{{ nav_topic_label | escape }}{% unless nav_topic_variant %} <span class="localized-language-label">({{ localized_ui.english_suffix | escape }})</span>{% endunless %}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+        {% assign nav_shop_identity = localization_registry.by_route['/shop/'] %}{% assign nav_shop_source = localization_registry.resources[nav_shop_identity.translation_key] %}{% assign nav_shop_variant = nav_shop_source.variants[page.locale] %}{% assign nav_marketing_ui = site.data.marketing_ui[page.locale] %}{% assign nav_shop_label = nav_marketing_ui['nav.shop'] | default: 'Shop' %}
+        <li><a href="{{ nav_shop_variant.url | default: '/shop/' | relative_url }}"{% unless nav_shop_variant %} hreflang="en" data-language-fallback="en"{% endunless %}{% if nav_shop_source and nav_source_route contains nav_shop_source.source_route %} aria-current="{% if nav_source_route == nav_shop_source.source_route %}page{% else %}true{% endif %}"{% endif %}>{{ nav_shop_label | escape }}{% unless nav_shop_variant %} <span class="localized-language-label">({{ localized_ui.english_suffix | escape }})</span>{% endunless %}</a></li>
+      </ul>
+    </nav>
+    {% include edition-menu.html %}
+  </div>
+</header>

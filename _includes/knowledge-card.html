@@ -1,0 +1,9 @@
+{% assign card_content_id = include.article.content_id %}
+{% assign card_copy = site.data.library.cards[card_content_id] %}
+<article class="knowledge-card{% if include.featured %} knowledge-card--featured{% endif %}" data-content-id="{{ card_content_id | escape }}">
+  <div class="knowledge-card__meta"><span class="label">{{ card_copy.label | default: include.article.content_label | default: 'Owner guide' | escape }}</span>{% if include.article.study_year %}<span>Study · {{ include.article.study_year }}</span>{% endif %}</div>
+  <h3><a href="{{ include.article.url | relative_url }}">{{ card_copy.title | default: include.article.title | escape }}</a></h3>
+  <p>{{ card_copy.summary | default: include.article.summary | default: include.article.description | escape }}</p>
+  {% unless include.article.publication_state == 'published' %}<span class="knowledge-card__status">Editorial draft · review pending</span>{% endunless %}
+  <div class="knowledge-card__foot"><span>{{ include.article.reading_time }} min read</span><a href="{{ include.article.url | relative_url }}">Read the {{ include.article.card_label | default: 'guide' }} <span aria-hidden="true">→</span></a></div>
+</article>

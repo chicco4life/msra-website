@@ -12,8 +12,15 @@
                 es: { code: 'ES', html: 'es' }, zh: { code: '中文', html: 'zh-CN' } };
   var dicts = { en: {} };
   var cur = 'en';
+  // Full editions are materialized by the generator; JS only translates runtime messages.
+  if (M.staticDictionary && M.locale) {
+    LANGS[M.locale] = { code: M.locale.toUpperCase(), html: M.locale };
+    dicts[M.locale] = M.staticDictionary;
+  }
   function t(key, en) { var d = dicts[cur] || {}; return (cur !== 'en' && d[key]) || en; }
   function apply(scope) {
+    // Static editions already contain localized markup and same-language links.
+    if (M.staticDictionary) return;
     var d = dicts[cur] || {};
     (scope || document).querySelectorAll('[data-i18n]').forEach(function (el) {
       if (el.__en === undefined) el.__en = el.innerHTML;
@@ -45,6 +52,8 @@
   }
   function ready() { root.classList.remove('i18n-wait'); }
   function setLang(lang, save) {
+    // Editorial bodies have their own real locale URLs; UI preferences cannot relabel English prose.
+    if (root.getAttribute('data-content-locale')) lang = root.getAttribute('data-content-locale');
     if (!LANGS[lang]) lang = 'en';
     if (lang === 'ja') jpFonts();
     return load(lang).catch(function () { lang = 'en'; }).then(function () {
@@ -86,9 +95,9 @@
 
   // Start in the language chosen before paint (saved choice, ?lang=, or the browser's language).
   setTimeout(ready, 2500); // never leave text hidden if a translation file fails to load
-  var start = root.getAttribute('data-lang') || 'en';
+  var start = M.locale || root.getAttribute('data-lang') || 'en';
   var fromUrl = new URLSearchParams(location.search).get('lang');
-  setLang(start, !!(fromUrl && LANGS[fromUrl]));
+  setLang(start, false); // URL migration and saved choices belong to language-routing.js.
 
   /* ── 2. Pre-order waitlist ─────────────────────────────────── */
   var dlg = document.getElementById('waitlist');

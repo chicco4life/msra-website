@@ -1,32 +1,37 @@
-<header class="nav">
+<header class="nav" data-msra-nav>
   <div class="wrap nav-in">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="MSRA home">
       <img src="{{ '/assets/img/wordmark.png' | relative_url }}" alt="MSRA" width="84" height="20">
       <span data-i18n="brand.name">Mystical Species Research Academy</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="{{ '/shop/' | relative_url }}" data-i18n="nav.products">Products</a></li>
-      <li><a href="{{ '/#loop' | relative_url }}" data-i18n="nav.loop">The loop</a></li>
-      <li><a href="{{ '/research/library/' | relative_url }}" data-i18n="nav.library">Library</a></li>
-      <li><a href="{{ '/#inquire' | relative_url }}" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="lang-menu" id="lang-menu">
-        <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list" aria-label="Language" data-i18n-attr="aria-label:nav.language">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 3.9 5.6 3.9 9.2s-1.3 6.6-3.9 9.2c-2.6-2.6-3.9-5.6-3.9-9.2S9.4 5.4 12 2.8z"/></svg>
-          <span id="lang-cur">EN</span>
-          <svg class="caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        </button>
-        <ul class="lang-list" id="lang-list" role="menu" hidden>
-          <li role="none"><button type="button" role="menuitemradio" aria-checked="true" data-lang="en" lang="en">English</button></li>
-          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="ja" lang="ja">日本語</button></li>
-          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="nl" lang="nl">Nederlands</button></li>
-          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="es" lang="es">Español</button></li>
-          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="zh" lang="zh-CN">中文</button></li>
-        </ul>
-      </div>
-      <a class="btn btn-line btn-sm" id="nav-research" href="{{ '/research/' | relative_url }}"><span class="hide-sm" data-i18n="nav.research">Open research</span><span class="show-sm" data-i18n="nav.research_short">Research</span></a>
-      <a class="btn btn-solid btn-sm" id="nav-shop" href="{{ '/shop/' | relative_url }}" data-i18n="nav.shop">Shop</a>
-    </div>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav-links" aria-expanded="false" hidden><span>Menu</span><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg></button>
+      <ul class="nav-links" id="primary-nav-links">
+        {% assign navigation_sections = 'library,research' | split: ',' %}
+        {% for navigation_section in navigation_sections %}
+          {% if navigation_section == 'library' %}{% assign navigation_label = 'Pet Health Library' %}{% assign navigation_url = '/learn/' %}{% else %}{% assign navigation_label = 'Open Research' %}{% assign navigation_url = '/research/' %}{% endif %}
+        <li class="nav-disclosure nav-disclosure--root" data-nav-disclosure>
+          <div class="nav-row">
+            <a id="nav-{{ navigation_section }}-link" href="{{ navigation_url | relative_url }}"{% if navigation_section == 'research' %} data-i18n="nav.research"{% endif %}{% if page.url contains navigation_url %} aria-current="{% if page.url == navigation_url %}page{% else %}true{% endif %}"{% endif %}>{{ navigation_label }}</a>
+            <button class="nav-disclosure-toggle" type="button" aria-expanded="false" aria-controls="nav-{{ navigation_section }}-topics" aria-label="Show projects in {{ navigation_label }}" data-nav-disclosure-toggle hidden><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          </div>
+          <ul class="nav-panel nav-panel--topics" id="nav-{{ navigation_section }}-topics" aria-labelledby="nav-{{ navigation_section }}-link" data-nav-panel hidden>
+            {% for navigation_topic in site.data.library_projects.projects %}
+              {% assign navigation_report = site.data.research.projects | where: 'dir', navigation_topic.core_dir | first %}
+              {% assign navigation_topic_visible = false %}
+              {% if navigation_section == 'library' or navigation_report %}{% assign navigation_topic_visible = true %}{% endif %}
+              {% if navigation_topic_visible %}
+                {% if navigation_section == 'library' %}{% assign navigation_topic_url = '/learn/#project-' | append: navigation_topic.id %}{% else %}{% assign navigation_topic_url = navigation_report.url %}{% endif %}
+              <li class="nav-project"><a id="nav-{{ navigation_section }}-{{ navigation_topic.id }}-link" href="{{ navigation_topic_url | relative_url }}"{% if page.url == navigation_topic_url %} aria-current="page"{% endif %}>{{ navigation_topic.label | escape }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+        <li><a href="{{ '/shop/' | relative_url }}" data-i18n="nav.shop"{% if page.url contains '/shop/' %} aria-current="{% if page.url == '/shop/' %}page{% else %}true{% endif %}"{% endif %}>Shop</a></li>
+      </ul>
+    </nav>
+    {% include edition-menu.html %}
+
   </div>
 </header>
